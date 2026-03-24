@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NK Smart Business | Data Engineering & Analytics Solutions</title>
+    <meta name="description" content="Transform your data infrastructure with cutting-edge solutions from NK Smart Business. Specializing in Data Engineering, Analytics, and Cloud Architecture.">
+    <meta name="keywords" content="Data Engineering, Analytics, Cloud Solutions, Data Pipeline, BI, ETL">
+    <meta name="author" content="Nicolas Klein">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #F5C518;
+            --navy: #080d1a;
+            --dark: #0a0f1a;
+            --light: #f0f2f5;
+            --accent: #00d4ff;
+            --success: #4ade80;
+            --warning: #fbbf24;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2332 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            background: rgba(8, 13, 26, 0.95);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(245, 197, 24, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .lang-selector {
+            background: transparent;
+            color: var(--light);
+            border: 1px solid var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .lang-selector:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 5% 60px;
+            text-align: center;
+            animation: fadeUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(240, 242, 245, 0.8);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--gold), #d4a017);
+            color: var(--navy);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245, 197, 24, 0.3);
+        }
+
+        .cta-button.outline {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 12px 30px;
+        }
+
+        .cta-button.outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--gold);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(26, 35, 50, 0.5);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            animation: fadeUp 0.8s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            background: rgba(26, 35, 50, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(245, 197, 24, 0.1);
+        }
+
+        .service-card h3 {
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: rgba(240, 242, 245, 0.7);
+            line-height: 1.7;
+        }
+
+        /* Differentials Section */
+        .differentials {
+            padding: 100px 5%;
+            background: rgba(0, 212, 255, 0.05);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .diff-item {
+            background: rgba(26, 35, 50, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            animation: fadeUp 0.8s ease;
+        }
+
+        .diff-item h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .diff-item p {
+            color: rgba(240, 242, 245, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            padding: 100px 5%;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: rgba(26, 35, 50, 0.5);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(245, 197, 24, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeUp 0.8s ease;
+        }
+
+        .tech-item:hover {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .tech-item p {
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 5%;
+            background: rgba(0, 212, 255, 0.05);
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: rgba(240, 242, 245, 0.8);
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(8, 13, 26, 0.95);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(245, 197, 24, 0.1);
+            font-size: 0.9rem;
+            color: rgba(240, 242, 245, 0.6);
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bulbPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px rgba(245, 197, 24, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 15px rgba(245, 197, 24, 0.9));
+            }
+        }
+
+        @keyframes scrollPulse {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .bulb {
+            animation: bulbPulse 2s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 3%;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(8, 13, 26, 0.98);
+                padding: 2rem 3%;
+                gap: 1rem;
+                display: none;
+                animation: fadeUp 0.3s ease;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                padding: 80px 5% 40px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .services {
+                padding: 60px 5%;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-buttons a,
+            .contact-buttons button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .services-grid,
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">NK</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#differentials">Differentials</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="lang-selector">EN</button>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Transform Your Data Into Insights</h1>
+        <p>Enterprise-grade data engineering and analytics solutions tailored to your business needs</p>
+        <div>
+            <a href="#contact" class="cta-button">Get Started</a>
+            <a href="#services" class="cta-button outline">Learn More</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Data Engineering</h3>
+                <p>Build scalable data pipelines and infrastructure using modern tools like Airflow, Spark, and Kubernetes.</p>
+            </div>
+            <div class="service-card">
+                <h3>Analytics & BI</h3>
+                <p>Transform raw data into actionable insights with advanced analytics and interactive dashboards.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cloud Architecture</h3>
+                <p>Design and deploy robust cloud solutions on AWS, GCP, or Azure with security and scalability.</p>
+            </div>
+            <div class="service-card">
+                <h3>Data Strategy</h3>
+                <p>Develop comprehensive data strategies aligned with your business objectives and growth goals.</p>
+            </div>
+            <div class="service-card">
+                <h3>ETL Solutions</h3>
+                <p>Create efficient ETL processes to integrate and transform data from multiple sources.</p>
+            </div>
+            <div class="service-card">
+                <h3>Consulting</h3>
+                <p>Expert guidance on data modernization, optimization, and digital transformation initiatives.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="differentials" id="differentials">
+        <h2 class="section-title">Why Choose NK Smart Business</h2>
+        <div class="diff-grid">
+            <div class="diff-item">
+                <h4>💡 Innovation First</h4>
+                <p>Leveraging cutting-edge technologies and best practices to solve complex data challenges.</p>
+            </div>
+            <div class="diff-item">
+                <h4>⚡ Performance Optimized</h4>
+                <p>Building fast, efficient systems that handle massive scale while maintaining reliability.</p>
+            </div>
+            <div class="diff-item">
+                <h4>🔒 Security Focused</h4>
+                <p>Implementing enterprise-grade security standards and compliance requirements.</p>
+            </div>
+            <div class="diff-item">
+                <h4>📊 Data Driven</h4>
+                <p>Making informed decisions backed by comprehensive data analysis and insights.</p>
+            </div>
+            <div class="diff-item">
+                <h4>🤝 Partnership Approach</h4>
+                <p>Working closely with clients as trusted partners throughout the entire project lifecycle.</p>
+            </div>
+            <div class="diff-item">
+                <h4>🌍 Global Expertise</h4>
+                <p>Delivering solutions that scale globally while respecting local requirements and regulations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack" id="tech-stack">
+        <h2 class="section-title">Technology Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <p>🐍 Python</p>
+            </div>
+            <div class="tech-item">
+                <p>✈️ Apache Airflow</p>
+            </div>
+            <div class="tech-item">
+                <p>⚙️ Apache Spark</p>
+            </div>
+            <div class="tech-item">
+                <p>☁️ AWS & GCP</p>
+            </div>
+            <div class="tech-item">
+                <p>🐘 PostgreSQL</p>
+            </div>
+            <div class="tech-item">
+                <p>NoSQL Solutions</p>
+            </div>
+            <div class="tech-item">
+                <p>☸️ Kubernetes</p>
+            </div>
+            <div class="tech-item">
+                <p>📊 BI Tools</p>
+            </div>
+            <div class="tech-item">
+                <p>🐳 Docker</p>
+            </div>
+            <div class="tech-item">
+                <p>Git & CI/CD</p>
+            </div>
+            <div class="tech-item">
+                <p>Terraform</p>
+            </div>
+            <div class="tech-item">
+                <p>Monitoring</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content">
+            <p>Ready to transform your data infrastructure? Reach out and let's discuss how we can help your business thrive.</p>
+            <div class="contact-buttons">
+                <a href="mailto:contact@nksmartbusiness.com" class="cta-button">Email Us</a>
+                <a href="https://linkedin.com/in/nicolaskl" class="cta-button outline">LinkedIn</a>
+                <a href="https://github.com/nicolaskra" class="cta-button outline">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 NK Smart Business. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html></head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">NK</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#differentials">Differentials</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="lang-selector">EN</button>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Transform Your Data Into Insights</h1>
+        <p>Enterprise-grade data engineering and analytics solutions tailored to your business needs</p>
+        <div>
+            <a href="#contact" class="cta-button">Get Started</a>
+            <a href="#services" class="cta-button outline">Learn More</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Data Engineering</h3>
+                <p>Build scalable data pipelines and infrastructure using modern tools like Airflow, Spark, and Kubernetes.</p>
+            </div>
+            <div class="service-card">
+                <h3>Analytics & BI</h3>
+                <p>Transform raw data into actionable insights with advanced analytics and interactive dashboards.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cloud Architecture</h3>
+                <p>Design and deploy robust cloud solutions on AWS, GCP, or Azure with security and scalability.</p>
+            </div>
+            <div class="service-card">
+                <h3>Data Strategy</h3>
+                <p>Develop comprehensive data strategies aligned with your business objectives and growth goals.</p>
+            </div>
+            <div class="service-card">
+                <h3>ETL Solutions</h3>
+                <p>Create efficient ETL processes to integrate and transform data from multiple sources.</p>
+            </div>
+            <div class="service-card">
+                <h3>Consulting</h3>
+                <p>Expert guidance on data modernization, optimization, and digital transformation initiatives.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="differentials" id="differentials">
+        <h2 class="section-title">Why Choose NK Smart Business</h2>
+        <div class="diff-grid">
+            <div class="diff-item">
+                <h4>💡 Innovation First</h4>
+                <p>Leveraging cutting-edge technologies and best practices to solve complex data challenges.</p>
+            </div>
+            <div class="diff-item">
+                <h4>⚡ Performance Optimized</h4>
+                <p>Building fast, efficient systems that handle massive scale while maintaining reliability.</p>
+            </div>
+            <div class="diff-item">
+                <h4>🔒 Security Focused</h4>
+                <p>Implementing enterprise-grade security standards and compliance requirements.</p>
+            </div>
+            <div class="diff-item">
+                <h4>📊 Data Driven</h4>
+                <p>Making informed decisions backed by comprehensive data analysis and insights.</p>
+            </div>
+            <div class="diff-item">
+                <h4>🤝 Partnership Approach</h4>
+                <p>Working closely with clients as trusted partners throughout the entire project lifecycle.</p>
+            </div>
+            <div class="diff-item">
+                <h4>🌍 Global Expertise</h4>
+                <p>Delivering solutions that scale globally while respecting local requirements and regulations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack" id="tech-stack">
+        <h2 class="section-title">Technology Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <p>🐍 Python</p>
+            </div>
+            <div class="tech-item">
+                <p>✈️ Apache Airflow</p>
+            </div>
+            <div class="tech-item">
+                <p>⚙️ Apache Spark</p>
+            </div>
+            <div class="tech-item">
+                <p>☁️ AWS & GCP</p>
+            </div>
+            <div class="tech-item">
+                <p>🐘 PostgreSQL</p>
+            </div>
+            <div class="tech-item">
+                <p>NoSQL Solutions</p>
+            </div>
+            <div class="tech-item">
+                <p>☸️ Kubernetes</p>
+            </div>
+            <div class="tech-item">
+                <p>📊 BI Tools</p>
+            </div>
+            <div class="tech-item">
+                <p>🐳 Docker</p>
+            </div>
+            <div class="tech-item">
+                <p>Git & CI/CD</p>
+            </div>
+            <div class="tech-item">
+                <p>Terraform</p>
+            </div>
+            <div class="tech-item">
+                <p>Monitoring</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content">
+            <p>Ready to transform your data infrastructure? Reach out and let's discuss how we can help your business thrive.</p>
+            <div class="contact-buttons">
+                <a href="mailto:contact@nksmartbusiness.com" class="cta-button">Email Us</a>
+                <a href="https://linkedin.com/in/nicolaskl" class="cta-button outline">LinkedIn</a>
+                <a href="https://github.com/nicolaskra" class="cta-button outline">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 NK Smart Business. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+Page_DownPage_DownPage_Down
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
