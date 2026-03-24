@@ -1,771 +1,997 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NK Smart Business | Data Engineering & Analytics Solutions</title>
-    <meta name="description" content="Transform your data infrastructure with cutting-edge solutions from NK Smart Business. Specializing in Data Engineering, Analytics, and Cloud Architecture.">
-    <meta name="keywords" content="Data Engineering, Analytics, Cloud Solutions, Data Pipeline, BI, ETL">
-    <meta name="author" content="Nicolas Klein">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #F5C518;
-            --navy: #080d1a;
-            --dark: #0a0f1a;
-            --light: #f0f2f5;
-            --accent: #00d4ff;
-            --success: #4ade80;
-            --warning: #fbbf24;
-            --error: #ef4444;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NK Smart Business | Nicolas Klein</title>
+  <meta name="description" content="Data Engineer & Analyst — Dados que decidem. Automação que transforma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    :root {
+      --gold:        #F5C518;
+      --gold-light:  #FFD84D;
+      --gold-dim:    rgba(245,197,24,0.12);
+      --gold-border: rgba(245,197,24,0.22);
+      --navy:        #080d1a;
+      --navy-mid:    #0e1628;
+      --navy-card:   rgba(14,22,40,0.85);
+      --navy-glass:  rgba(8,13,26,0.6);
+      --text:        #e8eaf0;
+      --text-muted:  #8892a4;
+      --text-dim:    #5a6478;
+      --radius:      12px;
+      --transition:  0.3s cubic-bezier(0.4,0,0.2,1);
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    html { scroll-behavior: smooth; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--navy) 0%, #1a2332 100%);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    body {
+      background: var(--navy);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            backdrop-filter: blur(10px);
-            background: rgba(8, 13, 26, 0.95);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(245, 197, 24, 0.1);
-        }
+    /* ── CANVAS ── */
+    #neural-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.55;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
+    /* ── LANG BAR ── */
+    .lang-bar {
+      position: fixed;
+      top: 0; right: 0;
+      z-index: 100;
+      padding: 16px 28px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(8,13,26,0.9), transparent);
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      color: var(--text-muted);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      padding: 5px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+    .lang-btn:hover, .lang-btn.active {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: var(--gold-dim);
+    }
 
-        .logo {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
+    /* ── SECTIONS BASE ── */
+    section {
+      position: relative;
+      z-index: 1;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      gap: 0;
+    }
 
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-dim);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
 
-        .nav-links a:hover {
-            color: var(--gold);
-        }
+    .hero-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(52px, 10vw, 96px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .hero-name .nk { color: var(--gold); }
+    .hero-name .smart { color: var(--text); }
+    .hero-name .business {
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(232,234,240,0.3);
+    }
 
-        .lang-selector {
-            background: transparent;
-            color: var(--light);
-            border: 1px solid var(--gold);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+    .hero-sub {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(13px, 2vw, 15px);
+      letter-spacing: 4px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
 
-        .lang-selector:hover {
-            background: var(--gold);
-            color: var(--navy);
-        }
+    .hero-divider {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin: 0 auto 32px;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            background: none;
-            border: none;
-        }
+    .hero-tagline {
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 300;
+      color: var(--text);
+      max-width: 520px;
+      line-height: 1.5;
+      margin-bottom: 48px;
+      animation: fadeUp 0.8s 0.35s ease both;
+    }
+    .hero-tagline em {
+      font-style: normal;
+      color: var(--gold);
+      font-weight: 500;
+    }
 
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: var(--gold);
-            border-radius: 2px;
-        }
+    .bulb-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s 0.28s ease both;
+    }
+    .bulb-svg {
+      width: 26px;
+      height: 36px;
+      color: var(--gold);
+      animation: bulbPulse 3s ease-in-out infinite;
+    }
+    @keyframes bulbPulse {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(245,197,24,0.35)); opacity: 0.75; }
+      50%       { filter: drop-shadow(0 0 14px rgba(245,197,24,0.85)); opacity: 1; }
+    }
 
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            padding: 100px 5% 60px;
-            text-align: center;
-            animation: fadeUp 0.8s ease;
-        }
+    .tools-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 52px;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+    .tool-icon {
+      width: 42px; height: 42px;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-dim);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--gold);
+      transition: var(--transition);
+    }
+    .tool-icon:hover {
+      background: rgba(245,197,24,0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(245,197,24,0.2);
+    }
 
-        .hero h1 {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--gold), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
-        }
+    .cta-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: var(--transition);
+      animation: fadeUp 0.8s 0.55s ease both;
+    }
+    .cta-hero:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(245,197,24,0.35);
+    }
+    .cta-hero svg { transition: transform 0.2s; }
+    .cta-hero:hover svg { transform: translateX(4px); }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: rgba(240, 242, 245, 0.8);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+    .hero-scroll span {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s infinite;
+    }
 
-        .cta-button {
-            display: inline-block;
-            padding: 14px 32px;
-            background: linear-gradient(135deg, var(--gold), #d4a017);
-            color: var(--navy);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
+    /* ── SECTION COMMON ── */
+    .section-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: #9daabf;
+      max-width: 520px;
+      line-height: 1.7;
+    }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(245, 197, 24, 0.3);
-        }
+    /* ── SERVICES ── */
+    .services {
+      padding: 100px 24px;
+    }
+    .services-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .services-header {
+      margin-bottom: 56px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .card:hover {
+      border-color: rgba(245,197,24,0.45);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,197,24,0.1);
+    }
+    .card:hover::before { transform: scaleX(1); }
 
-        .cta-button.outline {
-            background: transparent;
-            color: var(--gold);
-            border: 2px solid var(--gold);
-            padding: 12px 30px;
-        }
+    .card-icon {
+      font-size: 36px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .card-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .card-text {
+      font-size: 14px;
+      color: #9daabf;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .card-results {
+      margin-bottom: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--gold-border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card-result {
+      font-size: 13px;
+      font-weight: 500;
+      color: #c8d2e0;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      line-height: 1.5;
+      letter-spacing: 0.1px;
+    }
+    .card-result::before {
+      content: '\2192';
+      color: var(--gold);
+      flex-shrink: 0;
+      font-size: 13px;
+      margin-top: 1px;
+      font-weight: 700;
+    }
 
-        .cta-button.outline:hover {
-            background: var(--gold);
-            color: var(--navy);
-        }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      text-transform: uppercase;
+    }
 
-        /* Services Section */
-        .services {
-            padding: 100px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    /* ── WHY ── */
+    .why {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, transparent, rgba(14,22,40,0.5), transparent);
+    }
+    .why-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .why-header { margin-bottom: 56px; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .why-item {
+      padding: 36px 40px;
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      transition: var(--transition);
+      background: var(--navy-card);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+    .why-item:not(:last-child) {
+      margin-right: -1px;
+    }
+    .why-item:hover {
+      z-index: 2;
+      border-color: rgba(245,197,24,0.5);
+      background: rgba(14,22,40,0.95);
+      transform: scale(1.02);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+    }
+    .why-number {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--gold-dim);
+      line-height: 1;
+      margin-bottom: 8px;
+      -webkit-text-stroke: 1px var(--gold-border);
+      color: transparent;
+    }
+    .why-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .why-desc {
+      font-size: 14px;
+      color: #9daabf;
+      line-height: 1.75;
+    }
 
-        .section-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--gold);
-        }
+    /* ── STACK ── */
+    .stack {
+      padding: 100px 24px;
+    }
+    .stack-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .stack-header { margin-bottom: 56px; }
+    .stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .stack-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--gold-border);
+      background: var(--navy-card);
+      border-radius: 10px;
+      padding: 14px 24px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      transition: var(--transition);
+      cursor: default;
+    }
+    .stack-item:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: var(--gold-dim);
+      transform: translateY(-3px);
+    }
+    .stack-item .stack-icon {
+      font-size: 20px;
+    }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    /* ── CONTACT ── */
+    .contact {
+      padding: 100px 24px 120px;
+    }
+    .contact-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-header { margin-bottom: 56px; }
+    .contact-header .section-label {
+      justify-content: center;
+    }
+    .contact-header .section-label::before { display: none; }
+    .contact-box {
+      border: 1px solid var(--gold-border);
+      background: var(--navy-card);
+      border-radius: 16px;
+      padding: 52px 48px;
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 20%; right: 20%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .contact-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .contact-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto 40px;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-muted);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: var(--transition);
+      padding: 12px 24px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+    }
+    .contact-link:hover {
+      color: var(--gold);
+      border-color: var(--gold-border);
+      background: var(--gold-dim);
+    }
+    .contact-link svg {
+      width: 18px; height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+    .cta-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 15px 36px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .cta-contact:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(245,197,24,0.35);
+    }
 
-        .service-card {
-            background: rgba(26, 35, 50, 0.5);
-            border: 1px solid rgba(245, 197, 24, 0.2);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            animation: fadeUp 0.8s ease;
-        }
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--gold-border);
+      background: #050810;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    footer span { color: var(--gold); }
 
-        .service-card:hover {
-            border-color: var(--gold);
-            background: rgba(26, 35, 50, 0.8);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(245, 197, 24, 0.1);
-        }
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.75); }
+    }
+    @keyframes scrollPulse {
+      0%   { opacity: 1; transform: scaleY(1); transform-origin: top; }
+      50%  { opacity: 0.3; transform: scaleY(0.5); transform-origin: top; }
+      100% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+    }
 
-        .service-card h3 {
-            font-family: 'Rajdhani', sans-serif;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
 
-        .service-card p {
-            color: rgba(240, 242, 245, 0.7);
-            line-height: 1.7;
-        }
-
-        /* Differentials Section */
-        .differentials {
-            padding: 100px 5%;
-            background: rgba(0, 212, 255, 0.05);
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .diff-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .diff-item {
-            background: rgba(26, 35, 50, 0.3);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-            animation: fadeUp 0.8s ease;
-        }
-
-        .diff-item h4 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .diff-item p {
-            color: rgba(240, 242, 245, 0.7);
-            font-size: 0.95rem;
-        }
-
-        /* Tech Stack Section */
-        .tech-stack {
-            padding: 100px 5%;
-            text-align: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .tech-item {
-            background: rgba(26, 35, 50, 0.5);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(245, 197, 24, 0.1);
-            transition: all 0.3s ease;
-            animation: fadeUp 0.8s ease;
-        }
-
-        .tech-item:hover {
-            border-color: var(--gold);
-            transform: scale(1.05);
-        }
-
-        .tech-item p {
-            color: var(--light);
-            font-weight: 500;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 5%;
-            background: rgba(0, 212, 255, 0.05);
-            text-align: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: rgba(240, 242, 245, 0.8);
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(8, 13, 26, 0.95);
-            padding: 2rem 5%;
-            text-align: center;
-            border-top: 1px solid rgba(245, 197, 24, 0.1);
-            font-size: 0.9rem;
-            color: rgba(240, 242, 245, 0.6);
-        }
-
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bulbPulse {
-            0%, 100% {
-                filter: drop-shadow(0 0 5px rgba(245, 197, 24, 0.5));
-            }
-            50% {
-                filter: drop-shadow(0 0 15px rgba(245, 197, 24, 0.9));
-            }
-        }
-
-        @keyframes scrollPulse {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-
-        .bulb {
-            animation: bulbPulse 2s infinite;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 3%;
-            }
-
-            .logo {
-                font-size: 1.4rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .nav-links a {
-                font-size: 0.85rem;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                flex-direction: column;
-                background: rgba(8, 13, 26, 0.98);
-                padding: 2rem 3%;
-                gap: 1rem;
-                display: none;
-                animation: fadeUp 0.3s ease;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero {
-                padding: 80px 5% 40px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .services {
-                padding: 60px 5%;
-            }
-
-            .contact-buttons {
-                flex-direction: column;
-            }
-
-            .contact-buttons a,
-            .contact-buttons button {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .services-grid,
-            .tech-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .why-item:not(:last-child) { margin-right: 0; }
+      .why-item:hover { transform: none; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .contact-box { padding: 36px 24px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 100px 20px 80px; }
+      .services, .why, .stack, .contact { padding: 72px 20px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo">NK</a>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#differentials">Differentials</a></li>
-                <li><a href="#tech-stack">Tech Stack</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="lang-selector">EN</button>
-            <button class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
 
-    <section class="hero">
-        <h1>Transform Your Data Into Insights</h1>
-        <p>Enterprise-grade data engineering and analytics solutions tailored to your business needs</p>
-        <div>
-            <a href="#contact" class="cta-button">Get Started</a>
-            <a href="#services" class="cta-button outline">Learn More</a>
+  <canvas id="neural-canvas"></canvas>
+
+  <!-- LANG BAR -->
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('pt')" id="btn-pt">PT</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge" data-pt="Data Engineer · Data Analyst" data-en="Data Engineer · Data Analyst">
+      Data Engineer · Data Analyst
+    </div>
+
+    <h1 class="hero-name">
+      <span class="nk">NK</span><span class="smart"> Smart </span><span class="business">Business</span>
+    </h1>
+
+    <p class="hero-sub" data-pt="Nicolas Klein" data-en="Nicolas Klein">Nicolas Klein</p>
+
+    <div class="hero-divider"></div>
+
+    <div class="bulb-wrap">
+      <svg class="bulb-svg" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 1.5C6.31 1.5 2.5 5.31 2.5 10c0 3.16 1.63 5.94 4.1 7.58.4.26.65.7.65 1.17V20a1 1 0 001 1h5.5a1 1 0 001-1v-1.25c0-.47.25-.91.65-1.17C17.87 15.94 19.5 13.16 19.5 10c0-4.69-3.81-8.5-8.5-8.5z" stroke="currentColor" stroke-width="1.4" fill="rgba(245,197,24,0.08)"/>
+        <path d="M9 10.5L11 8L13 10.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="8.5" y1="25" x2="13.5" y2="25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        <line x1="9.2" y1="27.5" x2="12.8" y2="27.5" stroke="currentColor" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <p class="hero-tagline" data-pt="Dados que <em>decidem</em>. Automa&ccedil;&atilde;o que <em>transforma</em>." data-en="Data that <em>decides</em>. Automation that <em>transforms</em>.">
+      Dados que <em>decidem</em>. Automa&ccedil;&atilde;o que <em>transforma</em>.
+    </p>
+
+    <div class="tools-row">
+      <div class="tool-icon">PBI</div>
+      <div class="tool-icon">SQL</div>
+      <div class="tool-icon">PY</div>
+      <div class="tool-icon">ETL</div>
+      <div class="tool-icon">AI</div>
+    </div>
+
+    <a href="#contact" class="cta-hero" data-pt="Fale comigo agora" data-en="Talk to me now">
+      Fale comigo agora
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span data-pt="scroll" data-en="scroll">scroll</span>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-inner">
+      <div class="services-header reveal">
+        <p class="section-label" data-pt="Especialidades" data-en="Expertise">Especialidades</p>
+        <h2 class="section-title" data-pt="O que eu entrego" data-en="What I deliver">O que eu entrego</h2>
+        <p class="section-desc" data-pt="Da engenharia de dados ao painel executivo &mdash; entregas de alto impacto, rastreáveis e alinhadas ao negócio." data-en="From data engineering to executive dashboards &mdash; high-impact, traceable deliverables aligned to the business.">
+          Da engenharia de dados ao painel executivo &mdash; entregas de alto impacto, rastrea&aacute;veis e alinhadas ao neg&oacute;cio.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card reveal">
+          <span class="card-icon">🍊</span>
+          <h3 class="card-title" data-pt="Análise de Dados" data-en="Data Analysis">Análise de Dados</h3>
+          <p class="card-text" data-pt="Pain&eacute;is Power BI para RH, Financeiro, Vendas, Engenharia e acompanhamento de metas e KPIs &mdash; dados financeiros complexos viram vis&atilde;o clara para cada &aacute;rea." data-en="Power BI panels for HR, Finance, Sales, Engineering and KPI/goal tracking &mdash; complex financial data turned into clear visibility for every team.">
+            Pain&eacute;is Power BI para RH, Financeiro, Vendas, Engenharia e acompanhamento de metas e KPIs &mdash; dados financeiros complexos viram vis&atilde;o clara para cada &aacute;rea.
+          </p>
+          <div class="card-results">
+            <div class="card-result" data-pt="Decis&otilde;es mais r&aacute;pidas e embasadas" data-en="Faster, more informed decisions">Decis&otilde;es mais r&aacute;pidas e embasadas</div>
+            <div class="card-result" data-pt="Visibilidade em tempo real de metas e KPIs" data-en="Real-time visibility into goals and KPIs">Visibilidade em tempo real de metas e KPIs</div>
+            <div class="card-result" data-pt="Relat&oacute;rios prontos sem depender de TI" data-en="Reports ready without depending on IT">Relat&oacute;rios prontos sem depender de TI</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">KPIs &amp; Metas</span>
+            <span class="tag">Financeiro</span>
+            <span class="tag">RH &amp; Vendas</span>
+          </div>
         </div>
-    </section>
 
-    <section class="services" id="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Data Engineering</h3>
-                <p>Build scalable data pipelines and infrastructure using modern tools like Airflow, Spark, and Kubernetes.</p>
-            </div>
-            <div class="service-card">
-                <h3>Analytics & BI</h3>
-                <p>Transform raw data into actionable insights with advanced analytics and interactive dashboards.</p>
-            </div>
-            <div class="service-card">
-                <h3>Cloud Architecture</h3>
-                <p>Design and deploy robust cloud solutions on AWS, GCP, or Azure with security and scalability.</p>
-            </div>
-            <div class="service-card">
-                <h3>Data Strategy</h3>
-                <p>Develop comprehensive data strategies aligned with your business objectives and growth goals.</p>
-            </div>
-            <div class="service-card">
-                <h3>ETL Solutions</h3>
-                <p>Create efficient ETL processes to integrate and transform data from multiple sources.</p>
-            </div>
-            <div class="service-card">
-                <h3>Consulting</h3>
-                <p>Expert guidance on data modernization, optimization, and digital transformation initiatives.</p>
-            </div>
+        <div class="card reveal" style="transition-delay:0.1s">
+          <span class="card-icon">⚙️</span>
+          <h3 class="card-title" data-pt="Engenharia de Dados" data-en="Data Engineering">Engenharia de Dados</h3>
+          <p class="card-text" data-pt="Pipelines s&oacute;lidos e qualidade de dados garantida do raw ao relat&oacute;rio &mdash; estrutura que suporta o crescimento sem perder confiabilidade." data-en="Solid pipelines and guaranteed data quality from raw to report &mdash; structure that scales without losing reliability.">
+            Pipelines s&oacute;lidos e qualidade de dados garantida do raw ao relat&oacute;rio &mdash; estrutura que suporta o crescimento sem perder confiabilidade.
+          </p>
+          <div class="card-results">
+            <div class="card-result" data-pt="Dados confi&aacute;veis e sem inconsist&ecirc;ncias" data-en="Reliable data with no inconsistencies">Dados confi&aacute;veis e sem inconsist&ecirc;ncias</div>
+            <div class="card-result" data-pt="Relat&oacute;rios que nunca quebram" data-en="Reports that never break">Relat&oacute;rios que nunca quebram</div>
+            <div class="card-result" data-pt="Escala com o crescimento do neg&oacute;cio" data-en="Scales with business growth">Escala com o crescimento do neg&oacute;cio</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Python</span>
+            <span class="tag">ETL</span>
+            <span class="tag">Qualidade de Dados</span>
+          </div>
         </div>
-    </section>
 
-    <section class="differentials" id="differentials">
-        <h2 class="section-title">Why Choose NK Smart Business</h2>
-        <div class="diff-grid">
-            <div class="diff-item">
-                <h4>💡 Innovation First</h4>
-                <p>Leveraging cutting-edge technologies and best practices to solve complex data challenges.</p>
-            </div>
-            <div class="diff-item">
-                <h4>⚡ Performance Optimized</h4>
-                <p>Building fast, efficient systems that handle massive scale while maintaining reliability.</p>
-            </div>
-            <div class="diff-item">
-                <h4>🔒 Security Focused</h4>
-                <p>Implementing enterprise-grade security standards and compliance requirements.</p>
-            </div>
-            <div class="diff-item">
-                <h4>📊 Data Driven</h4>
-                <p>Making informed decisions backed by comprehensive data analysis and insights.</p>
-            </div>
-            <div class="diff-item">
-                <h4>🤝 Partnership Approach</h4>
-                <p>Working closely with clients as trusted partners throughout the entire project lifecycle.</p>
-            </div>
-            <div class="diff-item">
-                <h4>🌍 Global Expertise</h4>
-                <p>Delivering solutions that scale globally while respecting local requirements and regulations.</p>
-            </div>
+        <div class="card reveal" style="transition-delay:0.2s">
+          <span class="card-icon">🤖</span>
+          <h3 class="card-title" data-pt="Automação com IA" data-en="AI Automation">Automação com IA</h3>
+          <p class="card-text" data-pt="Automatizo processos repetitivos e integro IA ao fluxo de trabalho &mdash; sua equipe para de executar tarefas manuais e come&ccedil;a a gerar valor de verdade." data-en="I automate repetitive processes and integrate AI into your workflow &mdash; your team stops executing manual tasks and starts generating real value.">
+            Automatizo processos repetitivos e integro IA ao fluxo de trabalho &mdash; sua equipe para de executar tarefas manuais e come&ccedil;a a gerar valor de verdade.
+          </p>
+          <div class="card-results">
+            <div class="card-result" data-pt="Redu&ccedil;&atilde;o de horas manuais por semana" data-en="Reduction of manual hours per week">Redu&ccedil;&atilde;o de horas manuais por semana</div>
+            <div class="card-result" data-pt="Menos erros humanos nos processos" data-en="Fewer human errors in processes">Menos erros humanos nos processos</div>
+            <div class="card-result" data-pt="Equipe focada no que gera resultado" data-en="Team focused on what drives results">Equipe focada no que gera resultado</div>
+          </div>
+          <div class="card-tags">
+            <span class="tag">n8n</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">Agentes</span>
+            <span class="tag">APIs</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="tech-stack" id="tech-stack">
-        <h2 class="section-title">Technology Stack</h2>
-        <div class="tech-grid">
-            <div class="tech-item">
-                <p>🐍 Python</p>
-            </div>
-            <div class="tech-item">
-                <p>✈️ Apache Airflow</p>
-            </div>
-            <div class="tech-item">
-                <p>⚙️ Apache Spark</p>
-            </div>
-            <div class="tech-item">
-                <p>☁️ AWS & GCP</p>
-            </div>
-            <div class="tech-item">
-                <p>🐘 PostgreSQL</p>
-            </div>
-            <div class="tech-item">
-                <p>NoSQL Solutions</p>
-            </div>
-            <div class="tech-item">
-                <p>☸️ Kubernetes</p>
-            </div>
-            <div class="tech-item">
-                <p>📊 BI Tools</p>
-            </div>
-            <div class="tech-item">
-                <p>🐳 Docker</p>
-            </div>
-            <div class="tech-item">
-                <p>Git & CI/CD</p>
-            </div>
-            <div class="tech-item">
-                <p>Terraform</p>
-            </div>
-            <div class="tech-item">
-                <p>Monitoring</p>
-            </div>
+  <!-- WHY -->
+  <section class="why" id="why">
+    <div class="why-inner">
+      <div class="why-header reveal">
+        <p class="section-label" data-pt="Diferenciais" data-en="Differentiators">Diferenciais</p>
+        <h2 class="section-title" data-pt="Por que me contratar?" data-en="Why hire me?">Por que me contratar?</h2>
+        <p class="section-desc" data-pt="Combinando análise, engenharia e automação com IA numa solução integrada." data-en="Combining analytics, engineering, and AI automation in one integrated solution.">
+          Combinando análise, engenharia e automação com IA numa solução integrada.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-number">01</div>
+          <div class="why-label" data-pt="Solução Completa" data-en="Complete Solution">Solução Completa</div>
+          <p class="why-desc" data-pt="Da coleta ao dashboard, cuido de toda a jornada dos seus dados sem precisar contratar múltiplos profissionais." data-en="From collection to dashboard, I handle your entire data journey without you needing to hire multiple professionals.">
+            Da coleta ao dashboard, cuido de toda a jornada dos seus dados sem precisar contratar múltiplos profissionais.
+          </p>
         </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-content">
-            <p>Ready to transform your data infrastructure? Reach out and let's discuss how we can help your business thrive.</p>
-            <div class="contact-buttons">
-                <a href="mailto:contact@nksmartbusiness.com" class="cta-button">Email Us</a>
-                <a href="https://linkedin.com/in/nicolaskl" class="cta-button outline">LinkedIn</a>
-                <a href="https://github.com/nicolaskra" class="cta-button outline">GitHub</a>
-            </div>
+        <div class="why-item reveal" style="transition-delay:0.1s">
+          <div class="why-number">02</div>
+          <div class="why-label" data-pt="Experi&ecirc;ncia Big Four" data-en="Big Four Experience">Experi&ecirc;ncia Big Four</div>
+          <p class="why-desc" data-pt="Atuo em uma Big Four dentro de um grande banco brasileiro &mdash; entrego solu&ccedil;&otilde;es com rigor anal&iacute;tico e vis&atilde;o de mercado financeiro." data-en="I work at a Big Four inside a major Brazilian bank &mdash; delivering solutions with analytical rigor and financial market insight.">
+            Atuo em uma Big Four dentro de um grande banco brasileiro &mdash; entrego solu&ccedil;&otilde;es com rigor anal&iacute;tico e vis&atilde;o de mercado financeiro.
+          </p>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 NK Smart Business. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-    </footer>
-
-    <script>
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html></head>
-<body>
-    <header>
-        <nav>
-            <a href="#" class="logo">NK</a>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#differentials">Differentials</a></li>
-                <li><a href="#tech-stack">Tech Stack</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="lang-selector">EN</button>
-            <button class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Transform Your Data Into Insights</h1>
-        <p>Enterprise-grade data engineering and analytics solutions tailored to your business needs</p>
-        <div>
-            <a href="#contact" class="cta-button">Get Started</a>
-            <a href="#services" class="cta-button outline">Learn More</a>
+        <div class="why-item reveal" style="transition-delay:0.2s">
+          <div class="why-number">03</div>
+          <div class="why-label" data-pt="Tecnologia Atual" data-en="Modern Tech">Tecnologia Atual</div>
+          <p class="why-desc" data-pt="Utilizo as ferramentas mais modernas do mercado, incluindo IA generativa, para entregar soluções escaláveis." data-en="I use the most modern tools on the market, including generative AI, to deliver scalable solutions.">
+            Utilizo as ferramentas mais modernas do mercado, incluindo IA generativa, para entregar soluções escaláveis.
+          </p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="services" id="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Data Engineering</h3>
-                <p>Build scalable data pipelines and infrastructure using modern tools like Airflow, Spark, and Kubernetes.</p>
-            </div>
-            <div class="service-card">
-                <h3>Analytics & BI</h3>
-                <p>Transform raw data into actionable insights with advanced analytics and interactive dashboards.</p>
-            </div>
-            <div class="service-card">
-                <h3>Cloud Architecture</h3>
-                <p>Design and deploy robust cloud solutions on AWS, GCP, or Azure with security and scalability.</p>
-            </div>
-            <div class="service-card">
-                <h3>Data Strategy</h3>
-                <p>Develop comprehensive data strategies aligned with your business objectives and growth goals.</p>
-            </div>
-            <div class="service-card">
-                <h3>ETL Solutions</h3>
-                <p>Create efficient ETL processes to integrate and transform data from multiple sources.</p>
-            </div>
-            <div class="service-card">
-                <h3>Consulting</h3>
-                <p>Expert guidance on data modernization, optimization, and digital transformation initiatives.</p>
-            </div>
+  <!-- STACK -->
+  <section class="stack" id="stack">
+    <div class="stack-inner">
+      <div class="stack-header reveal">
+        <p class="section-label" data-pt="Ferramentas" data-en="Tools">Ferramentas</p>
+        <h2 class="section-title" data-pt="Stack Tecnológico" data-en="Tech Stack">Stack Tecnológico</h2>
+      </div>
+      <div class="stack-grid reveal">
+        <div class="stack-item"><span class="stack-icon">🐍</span> Python</div>
+        <div class="stack-item"><span class="stack-icon">🗄️</span> SQL</div>
+        <div class="stack-item"><span class="stack-icon">🍊</span> Power BI</div>
+        <div class="stack-item"><span class="stack-icon">📗</span> Excel</div>
+        <div class="stack-item"><span class="stack-icon">🔗</span> n8n</div>
+        <div class="stack-item"><span class="stack-icon">🤖</span> LLMs / IA</div>
+        <div class="stack-item"><span class="stack-icon">🐱</span> GitHub</div>
+        <div class="stack-item"><span class="stack-icon">🔄</span> ETL / Pipelines</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-header reveal">
+        <p class="section-label" data-pt="Contato" data-en="Contact">Contato</p>
+        <h2 class="section-title" data-pt="Vamos Conversar?" data-en="Let's Talk?">Vamos Conversar?</h2>
+      </div>
+      <div class="contact-box reveal">
+        <h3 class="contact-title" data-pt="Pronto para transformar os seus dados?" data-en="Ready to transform your data?">
+          Pronto para transformar os seus dados?
+        </h3>
+        <p class="contact-sub" data-pt="Entre em contato e vamos discutir como posso ajudar a sua empresa a crescer com inteligência." data-en="Get in touch and let's discuss how I can help your company grow intelligently.">
+          Entre em contato e vamos discutir como posso ajudar a sua empresa a crescer com inteligência.
+        </p>
+
+        <div class="contact-links">
+          <a href="https://wa.me/5567992438271" class="contact-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            (67) 99243-8271
+          </a>
+          <a href="mailto:nicolas_klein@hotmail.com" class="contact-link">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            nicolas_klein@hotmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/nicolaskleincg/" class="contact-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn
+          </a>
         </div>
-    </section>
 
-    <section class="differentials" id="differentials">
-        <h2 class="section-title">Why Choose NK Smart Business</h2>
-        <div class="diff-grid">
-            <div class="diff-item">
-                <h4>💡 Innovation First</h4>
-                <p>Leveraging cutting-edge technologies and best practices to solve complex data challenges.</p>
-            </div>
-            <div class="diff-item">
-                <h4>⚡ Performance Optimized</h4>
-                <p>Building fast, efficient systems that handle massive scale while maintaining reliability.</p>
-            </div>
-            <div class="diff-item">
-                <h4>🔒 Security Focused</h4>
-                <p>Implementing enterprise-grade security standards and compliance requirements.</p>
-            </div>
-            <div class="diff-item">
-                <h4>📊 Data Driven</h4>
-                <p>Making informed decisions backed by comprehensive data analysis and insights.</p>
-            </div>
-            <div class="diff-item">
-                <h4>🤝 Partnership Approach</h4>
-                <p>Working closely with clients as trusted partners throughout the entire project lifecycle.</p>
-            </div>
-            <div class="diff-item">
-                <h4>🌍 Global Expertise</h4>
-                <p>Delivering solutions that scale globally while respecting local requirements and regulations.</p>
-            </div>
-        </div>
-    </section>
+        <a href="https://wa.me/5567992438271" class="cta-contact" target="_blank" rel="noopener" data-pt="Iniciar conversa no WhatsApp" data-en="Start WhatsApp conversation">
+          Iniciar conversa no WhatsApp
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <section class="tech-stack" id="tech-stack">
-        <h2 class="section-title">Technology Stack</h2>
-        <div class="tech-grid">
-            <div class="tech-item">
-                <p>🐍 Python</p>
-            </div>
-            <div class="tech-item">
-                <p>✈️ Apache Airflow</p>
-            </div>
-            <div class="tech-item">
-                <p>⚙️ Apache Spark</p>
-            </div>
-            <div class="tech-item">
-                <p>☁️ AWS & GCP</p>
-            </div>
-            <div class="tech-item">
-                <p>🐘 PostgreSQL</p>
-            </div>
-            <div class="tech-item">
-                <p>NoSQL Solutions</p>
-            </div>
-            <div class="tech-item">
-                <p>☸️ Kubernetes</p>
-            </div>
-            <div class="tech-item">
-                <p>📊 BI Tools</p>
-            </div>
-            <div class="tech-item">
-                <p>🐳 Docker</p>
-            </div>
-            <div class="tech-item">
-                <p>Git & CI/CD</p>
-            </div>
-            <div class="tech-item">
-                <p>Terraform</p>
-            </div>
-            <div class="tech-item">
-                <p>Monitoring</p>
-            </div>
-        </div>
-    </section>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 <span>NK Smart Business</span> · Nicolas Klein · Todos os direitos reservados</p>
+  </footer>
 
-    <section class="contact" id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-content">
-            <p>Ready to transform your data infrastructure? Reach out and let's discuss how we can help your business thrive.</p>
-            <div class="contact-buttons">
-                <a href="mailto:contact@nksmartbusiness.com" class="cta-button">Email Us</a>
-                <a href="https://linkedin.com/in/nicolaskl" class="cta-button outline">LinkedIn</a>
-                <a href="https://github.com/nicolaskra" class="cta-button outline">GitHub</a>
-            </div>
-        </div>
-    </section>
+  <script>
+    // ── NEURAL CANVAS ──────────────────────────────────────────────
+    const canvas = document.getElementById('neural-canvas');
+    const ctx = canvas.getContext('2d');
+    const GOLD = '#F5C518';
+    const GOLD_DIM = 'rgba(245,197,24,';
 
-    <footer>
-        <p>&copy; 2026 NK Smart Business. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-    </footer>
+    let W, H, particles = [];
+    const N = 60;
 
-    <script>
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-Page_DownPage_DownPage_Down
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-    </script>
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * W;
+        this.y = Math.random() * H;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.r = Math.random() * 1.5 + 0.5;
+        this.life = Math.random();
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        this.life = Math.min(1, this.life + 0.003);
+        if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = GOLD_DIM + (this.life * 0.6) + ')';
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = Array.from({ length: N }, () => new Particle());
+    }
+
+    function drawLines() {
+      const D = 140;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < D) {
+            const alpha = (1 - dist / D) * 0.3;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = GOLD_DIM + alpha + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+
+    resize();
+    initParticles();
+    animate();
+    window.addEventListener('resize', () => { resize(); initParticles(); });
+
+    // ── SCROLL REVEAL ──────────────────────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── LANGUAGE TOGGLE ─────────────────────────────────────────────
+    function setLang(lang) {
+      document.querySelectorAll('[data-pt],[data-en]').forEach(el => {
+        const val = el.getAttribute('data-' + lang);
+        if (val) el.innerHTML = val;
+      });
+      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
 </body>
 </html>
