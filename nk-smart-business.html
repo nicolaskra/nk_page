@@ -3,320 +3,689 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Business — Análise de Dados, Engenharia e Automação com IA</title>
+  <title>Smart Business — Dados, Engenharia e Automação com IA</title>
   <meta name="description" content="Smart Business — Data Engineer e Data Analyst. Transformo dados em decisões e automatizo processos com IA. Power BI, Python, SQL para empresas de qualquer segmento."/>
   <meta name="theme-color" content="#080d1a"/>
   <link rel="canonical" href="https://nicolaskra.github.io/nk_page/"/>
+
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Smart Business — Data & AI"/>
+  <meta property="og:title" content="Smart Business — Dados & IA"/>
   <meta property="og:description" content="Dados que decidem. Automação que transforma. Análise de Dados, Engenharia e Automação com IA para empresas."/>
   <meta property="og:url" content="https://nicolaskra.github.io/nk_page/"/>
-  <meta property="og:image" content="https://nicolaskra.github.io/nk_page/og-image.png"/>
+
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23080d1a'/><circle cx='50' cy='38' r='28' stroke='%23F5C518' stroke-width='4' fill='rgba(245,197,24,0.1)'/><circle cx='35' cy='32' r='5' fill='%23F5C518'/><circle cx='50' cy='32' r='5' fill='%23F5C518'/><circle cx='65' cy='32' r='5' fill='%23F5C518'/><circle cx='38' cy='46' r='5' fill='%23F5C518'/><circle cx='62' cy='46' r='5' fill='%23F5C518'/><rect x='42' y='66' width='16' height='5' rx='2' fill='%23F5C518'/><rect x='44' y='74' width='12' height='5' rx='2' fill='%23F5C518'/></svg>"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23080d1a'/><text y='68' font-size='50' x='15' fill='%23F5C518' font-family='sans-serif' font-weight='bold'>SB</text></svg>"/>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
   <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Nicolas Klein",
-    "jobTitle": "Data Engineer & Data Analyst",
+    "@type": "Organization",
+    "name": "Smart Business",
     "url": "https://nicolaskra.github.io/nk_page/",
     "email": "nicolas_klein@hotmail.com",
-    "telephone": "+5567998896149",
-    "sameAs": ["https://www.linkedin.com/in/nicolaskleincg/"],
-    "knowsAbout": ["Data Engineering", "Data Analysis", "Power BI", "Python", "SQL", "AI Automation"],
-    "offers": [
-      {"@type": "Offer", "name": "Análise de Dados", "description": "Dashboards, KPIs e relatórios em Power BI e Excel"},
-      {"@type": "Offer", "name": "Engenharia de Dados", "description": "Pipelines ETL, banco de dados e integrações"},
-      {"@type": "Offer", "name": "Automação com IA", "description": "Automações inteligentes com Python e IA"}
-    ]
+    "telephone": "+5567992438271",
+    "knowsAbout": ["Data Engineering", "Data Analysis", "Power BI", "Python", "SQL", "AI Automation"]
   }
   </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --gold: #F5C518; --gold-light: #FFD84D;
-      --navy: #080d1a; --navy-mid: #0e1628;
-      --navy-card: rgba(17,24,39,0.85);
-      --text: #e8eaf0; --text-muted: #8892a4;
-      --border: rgba(245,197,24,0.18); --border-hover: rgba(245,197,24,0.45);
+      --gold: #F5C518;
+      --gold-light: #FFD84D;
+      --gold-dim: rgba(245,197,24,0.12);
+      --navy: #080d1a;
+      --navy-mid: #0c1221;
+      --navy-card: rgba(12,18,33,0.92);
+      --text: #e2e5ed;
+      --text-muted: #7a8499;
+      --border: rgba(245,197,24,0.10);
+      --border-hover: rgba(245,197,24,0.35);
+      --radius: 16px;
     }
+
     html { scroll-behavior: smooth; }
-    body { background: var(--navy); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; }
-    #neural-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; will-change: transform; }
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 40px; height: 60px;
-      background: rgba(8,13,26,0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border); transition: background 0.3s;
+
+    body {
+      background: var(--navy);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
+
+    /* CANVAS */
+    #neural-canvas {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+      will-change: transform;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      background: rgba(8,13,26,0.85);      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
     .nav-logo {
-      font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase; color: #fff; text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff; text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo .logo-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: var(--navy);
+      letter-spacing: 0;
     }
     .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px;
-      text-transform: uppercase; text-decoration: none; color: var(--text-muted); transition: color 0.2s;
+
+    .nav-center {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; letter-spacing: 0.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
     }
-    .nav-links a:hover { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500;
+      text-decoration: none;
+      color: var(--text-muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
     .nav-right { display: flex; gap: 10px; align-items: center; }
+
     .lang-btn {
       background: transparent; border: 1px solid var(--border);
-      color: var(--text-muted); font-family: 'Rajdhani', sans-serif;
-      font-size: 12px; letter-spacing: 2px; padding: 4px 10px; cursor: pointer; transition: all 0.2s;
+      color: var(--text-muted); font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 600; letter-spacing: 1px; padding: 6px 12px;
+      border-radius: 8px; cursor: pointer; transition: all 0.2s;
     }
-    .lang-btn.active { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 700; }
+    .lang-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); }
     .lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+
     .nav-cta {
-      background: var(--gold); color: #000; font-family: 'Rajdhani', sans-serif;
-      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-      text-decoration: none; padding: 7px 18px; transition: background 0.2s;
+      background: var(--gold); color: var(--navy);
+      font-size: 14px; font-weight: 600;
+      text-decoration: none; padding: 10px 24px;
+      border-radius: 10px;
+      transition: background 0.2s, transform 0.2s;
     }
-    .nav-cta:hover { background: var(--gold-light); }
-    @media (max-width: 768px) { .nav-links { display: none; } nav { padding: 0 20px; } }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-center { display: none; }
+      nav { padding: 0 20px; }
+    }
+
+    /* SECTIONS */
     section { position: relative; z-index: 1; }
+
+    /* ── HERO ── */
     .hero {
-      min-height: 100vh; padding-top: 60px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 100px 24px 80px;
+      min-height: 100vh; padding-top: 72px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 120px 24px 80px;
     }
-    .hero-badge {
-      font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 4px; color: var(--gold);
-      border: 1px solid var(--border); padding: 6px 18px; margin-bottom: 28px; text-transform: uppercase;
-      animation: fadeDown 0.8s 0.05s ease both;
+
+    .hero-label {
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 3px; color: var(--text-muted);
+      text-transform: uppercase; margin-bottom: 32px;
+      animation: fadeUp 0.8s ease both;
     }
-    .hero-name {
-      font-family: 'Rajdhani', sans-serif; font-size: clamp(44px, 9vw, 96px);
-      font-weight: 700; letter-spacing: 0.12em; line-height: 1; text-transform: uppercase; color: #fff;
-      margin-bottom: 8px; animation: fadeDown 0.8s 0.1s ease both;
+    .hero-label span { color: var(--gold); }    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 8vw, 88px);
+      font-weight: 700; letter-spacing: -0.03em;
+      line-height: 1.05; color: #fff;
+      max-width: 900px; margin-bottom: 28px;
+      animation: fadeUp 0.8s 0.1s ease both;
     }
-    .hero-name span { color: var(--gold); }
-    .hero-divider { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 28px; animation: fadeDown 0.8s 0.3s ease both; }
-    .hero-tagline {
-      font-size: clamp(18px, 3vw, 28px); font-weight: 300; color: var(--text); line-height: 1.5;
-      max-width: 620px; margin-bottom: 40px; animation: fadeDown 0.8s 0.4s ease both;
+    .hero-title .accent { color: var(--gold); }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-muted); font-weight: 400;
+      max-width: 560px; line-height: 1.7;
+      margin-bottom: 48px;
+      animation: fadeUp 0.8s 0.2s ease both;
     }
-    .hero-tagline strong { color: var(--gold); font-weight: 600; }
+
     .hero-actions {
-      display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center;
-      margin-bottom: 52px; animation: fadeDown 0.8s 0.5s ease both;
+      display: flex; gap: 16px; align-items: center;
+      flex-wrap: wrap; justify-content: center;
+      margin-bottom: 80px;
+      animation: fadeUp 0.8s 0.3s ease both;
     }
-    .cta-primary {
-      display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #000;
-      font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
-      padding: 14px 32px; transition: background 0.2s, transform 0.2s; animation: pulse-glow 2.5s 1.5s infinite;
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--navy);
+      font-size: 15px; font-weight: 600;
+      text-decoration: none;
+      padding: 16px 36px; border-radius: 12px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
-    .cta-primary:hover { background: var(--gold-light); transform: translateY(-2px); animation: none; }
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(245,197,24,0); }
-      50% { box-shadow: 0 0 18px 6px rgba(245,197,24,0.25); }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(245,197,24,0.25);
     }
-    .cta-secondary {
-      font-family: 'Rajdhani', sans-serif; font-size: 13px; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--text-muted); text-decoration: none;
-      border: 1px solid var(--border); padding: 13px 24px; transition: border-color 0.2s, color 0.2s;
+    .btn-primary svg { flex-shrink: 0; }
+
+    .btn-secondary {
+      font-size: 15px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12); padding: 15px 32px;
+      border-radius: 12px;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .cta-secondary:hover { border-color: var(--gold); color: var(--gold); }
-    .tools-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 52px; animation: fadeDown 0.8s 0.6s ease both; }
-    .tool-icon {
-      width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.05); border: 1px solid var(--border); transition: transform 0.2s, border-color 0.2s, background 0.2s;
-    }
-    .tool-icon:hover { transform: translateY(-4px); border-color: var(--gold); background: rgba(245,197,24,0.08); }
+    .btn-secondary:hover { border-color: var(--gold); color: #fff; }
+
     .scroll-hint {
-      display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--text-muted);
-      font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-      animation: fadeDown 0.8s 0.9s ease both;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--text-muted); font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: fadeUp 0.8s 0.5s ease both;
     }
-    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollDrop 1.8s infinite; }
+    .scroll-line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollDrop 2s infinite;
+    }
+
     @keyframes scrollDrop {
       0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
       50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
       100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
     }
-    .section-label { text-align: center; font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
-    .section-title { text-align: center; font-family: 'Rajdhani', sans-serif; font-size: clamp(26px, 5vw, 44px); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
-    .section-desc { text-align: center; color: var(--text-muted); font-size: 15px; max-width: 500px; margin: 0 auto 60px; line-height: 1.7; }
-    .services { padding: 110px 24px; background: linear-gradient(180deg, transparent 0%, rgba(14,22,40,0.7) 50%, transparent 100%); }
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1020px; margin: 0 auto; }
-    .card { background: var(--navy-card); border: 1px solid var(--border); padding: 40px 32px; position: relative; overflow: hidden; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; backdrop-filter: blur(8px); }
-    .card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.3s; }
-    .card:hover { transform: translateY(-6px); border-color: var(--border-hover); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-    .card:hover::before { height: 100%; }
-    .card:hover .card-title { color: var(--gold); }
-    .card:hover .card-text { color: var(--text); }
-    .card-icon { font-size: 36px; margin-bottom: 20px; }
-    .card-title { font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 12px; transition: color 0.3s; }
-    .card-text { color: var(--text-muted); font-size: 14px; line-height: 1.8; transition: color 0.3s; }
-    .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-    .tag { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid var(--border); color: var(--gold); padding: 3px 10px; }
-    .how { padding: 110px 24px; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; max-width: 900px; margin: 0 auto; position: relative; }
-    .steps::before { content: ''; position: absolute; top: 36px; left: 15%; right: 15%; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
-    .step { text-align: center; padding: 0 24px; position: relative; }
-    .step-num { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--border); background: var(--navy-card); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: var(--gold); transition: background 0.3s, border-color 0.3s; backdrop-filter: blur(8px); }
-    .step:hover .step-num { background: rgba(245,197,24,0.1); border-color: var(--gold); }
-    .step-title { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 10px; }
-    .step-desc { color: var(--text-muted); font-size: 13px; line-height: 1.7; }
-    .why { padding: 110px 24px; background: linear-gradient(180deg, transparent 0%, rgba(14,22,40,0.5) 50%, transparent 100%); }
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 900px; margin: 0 auto; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── ABOUT (split layout) ── */
+    .about {
+      padding: 120px 48px;
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    @media (max-width: 768px) { .about { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; } }    .about-visual {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-sphere {
+      width: 320px; height: 320px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      background: radial-gradient(circle at 30% 30%, rgba(245,197,24,0.06), transparent 70%);
+    }
+    .about-sphere::before {
+      content: ''; position: absolute;
+      width: 260px; height: 260px; border-radius: 50%;
+      border: 1px dashed rgba(245,197,24,0.15);
+      animation: spin 30s linear infinite;
+    }
+    .about-sphere::after {
+      content: ''; position: absolute;
+      width: 200px; height: 200px; border-radius: 50%;
+      border: 1px solid rgba(245,197,24,0.08);
+      animation: spin 20s linear infinite reverse;
+    }
+    .about-sphere .sphere-icon {
+      font-size: 64px; z-index: 1;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .about-content {}
+    .about-label {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 3px; color: var(--gold);
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .about-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700; letter-spacing: -0.02em;
+      color: #fff; line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .about-title .accent { color: var(--gold); }
+    .about-text {
+      color: var(--text-muted); font-size: 16px;
+      line-height: 1.8; margin-bottom: 28px;
+    }
+    .about-link {
+      font-size: 14px; font-weight: 600;
+      color: var(--gold); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: gap 0.2s;
+    }
+    .about-link:hover { gap: 14px; }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 120px 48px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    @media (max-width: 768px) { .services { padding: 80px 24px; } }
+
+    .section-header { margin-bottom: 64px; }
+    .section-label {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 3px; color: var(--gold);
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700; letter-spacing: -0.02em; color: #fff;
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      color: var(--text-muted); font-size: 16px;
+      max-width: 520px; line-height: 1.7;
+    }.cards-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .cards-grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--gold);
+      transform: scaleX(0); transition: transform 0.3s;
+      transform-origin: left;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: var(--gold-dim);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 24px;
+    }
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; font-weight: 700; color: #fff;
+      margin-bottom: 12px;
+    }
+    .card-text { color: var(--text-muted); font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 12px; font-weight: 500;
+      color: var(--gold); padding: 4px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how {
+      padding: 120px 48px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    @media (max-width: 768px) { .how { padding: 80px 24px; } }
+
+    .steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; position: relative;
+    }
+    @media (max-width: 768px) { .steps { grid-template-columns: 1fr; gap: 40px; } }
+
+    .steps::before {
+      content: ''; position: absolute;
+      top: 40px; left: 16%; right: 16%; height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+    }
+    @media (max-width: 768px) { .steps::before { display: none; } }
+
+    .step { text-align: center; padding: 0 24px; }
+
+    .step-num {
+      width: 80px; height: 80px; border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--navy-card);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px; font-weight: 700; color: var(--gold);
+      backdrop-filter: blur(8px);
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;    }
+    .step:hover .step-num {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+      box-shadow: 0 0 30px rgba(245,197,24,0.15);
+    }
+
+    .step-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px; font-weight: 700; color: #fff;
+      margin-bottom: 10px;
+    }
+    .step-desc { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+
+    /* ── WHY ME ── */
+    .why {
+      padding: 120px 48px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    @media (max-width: 768px) { .why { padding: 80px 24px; } }
+
+    .why-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
     @media (max-width: 640px) { .why-grid { grid-template-columns: 1fr; } }
-    .why-item { text-align: center; padding: 40px 32px; border: 1px solid var(--border); background: var(--navy-card); backdrop-filter: blur(8px); transition: border-color 0.3s, background 0.3s; }
-    .why-item:hover { border-color: var(--border-hover); background: rgba(245,197,24,0.04); }
-    .why-number { font-family: 'Rajdhani', sans-serif; font-size: 52px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 12px; }
-    .why-label { font-family: 'Rajdhani', sans-serif; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 10px; }
-    .why-desc { color: var(--text-muted); font-size: 13px; line-height: 1.7; }
-    .stack { padding: 90px 24px; }
-    .stack-icons { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; max-width: 720px; margin: 0 auto; }
-    .stack-item { display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0.65; transition: opacity 0.2s, transform 0.2s; cursor: default; }
+
+    .why-item {
+      text-align: center; padding: 48px 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--navy-card);
+      backdrop-filter: blur(8px);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .why-item:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+
+    .why-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 56px; font-weight: 700;
+      color: var(--gold); line-height: 1; margin-bottom: 16px;
+    }
+    .why-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 10px;
+    }
+    .why-desc { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+
+    /* ── STACK ── */
+    .stack {
+      padding: 80px 48px 120px;
+      max-width: 1200px; margin: 0 auto;
+      text-align: center;
+    }
+    @media (max-width: 768px) { .stack { padding: 60px 24px 80px; } }
+
+    .stack-icons {
+      display: flex; gap: 48px; justify-content: center;
+      flex-wrap: wrap; margin-top: 48px;
+    }
+
+    .stack-item {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      opacity: 0.6; transition: opacity 0.2s, transform 0.2s;
+      cursor: default;
+    }
     .stack-item:hover { opacity: 1; transform: translateY(-6px); }
-    .icon-wrap { width: 68px; height: 68px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); transition: border-color 0.2s, background 0.2s; }
-    .stack-item:hover .icon-wrap { border-color: var(--gold); background: rgba(245,197,24,0.07); }
-    .stack-item span { font-family: 'Rajdhani', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
-    .contact { padding: 110px 24px 80px; text-align: center; }
-    .contact-card { max-width: 600px; margin: 0 auto; border: 1px solid var(--border); padding: 60px 48px; background: var(--navy-card); backdrop-filter: blur(8px); }
-    .contact-card p { color: var(--text-muted); font-size: 16px; line-height: 1.7; margin-bottom: 36px; }
-    .btn-whatsapp { display: inline-flex; align-items: center; gap: 12px; background: var(--gold); color: #000; font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 16px 44px; transition: background 0.2s, transform 0.2s; margin-bottom: 28px; }
-    .btn-whatsapp:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .contact-links { display: flex; gap: 28px; align-items: center; justify-content: center; }
-    .contact-link { color: var(--text-muted); font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 2px; text-decoration: none; text-transform: uppercase; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+
+    .icon-wrap {
+      width: 72px; height: 72px; border-radius: 16px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.03);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .stack-item:hover .icon-wrap { border-color: var(--gold); background: var(--gold-dim); }
+
+    .stack-item span {
+      font-size: 12px; font-weight: 500;
+      color: var(--text-muted); letter-spacing: 1px;    }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 120px 48px 80px;
+      max-width: 800px; margin: 0 auto;
+      text-align: center;
+    }
+    @media (max-width: 768px) { .contact { padding: 80px 24px; } }
+
+    .contact-card {
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 64px 48px; background: var(--navy-card);
+      backdrop-filter: blur(12px);
+    }
+    .contact-card p {
+      color: var(--text-muted); font-size: 16px; line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--gold); color: var(--navy);
+      font-size: 16px; font-weight: 600;
+      text-decoration: none;
+      padding: 18px 48px; border-radius: 12px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      margin-bottom: 32px;
+    }
+    .btn-whatsapp:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(245,197,24,0.2);
+    }
+
+    .contact-links {
+      display: flex; gap: 28px; align-items: center; justify-content: center;
+    }
+    .contact-link {
+      color: var(--text-muted); font-size: 13px; font-weight: 500;
+      text-decoration: none; transition: color 0.2s;
+      display: flex; align-items: center; gap: 6px;
+    }
     .contact-link:hover { color: var(--gold); }
-    .float-wa { position: fixed; bottom: 28px; right: 28px; z-index: 300; width: 58px; height: 58px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; animation: float-pulse 2.5s infinite; }
-    .float-wa:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); animation: none; }
-    .float-wa .tooltip { position: absolute; right: 70px; white-space: nowrap; background: #25D366; color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 1px; padding: 6px 14px; border-radius: 4px; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+
+    /* ── FLOATING WHATSAPP ── */
+    .float-wa {
+      position: fixed; bottom: 28px; right: 28px; z-index: 300;
+      width: 60px; height: 60px; border-radius: 16px;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .float-wa:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(37,211,102,0.5); }
+    .float-wa .tooltip {
+      position: absolute; right: 72px; white-space: nowrap;
+      background: #1a1a2e; color: #fff; border: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px; font-weight: 500;
+      padding: 8px 16px; border-radius: 10px;
+      opacity: 0; transition: opacity 0.2s; pointer-events: none;
+    }
     .float-wa:hover .tooltip { opacity: 1; }
-    @keyframes float-pulse { 0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); } 50% { box-shadow: 0 4px 32px rgba(37,211,102,0.65); } }
-    footer { position: relative; z-index: 1; border-top: 2px solid var(--gold); background: #040810; padding: 24px; text-align: center; }
-    footer p { font-family: 'Rajdhani', sans-serif; font-size: 12px; letter-spacing: 3px; color: var(--text-muted); text-transform: uppercase; }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      background: rgba(4,8,16,0.9); padding: 32px 48px; text-align: center;
+    }
+    footer p {
+      font-size: 13px; color: var(--text-muted);
+    }
     footer span { color: var(--gold); }
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-stagger > * { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }    .reveal-stagger > * {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
     .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0s; }
     .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.15s; }
     .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.3s; }
     .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.45s; }
     .reveal-stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.6s; }
-    @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal-stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:0.75s; }
+    .reveal-stagger.visible > *:nth-child(7) { opacity:1; transform:none; transition-delay:0.9s; }
+    .reveal-stagger.visible > *:nth-child(8) { opacity:1; transform:none; transition-delay:1.05s; }
+
     noscript .reveal, noscript .reveal-stagger > * { opacity: 1; transform: none; }
   </style>
 </head>
 <body>
+
 <canvas id="neural-canvas"></canvas>
+
 <!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/5567998896149" target="_blank" rel="noopener noreferrer" class="float-wa" aria-label="WhatsApp">
+<a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="float-wa" aria-label="WhatsApp">
   <span class="tooltip" data-pt="Fale comigo" data-en="Talk to me">Fale comigo</span>
   <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
 </a>
+
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">NK <span>Smart</span></a>
-  <ul class="nav-links">
-    <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
-    <li><a href="#how" data-pt="Como Funciona" data-en="How It Works">Como Funciona</a></li>
-    <li><a href="#stack" data-pt="Stack" data-en="Stack">Stack</a></li>
-    <li><a href="#contact" data-pt="Contato" data-en="Contact">Contato</a></li>
-  </ul>
+  <a href="#hero" class="nav-logo">
+    <div class="logo-icon">SB</div>
+    <span>Smart</span> Business
+  </a>
+  <span class="nav-center" data-pt="Dados & IA Consultoria" data-en="Data & AI Consulting">Dados & IA Consultoria</span>
   <div class="nav-right">
     <button class="lang-btn active" onclick="setLang('pt')">PT</button>
     <button class="lang-btn" onclick="setLang('en')">EN</button>
-    <a href="https://wa.me/5567998896149" target="_blank" rel="noopener noreferrer" class="nav-cta" data-pt="Contato" data-en="Contact">Contato</a>
+    <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="nav-cta" data-pt="Contato" data-en="Contact">Contato</a>
   </div>
 </nav>
+
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-badge" data-pt="Data Engineer · Data Analyst" data-en="Data Engineer · Data Analyst">Data Engineer · Data Analyst</div>
-  <h1 class="hero-name">NK <span>Smart</span> Business</h1>
-  <p class="hero-sub">Nicolas Klein</p>
-  <div class="hero-divider"></div>
-  <p class="hero-tagline">
-    <span data-pt="Dados que " data-en="Data that ">Dados que </span><strong data-pt="decidem." data-en="decides.">decidem.</strong>
-    <br/>
-    <span data-pt="Automação que " data-en="Automation that ">Automação que </span><strong data-pt="transforma." data-en="transforms.">transforma.</strong>
-  </p>
+  <p class="hero-label" data-pt="Data Engineering · Data Analysis · <span>AI</span>" data-en="Data Engineering · Data Analysis · <span>AI</span>">Data Engineering · Data Analysis · <span>AI</span></p>
+  <h1 class="hero-title">
+    <span data-pt="Transformamos incerteza em" data-en="We turn uncertainty into">Transformamos incerteza em</span><br/>
+    <span class="accent" data-pt="inteligência" data-en="intelligence">inteligência</span>
+  </h1>
+  <p class="hero-subtitle" data-pt="Soluções em dados, engenharia e automação com IA para empresas que querem crescer com decisões inteligentes." data-en="Data solutions, engineering, and AI automation for companies that want to grow with intelligent decisions.">Soluções em dados, engenharia e automação com IA para empresas que querem crescer com decisões inteligentes.</p>
   <div class="hero-actions">
-    <a href="https://wa.me/5567998896149" target="_blank" rel="noopener noreferrer" class="cta-primary">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#000"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-      <span data-pt="Fale comigo agora" data-en="Talk to me now">Fale comigo agora</span>
+    <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-primary">
+      <span data-pt="Comece sua jornada" data-en="Start your journey">Comece sua jornada</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-    <a href="#services" class="cta-secondary" data-pt="Ver serviços" data-en="View services">Ver serviços</a>
-  </div>
-  <div class="tools-row">
-    <div class="tool-icon" title="GitHub"><svg width="22" height="22" viewBox="0 0 24 24" fill="#F5C518"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
-    <div class="tool-icon" title="Excel"><svg width="22" height="22" viewBox="0 0 24 24" fill="#F5C518"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8.5 19l1.5-2.5L11.5 19H13l-2.25-3.5L13 12h-1.5L10 14.5 8.5 12H7l2.25 3.5L7 19h1.5z"/></svg></div>
-    <div class="tool-icon" title="Power BI"><svg width="22" height="22" viewBox="0 0 24 24" fill="#F5C518"><rect x="2" y="12" width="4" height="10" rx="1"/><rect x="8" y="7" width="4" height="15" rx="1"/><rect x="14" y="3" width="4" height="19" rx="1"/><rect x="20" y="9" width="2" height="13" rx="1" opacity=".5"/></svg></div>
-    <div class="tool-icon" title="Python"><svg width="22" height="22" viewBox="0 0 24 24" fill="#F5C518"><path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.963 3.403 5.963h2.031V15.01s-.109-3.4 3.34-3.4h5.762s3.229.052 3.229-3.123V3.19S18.271 0 11.914 0zm-3.2 1.849a1.04 1.04 0 1 1 0 2.08 1.04 1.04 0 0 1 0-2.08z"/><path d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752H12V17.766h8.121S24 18.211 24 12.031c0-6.18-3.403-5.963-3.403-5.963h-2.031V8.99s.109 3.4-3.34 3.4H9.464S6.235 12.338 6.235 15.513v5.297S5.729 24 12.086 24zm3.2-1.849a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08z"/></svg></div>
-    <div class="tool-icon" title="SQL"><svg width="22" height="22" viewBox="0 0 24 24" fill="#F5C518"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v4c0 1.657 4.03 3 9 3s9-1.343 9-3V5"/><path d="M3 9v4c0 1.657 4.03 3 9 3s9-1.343 9-3V9"/><path d="M3 13v4c0 1.657 4.03 3 9 3s9-1.343 9-3v-4" opacity=".6"/></svg></div>
+    <a href="#services" class="btn-secondary" data-pt="Ver serviços" data-en="View services">Ver serviços</a>
   </div>
   <div class="scroll-hint">
     <div class="scroll-line"></div>
-    <span data-pt="scroll" data-en="scroll">scroll</span>
+    <span data-pt="Scroll down" data-en="Scroll down">Scroll down</span>
   </div>
 </section>
-<!-- SERVICES -->
+
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+  <div class="about-visual">
+    <div class="about-sphere">
+      <div class="sphere-icon">🧠</div>
+    </div>
+  </div>
+  <div class="about-content">
+    <p class="about-label" data-pt="Sobre nós" data-en="About us">Sobre nós</p>
+    <h2 class="about-title">
+      <span data-pt="Smart Business transforma incerteza em" data-en="Smart Business transforms uncertainty into">Smart Business transforma incerteza em</span>
+      <span class="accent" data-pt="vantagem inteligente" data-en="intelligent advantage">vantagem inteligente</span>
+    </h2>
+    <p class="about-text" data-pt="Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência acionável. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades." data-en="We combine strategic insight with deep technical expertise to turn complex data into actionable intelligence. We accelerate growth, reduce risk, and unlock new possibilities.">Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência acionável. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades.</p>
+    <a href="#services" class="about-link" data-pt="Saiba mais →" data-en="Learn more →">Saiba mais →</a>
+  </div>
+</section><!-- SERVICES -->
 <section class="services" id="services">
-  <p class="section-label reveal" data-pt="O que eu ofereço" data-en="What I offer">O que eu ofereço</p>
-  <h2 class="section-title reveal" data-pt="Serviços" data-en="Services">Serviços</h2>
-  <p class="section-desc reveal" data-pt="Soluções end-to-end em dados para empresas que querem crescer com inteligência." data-en="End-to-end data solutions for companies that want to grow intelligently.">Soluções end-to-end em dados para empresas que querem crescer com inteligência.</p>
+  <div class="section-header reveal">
+    <p class="section-label" data-pt="Serviços" data-en="Services">Serviços</p>
+    <h2 class="section-title" data-pt="O que oferecemos" data-en="What we offer">O que oferecemos</h2>
+    <p class="section-desc" data-pt="Soluções end-to-end em dados para empresas que querem crescer com inteligência." data-en="End-to-end data solutions for companies that want to grow intelligently.">Soluções end-to-end em dados para empresas que querem crescer com inteligência.</p>
+  </div>
   <div class="cards-grid reveal-stagger">
     <div class="card">
       <div class="card-icon">📊</div>
       <h3 class="card-title" data-pt="Análise de Dados" data-en="Data Analysis">Análise de Dados</h3>
-      <p class="card-text" data-pt="Transformo dados brutos em insights claros. Dashboards interativos, KPIs e relatórios que apoiam decisões rápidas e seguras." data-en="I turn raw data into clear insights. Interactive dashboards, KPIs, and reports that support fast, confident decisions.">Transformo dados brutos em insights claros. Dashboards interativos, KPIs e relatórios que apoiam decisões rápidas e seguras.</p>
+      <p class="card-text" data-pt="Transformamos dados brutos em insights claros. Dashboards interativos, KPIs e relatórios que apoiam decisões rápidas e seguras." data-en="We turn raw data into clear insights. Interactive dashboards, KPIs, and reports that support fast, confident decisions.">Transformamos dados brutos em insights claros. Dashboards interativos, KPIs e relatórios que apoiam decisões rápidas e seguras.</p>
       <div class="card-tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">KPIs</span><span class="tag">Dashboards</span></div>
     </div>
     <div class="card">
       <div class="card-icon">⚙️</div>
       <h3 class="card-title" data-pt="Engenharia de Dados" data-en="Data Engineering">Engenharia de Dados</h3>
-      <p class="card-text" data-pt="Estruturo pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório." data-en="I build pipelines and databases so your data flows with quality, speed, and reliability — from raw to report.">Estruturo pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório.</p>
+      <p class="card-text" data-pt="Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório." data-en="We build pipelines and databases so your data flows with quality, speed, and reliability — from raw to report.">Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório.</p>
       <div class="card-tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">ETL</span><span class="tag" data-pt="Banco de Dados" data-en="Database">Banco de Dados</span></div>
     </div>
     <div class="card">
       <div class="card-icon">🤖</div>
       <h3 class="card-title" data-pt="Automação com IA" data-en="AI Automation">Automação com IA</h3>
-      <p class="card-text" data-pt="Elimino tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos." data-en="I eliminate repetitive tasks with intelligent automations. Processes that used to take hours — done in seconds.">Elimino tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos.</p>
+      <p class="card-text" data-pt="Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos." data-en="We eliminate repetitive tasks with intelligent automations. Processes that used to take hours — done in seconds.">Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos.</p>
       <div class="card-tags"><span class="tag">Python</span><span class="tag" data-pt="IA" data-en="AI">IA</span><span class="tag" data-pt="Automação" data-en="Automation">Automação</span><span class="tag" data-pt="Planilhas" data-en="Spreadsheets">Planilhas</span></div>
     </div>
   </div>
 </section>
+
 <!-- HOW IT WORKS -->
 <section class="how" id="how">
-  <p class="section-label reveal" data-pt="Processo" data-en="Process">Processo</p>
-  <h2 class="section-title reveal" data-pt="Como Funciona" data-en="How It Works">Como Funciona</h2>
-  <p class="section-desc reveal" data-pt="Do diagnóstico à entrega, um processo claro e direto." data-en="From diagnosis to delivery, a clear and direct process.">Do diagnóstico à entrega, um processo claro e direto.</p>
+  <div class="section-header reveal">
+    <p class="section-label" data-pt="Processo" data-en="Process">Processo</p>
+    <h2 class="section-title" data-pt="Nossa abordagem em 3 fases" data-en="Our 3-phase approach">Nossa abordagem em 3 fases</h2>
+    <p class="section-desc" data-pt="Do diagnóstico à entrega, um processo claro e direto." data-en="From diagnosis to delivery, a clear and direct process.">Do diagnóstico à entrega, um processo claro e direto.</p>
+  </div>
   <div class="steps reveal-stagger">
     <div class="step">
       <div class="step-num">01</div>
       <div class="step-title" data-pt="Diagnóstico" data-en="Diagnosis">Diagnóstico</div>
-      <p class="step-desc" data-pt="Entendo os dados que você tem, os problemas que enfrenta e o resultado que precisa." data-en="I understand your data, the problems you face, and the result you need.">Entendo os dados que você tem, os problemas que enfrenta e o resultado que precisa.</p>
+      <p class="step-desc" data-pt="Entendemos os dados que você tem, os problemas que enfrenta e o resultado que precisa." data-en="We understand your data, the problems you face, and the result you need.">Entendemos os dados que você tem, os problemas que enfrenta e o resultado que precisa.</p>
     </div>
     <div class="step">
       <div class="step-num">02</div>
       <div class="step-title" data-pt="Desenvolvimento" data-en="Development">Desenvolvimento</div>
-      <p class="step-desc" data-pt="Construo a solução — pipeline, dashboard ou automação — com atualizações constantes." data-en="I build the solution — pipeline, dashboard, or automation — with constant updates.">Construo a solução — pipeline, dashboard ou automação — com atualizações constantes.</p>
+      <p class="step-desc" data-pt="Construímos a solução — pipeline, dashboard ou automação — com atualizações constantes." data-en="We build the solution — pipeline, dashboard, or automation — with constant updates.">Construímos a solução — pipeline, dashboard ou automação — com atualizações constantes.</p>
     </div>
     <div class="step">
       <div class="step-num">03</div>
       <div class="step-title" data-pt="Entrega" data-en="Delivery">Entrega</div>
-      <p class="step-desc" data-pt="Entrego pronto para usar, com documentação e suporte para garantir adoção real." data-en="Delivered ready to use, with documentation and support to ensure real adoption.">Entrego pronto para usar, com documentação e suporte para garantir adoção real.</p>
+      <p class="step-desc" data-pt="Entregamos pronto para usar, com documentação e suporte para garantir adoção real." data-en="Delivered ready to use, with documentation and support to ensure real adoption.">Entregamos pronto para usar, com documentação e suporte para garantir adoção real.</p>
     </div>
   </div>
 </section>
+
 <!-- WHY ME -->
 <section class="why" id="why">
-  <p class="section-label reveal" data-pt="Diferenciais" data-en="Why Me">Diferenciais</p>
-  <h2 class="section-title reveal" data-pt="Por que me contratar?" data-en="Why Hire Me?">Por que me contratar?</h2>
-  <p class="section-desc reveal" data-pt="Análise, engenharia e automação com IA — tudo numa solução integrada." data-en="Analysis, engineering, and AI automation — all in one integrated solution.">Análise, engenharia e automação com IA — tudo numa solução integrada.</p>
+  <div class="section-header reveal">
+    <p class="section-label" data-pt="Diferenciais" data-en="Why Us">Diferenciais</p>
+    <h2 class="section-title" data-pt="Por que a Smart Business?" data-en="Why Smart Business?">Por que a Smart Business?</h2>
+  </div>
   <div class="why-grid reveal-stagger">
     <div class="why-item">
       <div class="why-number">01</div>
@@ -334,31 +703,37 @@
       <p class="why-desc" data-pt="Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade." data-en="Market-leading tools combined with AI for maximum efficiency and scalability.">Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade.</p>
     </div>
   </div>
-</section>
-<!-- STACK -->
+</section><!-- STACK -->
 <section class="stack" id="stack">
-  <p class="section-label reveal" data-pt="Ferramentas" data-en="Tools">Ferramentas</p>
-  <h2 class="section-title reveal" data-pt="Stack Tecnológico" data-en="Tech Stack">Stack Tecnológico</h2>
-  <br/>
+  <div class="section-header reveal">
+    <p class="section-label" data-pt="Ferramentas" data-en="Tools">Ferramentas</p>
+    <h2 class="section-title" data-pt="Stack Tecnológico" data-en="Tech Stack">Stack Tecnológico</h2>
+  </div>
   <div class="stack-icons reveal-stagger">
     <div class="stack-item"><div class="icon-wrap"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F5C518"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div><span>GitHub</span></div>
     <div class="stack-item"><div class="icon-wrap"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F5C518"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8.5 19l1.5-2.5 1.5 2.5H13l-2.25-3.5L13 12h-1.5L10 14.5 8.5 12H7l2.25 3.5L7 19h1.5z"/></svg></div><span>Excel</span></div>
     <div class="stack-item"><div class="icon-wrap"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F5C518"><rect x="2" y="11" width="4" height="11" rx="1"/><rect x="8" y="6" width="4" height="16" rx="1"/><rect x="14" y="2" width="4" height="20" rx="1"/></svg></div><span>Power BI</span></div>
     <div class="stack-item"><div class="icon-wrap"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F5C518"><path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.963 3.403 5.963h2.031V15.01s-.109-3.4 3.34-3.4h5.762s3.229.052 3.229-3.123V3.19S18.271 0 11.914 0zm-3.2 1.849a1.04 1.04 0 1 1 0 2.08 1.04 1.04 0 0 1 0-2.08z"/><path d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752H12V17.766h8.121S24 18.211 24 12.031c0-6.18-3.403-5.963-3.403-5.963h-2.031V8.99s.109 3.4-3.34 3.4H9.464S6.235 12.338 6.235 15.513v5.297S5.729 24 12.086 24zm3.2-1.849a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08z"/></svg></div><span>Python</span></div>
     <div class="stack-item"><div class="icon-wrap"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F5C518"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v4c0 1.657 4.03 3 9 3s9-1.343 9-3V5"/><path d="M3 9v4c0 1.657 4.03 3 9 3s9-1.343 9-3V9"/><path d="M3 13v4c0 1.657 4.03 3 9 3s9-1.343 9-3v-4" opacity=".6"/></svg></div><span>SQL</span></div>
+    <div class="stack-item"><div class="icon-wrap"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F5C518"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1.27c.34-.6.99-1 1.73-1a2 2 0 0 1 0 4c-.74 0-1.39-.4-1.73-1H21a7 7 0 0 1-7 7v1.27c.6.34 1 .99 1 1.73a2 2 0 0 1-4 0c0-.74.4-1.39 1-1.73V17a7 7 0 0 1-7-7H3.73c-.34.6-.99 1-1.73 1a2 2 0 0 1 0-4c.74 0 1.39.4 1.73 1H5a7 7 0 0 1 7-7V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zm0 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg></div><span>IA</span></div>
+    <div class="stack-item"><div class="icon-wrap"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F5C518"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-1 8h2v1l2.5 4H8.5l2.5-4v-1zm-5 3.5A2.5 2.5 0 1 1 8.5 19 2.5 2.5 0 0 1 6 16.5zm12 0a2.5 2.5 0 1 1-2.5 2.5 2.5 2.5 0 0 1 2.5-2.5z"/></svg></div><span>Agents</span></div>
+    <div class="stack-item"><div class="icon-wrap"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F5C518"><path d="M7 5h2V3H7v2zm0 8h2v-2H7v2zm0 8h2v-2H7v2zm4-4h2v-2h-2v2zm0 4h2v-2h-2v2zm-8 0h2v-2H3v2zm0-4h2v-2H3v2zm0-4h2v-2H3v2zm0-4h2V7H3v2zm0-4h2V3H3v2zm8 8h2v-2h-2v2zm8 4h2v-2h-2v2zm0-4h2v-2h-2v2zm0 8h2v-2h-2v2zm0-12h2V7h-2v2zm-8 0h2V7h-2v2zm8-6v2h2V3h-2zm-8 2h2V3h-2v2zm4 16h2v-2h-2v2zm0-8h2v-2h-2v2zm0-8h2V3h-2v2z"/></svg></div><span>Skills</span></div>
   </div>
 </section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <p class="section-label reveal" data-pt="Contato" data-en="Contact">Contato</p>
-  <h2 class="section-title reveal" data-pt="Vamos Conversar?" data-en="Let's Talk?">Vamos Conversar?</h2>
+  <div class="section-header reveal">
+    <p class="section-label" data-pt="Contato" data-en="Contact">Contato</p>
+    <h2 class="section-title" data-pt="Vamos conversar?" data-en="Let's talk?">Vamos conversar?</h2>
+  </div>
   <div class="contact-card reveal">
     <p data-pt="Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto — sem compromisso." data-en="Ready to turn your company's data into a competitive advantage? Get in touch and let's discuss your project — no strings attached.">
       Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto — sem compromisso.
     </p>
-    <a href="https://wa.me/5567998896149" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#000"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-      <span data-pt="(67) 99889-6149 — WhatsApp" data-en="(67) 99889-6149 — WhatsApp">(67) 99889-6149 — WhatsApp</span>
+    <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      <span data-pt="(67) 99243-8271 — WhatsApp" data-en="(67) 99243-8271 — WhatsApp">(67) 99243-8271 — WhatsApp</span>
     </a>
     <div class="contact-links">
       <a href="mailto:nicolas_klein@hotmail.com" class="contact-link" rel="noopener">
@@ -372,81 +747,102 @@
     </div>
   </div>
 </section>
+
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 <span>NK Smart Business</span> · Nicolas Klein · <span data-pt="Todos os direitos reservados" data-en="All rights reserved">Todos os direitos reservados</span></p>
+  <p>© 2026 <span>Smart Business</span> · <span data-pt="Todos os direitos reservados" data-en="All rights reserved">Todos os direitos reservados</span></p>
 </footer>
-<noscript><style>.reveal,.reveal-stagger>*{opacity:1;transform:none}</style></noscript>
+
+<noscript>
+  <style>.reveal,.reveal-stagger>*{opacity:1;transform:none}</style>
+</noscript>
+
 <script>
+  // ── NEURAL CANVAS (FAST SYNAPSE) ──
   const canvas = document.getElementById('neural-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, nodes = [], mouse = { x: -999, y: -999 };
+
   function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+
   class Node {
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * W; this.y = Math.random() * H;
-      this.vx = (Math.random() - 0.5) * 0.06; this.vy = (Math.random() - 0.5) * 0.06;
-      this.r = Math.random() * 1.8 + 0.8; this.pulse = Math.random() * Math.PI * 2;
+      this.vx = (Math.random() - 0.5) * 0.1; this.vy = (Math.random() - 0.5) * 0.1;
+      this.r = Math.random() * 2 + 0.8; this.pulse = Math.random() * Math.PI * 2;
     }
     update() {
-      this.x += this.vx; this.y += this.vy; this.pulse += 0.004;
+      this.x += this.vx; this.y += this.vy; this.pulse += 0.005;
       if (this.x < 0 || this.x > W) this.vx *= -1;
       if (this.y < 0 || this.y > H) this.vy *= -1;
     }
     draw() {
       const g = Math.sin(this.pulse) * 0.5 + 0.5;
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r + g * 0.8, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(100,200,255,${0.35 + g * 0.45})`;
-      ctx.fill();
-    }
+      ctx.arc(this.x, this.y, this.r + g * 1, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(245,197,24,${0.3 + g * 0.5})`;
+      ctx.fill();    }
   }
+
   function init() {
-    const count = Math.min(Math.floor((W * H) / 13000), 85);
+    const count = Math.min(Math.floor((W * H) / 11000), 100);
     nodes = Array.from({ length: count }, () => new Node());
   }
+
   function draw() {
     ctx.clearRect(0, 0, W, H);
-    const maxDist = 155, mouseDist = 180;
+    const maxDist = 140, mouseDist = 200;
+
     for (let i = 0; i < nodes.length; i++) {
       nodes[i].update();
       const mdx = nodes[i].x - mouse.x, mdy = nodes[i].y - mouse.y;
       const md = Math.sqrt(mdx * mdx + mdy * mdy);
       if (md < mouseDist) {
-        const f = (1 - md / mouseDist) * 0.8;
+        const f = (1 - md / mouseDist) * 0.9;
         nodes[i].vx += (mdx / md) * f * 0.02;
         nodes[i].vy += (mdy / md) * f * 0.02;
       }
+
       for (let j = i + 1; j < nodes.length; j++) {
         const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
         const d = Math.sqrt(dx * dx + dy * dy);
         if (d < maxDist) {
-          const alpha = (1 - d / maxDist) * 0.22;
+          const alpha = (1 - d / maxDist) * 0.18;
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = `rgba(80,160,255,${alpha})`;
-          ctx.lineWidth = 0.7; ctx.stroke();
+          ctx.strokeStyle = `rgba(245,197,24,${alpha})`;
+          ctx.lineWidth = 0.6; ctx.stroke();
         }
       }
       nodes[i].draw();
     }
     requestAnimationFrame(draw);
   }
+
   window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
   window.addEventListener('resize', () => { resize(); init(); });
   resize(); init(); draw();
+
+  // ── SCROLL REVEAL ──
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.15 });
+
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+  // ── LANG TOGGLE ──
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
-    document.querySelectorAll('[data-' + lang + ']').forEach(el => { el.textContent = el.getAttribute('data-' + lang); });
+    document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (val.includes('<')) { el.innerHTML = val; } else { el.textContent = val; }
+    });
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
   }
+
   const savedLang = localStorage.getItem('lang');
   if (savedLang && savedLang !== 'pt') setLang(savedLang);
 </script>
