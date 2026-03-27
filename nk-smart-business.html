@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Business — Dados, Engenharia e Automação com IA</title>
-  <meta name="description" content="Smart Business — Data Engineer e Data Analyst. Transformo dados em decisões e automatizo processos com IA. Power BI, Python, SQL para empresas de qualquer segmento."/>
+  <title>Smart Business – Dados, Engenharia e Automação com IA</title>
+  <meta name="description" content="Smart Business – Data Engineer e Data Analyst. Transformo dados em decisões e automatizo processos com IA. Power BI, Python, SQL para empresas de qualquer segmento."/>
   <meta name="theme-color" content="#080d1a"/>
   <link rel="canonical" href="https://smartbusiness.ia.br/"/>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Smart Business — Dados & IA"/>
+  <meta property="og:title" content="Smart Business – Dados & IA"/>
   <meta property="og:description" content="Dados que decidem. Automação que transforma. Análise de Dados, Engenharia e Automação com IA para empresas."/>
   <meta property="og:url" content="https://smartbusiness.ia.br/"/>
 
@@ -46,7 +46,7 @@
       --navy-mid: #0c1221;
       --navy-card: rgba(12,18,33,0.92);
       --text: #e2e5ed;
-      --text-muted: #7a8499;
+      --text-muted: #c0c6d4;
       --border: rgba(245,197,24,0.10);
       --border-hover: rgba(245,197,24,0.35);
       --radius: 16px;
@@ -70,14 +70,15 @@
       will-change: transform;
     }
 
-    /* ── NAV ── */
+    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px;
       height: 72px;
-      background: rgba(8,13,26,0.85);      backdrop-filter: blur(20px);
+      background: rgba(8,13,26,0.85);
+      backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       transition: background 0.3s;
@@ -142,7 +143,7 @@
     /* SECTIONS */
     section { position: relative; z-index: 1; }
 
-    /* ── HERO ── */
+    /* ─── HERO ─── */
     .hero {
       min-height: 100vh; padding-top: 72px;
       display: flex; flex-direction: column;
@@ -156,7 +157,9 @@
       text-transform: uppercase; margin-bottom: 32px;
       animation: fadeUp 0.8s ease both;
     }
-    .hero-label span { color: var(--gold); }    .hero-title {
+    .hero-label span { color: var(--gold); }
+
+    .hero-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(40px, 8vw, 88px);
       font-weight: 700; letter-spacing: -0.03em;
@@ -227,14 +230,16 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── ABOUT (split layout) ── */
+    /* ─── ABOUT (split layout) ─── */
     .about {
       padding: 120px 48px;
       max-width: 1200px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 80px; align-items: center;
     }
-    @media (max-width: 768px) { .about { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; } }.about-visual {
+    @media (max-width: 768px) { .about { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; } }
+
+    .about-visual {
       position: relative;
       display: flex; align-items: center; justify-content: center;
     }
@@ -289,7 +294,7 @@
     }
     .about-link:hover { gap: 14px; }
 
-    /* ── SERVICES ── */
+    /* ─── SERVICES ─── */
     .services {
       padding: 120px 48px;
       max-width: 1200px; margin: 0 auto;
@@ -311,7 +316,9 @@
     .section-desc {
       color: var(--text-muted); font-size: 16px;
       max-width: 520px; line-height: 1.7;
-    }    .cards-grid {
+    }
+
+    .cards-grid {
       display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
@@ -350,7 +357,7 @@
       font-size: 20px; font-weight: 700; color: #fff;
       margin-bottom: 12px;
     }
-    .card-text { color: #c8cdd8; font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
+    .card-text { color: var(--text-muted); font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
     .card-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag {
       font-size: 12px; font-weight: 500;
@@ -359,7 +366,7 @@
       border-radius: 20px;
     }
 
-    /* ── HOW IT WORKS ── */
+    /* ─── HOW IT WORKS ─── */
     .how {
       padding: 120px 48px;
       max-width: 1200px; margin: 0 auto;
@@ -403,9 +410,9 @@
       font-size: 18px; font-weight: 700; color: #fff;
       margin-bottom: 10px;
     }
-    .step-desc { color: #c8cdd8; font-size: 14px; line-height: 1.7; }
+    .step-desc { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
 
-    /* ── WHY ME ── */
+    /* ─── WHY ME ─── */
     .why {
       padding: 120px 48px;
       max-width: 1200px; margin: 0 auto;
@@ -437,9 +444,9 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 10px;
     }
-    .why-desc { color: #c8cdd8; font-size: 14px; line-height: 1.7; }
+    .why-desc { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
 
-    /* ── STACK ── */
+    /* ─── STACK ─── */
     .stack {
       padding: 80px 48px 120px;
       max-width: 1200px; margin: 0 auto;
@@ -470,9 +477,10 @@
 
     .stack-item span {
       font-size: 12px; font-weight: 500;
-      color: var(--text-muted); letter-spacing: 1px;    }
+      color: var(--text-muted); letter-spacing: 1px;
+    }
 
-    /* ── CONTACT ── */
+    /* ─── CONTACT ─── */
     .contact {
       padding: 120px 48px 80px;
       max-width: 800px; margin: 0 auto;
@@ -515,7 +523,7 @@
     }
     .contact-link:hover { color: var(--gold); }
 
-    /* ── FLOATING WHATSAPP ── */
+    /* ─── FLOATING WHATSAPP ─── */
     .float-wa {
       position: fixed; bottom: 28px; right: 28px; z-index: 300;
       width: 60px; height: 60px; border-radius: 16px;
@@ -533,7 +541,7 @@
     }
     .float-wa:hover .tooltip { opacity: 1; }
 
-    /* ── FOOTER ── */
+    /* ─── FOOTER ─── */
     footer {
       position: relative; z-index: 1;
       border-top: 1px solid var(--border);
@@ -544,12 +552,14 @@
     }
     footer span { color: var(--gold); }
 
-    /* ── SCROLL ANIMATIONS ── */
+    /* ─── SCROLL ANIMATIONS ─── */
     .reveal {
       opacity: 0; transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }    .reveal-stagger > * {
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .reveal-stagger > * {
       opacity: 0; transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
@@ -626,7 +636,9 @@
     <p class="about-text" data-pt="Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência de negócio. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades." data-en="We combine strategic insight with deep technical expertise to turn complex data into business intelligence. We accelerate growth, reduce risk, and unlock new possibilities.">Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência de negócio. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades.</p>
     <a href="#services" class="about-link" data-pt="Saiba mais →" data-en="Learn more →">Saiba mais →</a>
   </div>
-</section><!-- SERVICES -->
+</section>
+
+<!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-header reveal">
     <p class="section-label" data-pt="Serviços" data-en="Services">Serviços</p>
@@ -643,13 +655,13 @@
     <div class="card">
       <div class="card-icon">⚙️</div>
       <h3 class="card-title" data-pt="Engenharia de Dados" data-en="Data Engineering">Engenharia de Dados</h3>
-      <p class="card-text" data-pt="Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório." data-en="We build pipelines and databases so your data flows with quality, speed, and reliability — from raw to report.">Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório.</p>
+      <p class="card-text" data-pt="Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade – do raw ao relatório." data-en="We build pipelines and databases so your data flows with quality, speed, and reliability – from raw to report.">Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade – do raw ao relatório.</p>
       <div class="card-tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">ETL</span><span class="tag" data-pt="Banco de Dados" data-en="Database">Banco de Dados</span></div>
     </div>
     <div class="card">
       <div class="card-icon">🤖</div>
       <h3 class="card-title" data-pt="Automação com IA" data-en="AI Automation">Automação com IA</h3>
-      <p class="card-text" data-pt="Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos." data-en="We eliminate repetitive tasks with intelligent automations. Processes that used to take hours — done in seconds.">Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos.</p>
+      <p class="card-text" data-pt="Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos." data-en="We eliminate repetitive tasks with intelligent automations. Processes that used to take hours – done in seconds.">Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos.</p>
       <div class="card-tags"><span class="tag">Python</span><span class="tag" data-pt="IA" data-en="AI">IA</span><span class="tag" data-pt="Automação" data-en="Automation">Automação</span><span class="tag" data-pt="Planilhas" data-en="Spreadsheets">Planilhas</span></div>
     </div>
     <div class="card">
@@ -677,7 +689,7 @@
     <div class="step">
       <div class="step-num">02</div>
       <div class="step-title" data-pt="Desenvolvimento" data-en="Development">Desenvolvimento</div>
-      <p class="step-desc" data-pt="Construímos a solução — pipeline, dashboard ou automação — com atualizações constantes." data-en="We build the solution — pipeline, dashboard, or automation — with constant updates.">Construímos a solução — pipeline, dashboard ou automação — com atualizações constantes.</p>
+      <p class="step-desc" data-pt="Construímos a solução – pipeline, dashboard ou automação – com atualizações constantes." data-en="We build the solution – pipeline, dashboard, or automation – with constant updates.">Construímos a solução – pipeline, dashboard ou automação – com atualizações constantes.</p>
     </div>
     <div class="step">
       <div class="step-num">03</div>
@@ -697,7 +709,7 @@
     <div class="why-item">
       <div class="why-number">01</div>
       <div class="why-label" data-pt="Solução Completa" data-en="Full Solution">Solução Completa</div>
-      <p class="why-desc" data-pt="Da coleta ao dashboard — sem precisar contratar múltiplos profissionais." data-en="From data collection to dashboard — no need to hire multiple professionals.">Da coleta ao dashboard — sem precisar contratar múltiplos profissionais.</p>
+      <p class="why-desc" data-pt="Da coleta ao dashboard – sem precisar contratar múltiplos profissionais." data-en="From data collection to dashboard – no need to hire multiple professionals.">Da coleta ao dashboard – sem precisar contratar múltiplos profissionais.</p>
     </div>
     <div class="why-item">
       <div class="why-number">02</div>
@@ -705,7 +717,8 @@
       <p class="why-desc" data-pt="Soluções práticas, objetivas e alinhadas com o que importa para o seu negócio." data-en="Practical, objective solutions aligned with what matters for your business.">Soluções práticas, objetivas e alinhadas com o que importa para o seu negócio.</p>
     </div>
     <div class="why-item">
-      <div class="why-number">03</div>      <div class="why-label" data-pt="Tecnologia Atual" data-en="Up-to-Date Tech">Tecnologia Atual</div>
+      <div class="why-number">03</div>
+      <div class="why-label" data-pt="Tecnologia Atual" data-en="Up-to-Date Tech">Tecnologia Atual</div>
       <p class="why-desc" data-pt="Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade." data-en="Market-leading tools combined with AI for maximum efficiency and scalability.">Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade.</p>
     </div>
   </div>
@@ -736,12 +749,12 @@
     <h2 class="section-title" data-pt="Vamos conversar?" data-en="Let's talk?">Vamos conversar?</h2>
   </div>
   <div class="contact-card reveal">
-    <p data-pt="Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto — sem compromisso." data-en="Ready to turn your company's data into a competitive advantage? Get in touch and let's discuss your project — no strings attached.">
-      Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto — sem compromisso.
+    <p data-pt="Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto – sem compromisso." data-en="Ready to turn your company's data into a competitive advantage? Get in touch and let's discuss your project – no strings attached.">
+      Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto – sem compromisso.
     </p>
     <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-      <span data-pt="(67) 99243-8271 — WhatsApp" data-en="(67) 99243-8271 — WhatsApp">(67) 99243-8271 — WhatsApp</span>
+      <span data-pt="(67) 99243-8271 – WhatsApp" data-en="(67) 99243-8271 – WhatsApp">(67) 99243-8271 – WhatsApp</span>
     </a>
     <div class="contact-links">
       <a href="mailto:data_ai@companysmart.onmicrosoft.com" class="contact-link" rel="noopener">
@@ -766,7 +779,7 @@
 </noscript>
 
 <script>
-  // ── NEURAL CANVAS (FAST SYNAPSE) ──
+  // ─── NEURAL CANVAS (FAST SYNAPSE) ───
   const canvas = document.getElementById('neural-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, nodes = [], mouse = { x: -999, y: -999 };
@@ -784,7 +797,8 @@
       this.vx *= 0.99; this.vy *= 0.99;
       this.x += this.vx; this.y += this.vy; this.pulse += 0.002;
       if (this.x < 0 || this.x > W) this.vx *= -1;
-      if (this.y < 0 || this.y > H) this.vy *= -1;    }
+      if (this.y < 0 || this.y > H) this.vy *= -1;
+    }
     draw() {
       const g = Math.sin(this.pulse) * 0.5 + 0.5;
       ctx.beginPath();
@@ -834,14 +848,14 @@
   window.addEventListener('resize', () => { resize(); init(); });
   resize(); init(); draw();
 
-  // ── SCROLL REVEAL ──
+  // ─── SCROLL REVEAL ───
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
 
-  // ── LANG TOGGLE ──
+  // ─── LANG TOGGLE ───
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
     document.querySelectorAll('[data-' + lang + ']').forEach(el => {
