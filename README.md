@@ -1,38 +1,58 @@
-# NK Smart Business — Landing Page
+# Smart Business — Landing Page
 
-**Nicolas Klein** · Data Engineer & Data Analyst  
-Site pessoal para prospecção de clientes corporativos em análise de dados, engenharia de dados e automação com IA.
+**Nicolas Klein** · Consultor em Dados & IA  
+Site institucional para prospecção B2B em análise de dados, engenharia de dados e automação com IA.
 
-## Sobre o projeto
+🔗 Produção: [smartbusiness.ia.br](https://smartbusiness.ia.br) (servido via GitHub Pages + CNAME)
 
-Landing page single-page, bilíngue (PT/EN), construída em HTML/CSS/JS puro — sem dependências externas além de Google Fonts.
+---
 
 ## Estrutura
 
 ```
 nk_page/
-├── nk-smart-business.html   # Landing page principal
-├── BRIEFING.md              # Briefing do projeto e orientações
-└── README.md                # Este arquivo
+├── index.html              # Landing page servida em smartbusiness.ia.br
+├── nk-smart-business.html  # Cópia sincronizada (link legado)
+├── assets/logo/            # Logos oficiais (PNG) — ver seção "Identidade Visual"
+├── CNAME                   # smartbusiness.ia.br
+├── BRIEFING.md             # Briefing original do projeto (23/03/2026)
+└── README.md               # Este arquivo
 ```
 
 ## Seções
 
 | Seção | Descrição |
 |---|---|
-| Hero | Nome, tagline bilíngue, stack de ferramentas, CTA WhatsApp |
-| Serviços | 3 cards: Análise de Dados, Engenharia de Dados, Automação com IA |
-| Diferenciais | 3 pilares: Solução Completa, Foco em Resultado, Tecnologia Atual |
-| Stack Tecnológico | GitHub, Excel, Power BI, Python, SQL |
+| Nav | Logo oficial Smart Business + toggle PT/EN + CTA WhatsApp |
+| Hero | Tagline bilíngue + animação de rede neural em canvas |
+| Serviços | Análise de Dados · Engenharia de Dados · Automação com IA |
+| Diferenciais | Solução Completa · Foco em Resultado · Tecnologia Atual |
+| Stack | GitHub, Excel, Power BI, Python, SQL |
 | Contato | WhatsApp, e-mail, LinkedIn |
 
-## Design
+## Identidade Visual
 
-- **Paleta:** Navy profundo `#080d1a` + dourado `#F5C518`
-- **Tipografia:** Rajdhani (títulos) + Inter (corpo)
+A marca recebeu identidade visual oficial em **16/04/2026**. Assets em `assets/logo/`:
+
+| Arquivo | Uso |
+|---|---|
+| `symbol-gold.png` | Favicon, nav icon, apple-touch-icon |
+| `symbol-white.png` | Alternativa para fundos escuros não-dourados |
+| `symbol-navy.png` | Versão institucional para materiais em fundo claro |
+| `logomark-gold-side.png` | Header horizontal (fundo escuro) |
+| `logomark-white-side.png` | Header horizontal alternativo |
+| `logomark-gold-stacked.png` | Open Graph (1200×630 aprox) + apresentações |
+
+**Brand guide completo** (paleta, tipografia, regras de uso):  
+`OneDrive - NK SMART BUSINESS/SMART_BUSINESS/VISUAL/BRAND_GUIDE.md`
+
+## Design tokens
+
+- **Paleta:** Navy profundo `#080d1a` (bg) · Navy institucional `#0F2A6B` · Gold `#F5C518` (CTA/accent)
+- **Tipografia:** `Inter` (corpo) + `Space Grotesk` (display)
 - **Animação:** Rede neural em Canvas — partículas conectadas por sinapses
 - **Responsivo:** Mobile-first, grid adaptável
-- **Idiomas:** Toggle PT | EN no topo direito
+- **i18n:** Toggle PT/EN via `data-pt` / `data-en`
 
 ## Tagline
 
@@ -41,6 +61,11 @@ nk_page/
 
 ## Contato
 
-- WhatsApp: (67) 99889-6149
-- E-mail: nicolas_klein@hotmail.com
+- WhatsApp: +55 67 99243-8271 (link direto `wa.me`)
+- E-mail: contato@smartbusiness.ia.br
 - LinkedIn: [nicolaskleincg](https://www.linkedin.com/in/nicolaskleincg/)
+- Instagram: [@smartbusiness_cg](https://instagram.com/smartbusiness_cg)
+
+## Deploy
+
+GitHub Pages a partir da branch `main` (root). Mudanças em `main` publicam automaticamente em [smartbusiness.ia.br](https://smartbusiness.ia.br).

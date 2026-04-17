@@ -14,8 +14,15 @@
   <meta property="og:description" content="Dados que decidem. Automação que transforma. Análise de Dados, Engenharia e Automação com IA para empresas."/>
   <meta property="og:url" content="https://smartbusiness.ia.br/"/>
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23080d1a'/><text y='68' font-size='50' x='15' fill='%23F5C518' font-family='sans-serif' font-weight='bold'>SB</text></svg>"/>
+  <!-- Favicon & icons -->
+  <link rel="icon" type="image/png" href="/assets/logo/symbol-gold.png"/>
+  <link rel="apple-touch-icon" href="/assets/logo/symbol-gold.png"/>
+
+  <!-- Open Graph image -->
+  <meta property="og:image" content="https://smartbusiness.ia.br/assets/logo/logomark-gold-stacked.png"/>
+  <meta property="og:image:alt" content="Smart Business — Consultoria em Dados, Engenharia e Automação com IA"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://smartbusiness.ia.br/assets/logo/logomark-gold-stacked.png"/>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -91,11 +98,14 @@
       display: flex; align-items: center; gap: 10px;
     }
     .nav-logo .logo-icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: var(--gold);
+      width: 40px; height: 40px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 14px; font-weight: 700; color: var(--navy);
-      letter-spacing: 0;
+      flex-shrink: 0;
+    }
+    .nav-logo .logo-icon img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      display: block;
     }
     .nav-logo span { color: var(--gold); }
 
@@ -577,8 +587,10 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">
-    <div class="logo-icon">SB</div>
+  <a href="#hero" class="nav-logo" aria-label="Smart Business — página inicial">
+    <div class="logo-icon">
+      <img src="/assets/logo/symbol-gold.png" alt="Smart Business" width="40" height="40" decoding="async"/>
+    </div>
     <span>Smart</span> Business
   </a>
   <span class="nav-center" data-pt="Dados & IA Consultoria" data-en="Data & AI Consulting">Dados & IA Consultoria</span>

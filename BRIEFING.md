@@ -1,20 +1,23 @@
-# BRIEFING — NK Smart Business Landing Page
+# BRIEFING — Smart Business Landing Page
 
-Data: 23/03/2026  
-Projeto: Landing page pessoal para prospecção B2B
+Data inicial: 23/03/2026  
+Atualização identidade visual: 17/04/2026 — logo oficial integrada  
+Projeto: Landing page institucional para prospecção B2B
 
 ---
 
-## Identidade Visual (referência)
+## Identidade Visual oficial (17/04/2026)
 
-Extraída das artes fornecidas pelo cliente:
+Logo oficial aplicada em `assets/logo/`. Brand guide canônico em:
+`OneDrive - NK SMART BUSINESS/SMART_BUSINESS/VISUAL/BRAND_GUIDE.md`
 
-- **Fundo:** Navy profundo com padrão de rede neural / sinapses
-- **Cor de destaque:** Dourado/amarelo `#F5C518`
-- **Tipografia:** Espaçada, uppercase — estilo técnico/corporativo
+- **Símbolo:** Cérebro central + rede de nós em 2 órbitas concêntricas (BI + automação + escalabilidade)
+- **Nome da marca:** Smart Business (anteriormente "NK Smart Business")
+- **Paleta:** Navy `#080d1a` (bg), Navy institucional `#0F2A6B`, Gold `#F5C518` (CTA/accent)
+- **Tipografia web:** Inter (corpo) + Space Grotesk (display)
+- **Tipografia da logomarca:** Itálico bold geométrico (fornecido como PNG)
 - **Ferramentas exibidas:** GitHub, Excel, Power BI, Python, SQL
-- **Nome da marca:** NK Smart Business
-- **Subtítulo:** Data Engineer — Data Analyst
+- **Subtítulo:** Data Engineer · Data Analyst · AI Automation
 
 ---
 
@@ -72,8 +75,9 @@ Stack: Python, IA, Automação, Planilhas.
 
 ---
 
-## Contato do cliente
+## Contato atual (em produção)
 
-- WhatsApp: (67) 99889-6149
-- E-mail: nicolas_klein@hotmail.com
+- WhatsApp: +55 67 99243-8271
+- E-mail: contato@smartbusiness.ia.br
 - LinkedIn: https://www.linkedin.com/in/nicolaskleincg/
+- Instagram: @smartbusiness_cg
