@@ -15,14 +15,14 @@
   <meta property="og:url" content="https://smartbusiness.ia.br/"/>
 
   <!-- Favicon & icons -->
-  <link rel="icon" type="image/png" href="/assets/logo/symbol-gold.png"/>
-  <link rel="apple-touch-icon" href="/assets/logo/symbol-gold.png"/>
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/symbol-navy.svg"/>
+  <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon-dual.png"/>
 
   <!-- Open Graph image -->
-  <meta property="og:image" content="https://smartbusiness.ia.br/assets/logo/logomark-gold-stacked.png"/>
+  <meta property="og:image" content="https://smartbusiness.ia.br/assets/logo/logomark-dual-stacked.png"/>
   <meta property="og:image:alt" content="Smart Business — Consultoria em Dados, Engenharia e Automação com IA"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://smartbusiness.ia.br/assets/logo/logomark-gold-stacked.png"/>
+  <meta name="twitter:image" content="https://smartbusiness.ia.br/assets/logo/logomark-dual-stacked.png"/>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -93,7 +93,7 @@
     .nav-logo {
       display: flex; align-items: center;
       text-decoration: none;
-      height: 40px;
+      height: 60px;
     }
     .nav-logo img {
       height: 100%; width: auto;
@@ -494,7 +494,7 @@
       display: flex; flex-direction: column; align-items: center; gap: 24px;
     }
     .brand-signature img {
-      max-width: 360px; width: 100%; height: auto; display: block;
+      max-width: 520px; width: 100%; height: auto; display: block;
       filter: drop-shadow(0 8px 32px rgba(245,197,24,0.15));
     }
     .brand-signature .brand-tagline {
@@ -510,7 +510,7 @@
     }
     @media (max-width: 768px) {
       .brand-signature { padding: 60px 24px; }
-      .brand-signature img { max-width: 260px; }
+      .brand-signature img { max-width: 360px; }
     }
 
     /* ── CONTACT ── */
@@ -604,6 +604,66 @@
     .reveal-stagger.visible > *:nth-child(8) { opacity:1; transform:none; transition-delay:1.05s; }
 
     noscript .reveal, noscript .reveal-stagger > * { opacity: 1; transform: none; }
+
+    /* ===== FAQ ===== */
+    .faq {
+      padding: 100px 48px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .faq-list {
+      display: flex; flex-direction: column; gap: 12px;
+      margin-top: 32px;
+    }
+    .faq-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(245,197,24,0.12);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .faq-item[open] {
+      border-color: rgba(245,197,24,0.35);
+      background: rgba(245,197,24,0.04);
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 20px 24px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(15px, 1.6vw, 17px);
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      letter-spacing: -0.01em;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+";
+      font-size: 24px;
+      color: var(--gold);
+      font-weight: 300;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      line-height: 1;
+    }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-item .faq-answer {
+      padding: 0 24px 22px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #fff;
+    }
+    .faq-item .faq-answer b { color: var(--gold); font-weight: 600; }
+    @media (max-width: 768px) {
+      .faq { padding: 60px 24px; }
+      .faq-item summary { padding: 16px 18px; font-size: 14.5px; }
+      .faq-item .faq-answer { padding: 0 18px 18px; font-size: 14px; }
+    }
   </style>
 </head>
 <body>
@@ -619,7 +679,7 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo" aria-label="Smart Business — página inicial">
-    <img src="/assets/logo/logomark-gold-side.png" alt="Smart Business" decoding="async"/>
+    <img src="/assets/logo/logomark-dual-side.svg" alt="Smart Business" decoding="async"/>
   </a>
   <span class="nav-center" data-pt="Consultoria Dados & IA" data-en="Data & AI Consulting">Consultoria Dados & IA</span>
   <div class="nav-right">
@@ -635,10 +695,10 @@
   <h1 class="hero-title">
     <span data-pt="A saúde real do seu negócio, sem " data-en="The real health of your business, no ">A saúde real do seu negócio, sem </span><span class="accent" data-pt="achismo" data-en="guesswork">achismo</span>
   </h1>
-  <p class="hero-subtitle" data-pt="Dados, IA e automação para você decidir com clareza — e voltar a usar seu tempo no que realmente importa." data-en="Data, AI, and automation to help you decide with clarity — and reclaim your time for what truly matters.">Dados, IA e automação para você decidir com clareza — e voltar a usar seu tempo no que realmente importa.</p>
+  <p class="hero-subtitle" data-pt="A sua empresa gera dado todo dia. Mas a decisão ainda depende de intuição, de quem foi mais rápido na planilha. Entrego a infraestrutura de dados, automação e IA que te dá visão completa da operação — para a liderança usar o tempo no que realmente move o negócio." data-en="Your company generates data every day. But decisions still depend on gut feel and on whoever was fastest with the spreadsheet. I deliver the data, automation, and AI infrastructure that gives you full visibility of the operation — so leadership can spend time on what actually moves the business.">A sua empresa gera dado todo dia. Mas a decisão ainda depende de intuição, de quem foi mais rápido na planilha. Entrego a infraestrutura de dados, automação e IA que te dá visão completa da operação — para a liderança usar o tempo no que realmente move o negócio.</p>
   <div class="hero-actions">
     <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-primary">
-      <span data-pt="Comece sua jornada" data-en="Start your journey">Comece sua jornada</span>
+      <span data-pt="Agendar conversa" data-en="Schedule a call">Agendar conversa</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
     <a href="#services" class="btn-secondary" data-pt="Ver serviços" data-en="View services">Ver serviços</a>
@@ -652,41 +712,41 @@
 <!-- PAINS (dor do empresário) -->
 <section class="pains reveal" id="pains">
   <div class="section-header">
-    <p class="section-label" data-pt="Por que a gente existe" data-en="Why we exist">Por que a gente existe</p>
+    <p class="section-label" data-pt="Cenários que resolvemos" data-en="Scenarios we solve">Cenários que resolvemos</p>
     <h2 class="section-title">
-      <span data-pt="Seu tempo não deveria ser gasto " data-en="Your time shouldn't be spent ">Seu tempo não deveria ser gasto </span><span class="accent" data-pt="fechando planilha" data-en="closing spreadsheets">fechando planilha</span>
+      <span data-pt="Operação manual custa " data-en="Manual operations cost ">Operação manual custa </span><span class="accent" data-pt="mais do que parece" data-en="more than you think">mais do que parece</span>
     </h2>
-    <p class="section-desc" data-pt="Se algum desses cenários soa familiar, a gente já pode ajudar." data-en="If any of these scenarios sound familiar, we can help.">Se algum desses cenários soa familiar, a gente já pode ajudar.</p>
+    <p class="section-desc" data-pt="Se a sua operação convive com um destes cenários, há ganho imediato em resolvê-los." data-en="If your operation lives with any of these scenarios, there's an immediate gain in resolving them.">Se a sua operação convive com um destes cenários, há ganho imediato em resolvê-los.</p>
   </div>
   <div class="pain-grid reveal-stagger">
     <div class="pain">
-      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <h3 data-pt="Fechamento que consome dias" data-en="Closings that take days">Fechamento que consome dias</h3>
-      <p data-pt="Três dias de Excel todo mês só pra fechar o DRE." data-en="Three days of Excel every month just to close the P&amp;L.">Três dias de Excel todo mês só pra fechar o DRE.</p>
+      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 00-.586-1.414L12 12l-4.414 4.414A2 2 0 007 17.828V22"/><path d="M7 2v4.172a2 2 0 00.586 1.414L12 12l4.414-4.414A2 2 0 0017 6.172V2"/></svg></div>
+      <h3 data-pt="Horas de liderança no operacional" data-en="Leadership hours stuck in operations">Horas de liderança no operacional</h3>
+      <p data-pt="Gestores e times travados em planilha, copy-paste e conferência manual — todo mês, todo trimestre, todo ano." data-en="Managers and teams stuck in spreadsheets, copy-paste, and manual reconciliation — every month, every quarter, every year.">Gestores e times travados em planilha, copy-paste e conferência manual — todo mês, todo trimestre, todo ano.</p>
     </div>
     <div class="pain">
-      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <h3 data-pt="Relatório sempre atrasado" data-en="Reports always late">Relatório sempre atrasado</h3>
-      <p data-pt="Os números chegam quando a decisão já foi tomada." data-en="The numbers arrive when the decision has already been made.">Os números chegam quando a decisão já foi tomada.</p>
+      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/><path d="M21 4l-2 2"/><path d="M3 4l2 2"/></svg></div>
+      <h3 data-pt="Decisão tomada sem dado atualizado" data-en="Decisions made without fresh data">Decisão tomada sem dado atualizado</h3>
+      <p data-pt="O número chega depois que a decisão já foi tomada. Reagir substitui planejar." data-en="The number arrives after the decision is made. Reacting replaces planning.">O número chega depois que a decisão já foi tomada. Reagir substitui planejar.</p>
     </div>
     <div class="pain">
-      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></div>
-      <h3 data-pt="Cada área com um número" data-en="Each team with a different number">Cada área com um número</h3>
-      <p data-pt="Dashboards, planilhas e áreas mostrando valores diferentes." data-en="Dashboards, spreadsheets, and teams showing different values.">Dashboards, planilhas e áreas mostrando valores diferentes.</p>
+      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div>
+      <h3 data-pt="Versões divergentes do mesmo número" data-en="Diverging versions of the same number">Versões divergentes do mesmo número</h3>
+      <p data-pt="Cada área apresenta o seu — e a reunião começa discutindo qual está certo, não o que fazer." data-en="Each area presents its own — and meetings start debating which one is right, instead of what to do.">Cada área apresenta o seu — e a reunião começa discutindo qual está certo, não o que fazer.</p>
     </div>
     <div class="pain">
-      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-      <h3 data-pt="KPI sem origem" data-en="KPI with no source">KPI sem origem</h3>
-      <p data-pt="Indicadores que ninguém sabe de onde vêm nem como recalcular." data-en="Metrics no one knows the source of, nor how to recalculate.">Indicadores que ninguém sabe de onde vêm nem como recalcular.</p>
+      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/><line x1="11" y1="8" x2="11" y2="11"/><line x1="11" y1="13.5" x2="11.01" y2="13.5"/></svg></div>
+      <h3 data-pt="Indicadores sem rastreabilidade" data-en="Metrics without traceability">Indicadores sem rastreabilidade</h3>
+      <p data-pt="KPIs e relatórios cuja origem ninguém sabe reconstituir — e que por isso não sustentam decisão crítica." data-en="KPIs and reports whose source no one can trace — and that therefore can't support critical decisions.">KPIs e relatórios cuja origem ninguém sabe reconstituir — e que por isso não sustentam decisão crítica.</p>
     </div>
   </div>
   <div class="pain-cta reveal">
     <p>
-      <span data-pt="Deixe o operacional com a máquina. " data-en="Let the machine handle the operational. ">Deixe o operacional com a máquina. </span>
-      <strong data-pt="O estratégico é seu." data-en="Strategy is yours.">O estratégico é seu.</strong>
+      <span data-pt="O operacional é da máquina. " data-en="Operations belong to the machine. ">O operacional é da máquina. </span>
+      <strong data-pt="O estratégico é da liderança." data-en="Strategy belongs to leadership.">O estratégico é da liderança.</strong>
     </p>
     <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-primary">
-      <span data-pt="Quero automatizar isso" data-en="I want to automate this">Quero automatizar isso</span>
+      <span data-pt="Agendar reunião" data-en="Schedule a meeting">Agendar reunião</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
@@ -700,12 +760,12 @@
     </div>
   </div>
   <div class="about-content">
-    <p class="about-label" data-pt="Sobre nós" data-en="About us">Sobre nós</p>
+    <p class="about-label" data-pt="A Smart Business" data-en="About Smart Business">A Smart Business</p>
     <h2 class="about-title">
-      <span data-pt="Smart Business transforma incerteza em" data-en="Smart Business transforms uncertainty into">Smart Business transforma incerteza em</span>
-      <span class="accent" data-pt="vantagem inteligente" data-en="intelligent advantage">vantagem inteligente</span>
+      <span data-pt="Dado, automação e IA aplicados a" data-en="Data, automation, and AI applied to">Dado, automação e IA aplicados a</span>
+      <span class="accent" data-pt="qualquer operação" data-en="any operation">qualquer operação</span>
     </h2>
-    <p class="about-text" data-pt="Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência de negócio. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades." data-en="We combine strategic insight with deep technical expertise to turn complex data into business intelligence. We accelerate growth, reduce risk, and unlock new possibilities.">Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência de negócio. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades.</p>
+    <p class="about-text" data-pt="A Smart Business atende empresas que decidiram que a operação manual já cobrou o seu preço — em horas de liderança, em decisão atrasada, em margem perdida. Entregamos infraestrutura de dados, automação e IA aplicada a qualquer área do negócio: financeiro, operações, comercial, marketing, RH. O método é o mesmo. O resultado é a liderança com a operação inteira em uma tela e tempo livre para o estratégico." data-en="Smart Business serves companies that decided manual operations have already cost them enough — in leadership hours, late decisions, lost margin. We deliver data infrastructure, automation, and AI applied to any area of the business: finance, operations, sales, marketing, HR. The method is the same. The result is leadership with the full operation on one screen and time freed up for strategy.">A Smart Business atende empresas que decidiram que a operação manual já cobrou o seu preço — em horas de liderança, em decisão atrasada, em margem perdida. Entregamos infraestrutura de dados, automação e IA aplicada a qualquer área do negócio: financeiro, operações, comercial, marketing, RH. O método é o mesmo. O resultado é a liderança com a operação inteira em uma tela e tempo livre para o estratégico.</p>
     <a href="#services" class="about-link" data-pt="Saiba mais →" data-en="Learn more →">Saiba mais →</a>
   </div>
 </section><!-- SERVICES -->
@@ -796,17 +856,17 @@
   <div class="why-grid reveal-stagger">
     <div class="why-item">
       <div class="why-number">01</div>
-      <div class="why-label" data-pt="Solução Completa" data-en="Full Solution">Solução Completa</div>
-      <p class="why-desc" data-pt="Da coleta ao dashboard — sem precisar contratar múltiplos profissionais." data-en="From data collection to dashboard — no need to hire multiple professionals.">Da coleta ao dashboard — sem precisar contratar múltiplos profissionais.</p>
+      <div class="why-label" data-pt="Pipeline em produção" data-en="Pipeline in production">Pipeline em produção</div>
+      <p class="why-desc" data-pt="O que entrego roda todo mês na operação do cliente — não é prova de conceito que para no slide." data-en="What I deliver runs every month in the client's operation — not a proof of concept that dies in a slide.">O que entrego roda todo mês na operação do cliente — não é prova de conceito que para no slide.</p>
     </div>
     <div class="why-item">
       <div class="why-number">02</div>
-      <div class="why-label" data-pt="Foco em Resultado" data-en="Results-Driven">Foco em Resultado</div>
-      <p class="why-desc" data-pt="Soluções práticas, objetivas e alinhadas com o que importa para o seu negócio." data-en="Practical, objective solutions aligned with what matters for your business.">Soluções práticas, objetivas e alinhadas com o que importa para o seu negócio.</p>
+      <div class="why-label" data-pt="Interlocução técnica direta" data-en="Direct technical interlocution">Interlocução técnica direta</div>
+      <p class="why-desc" data-pt="A liderança conversa com quem entende e executa. Sem camada comercial intermediando, sem account manager repassando dor." data-en="Leadership speaks with those who understand and execute. No commercial layer in the middle, no account manager relaying the pain.">A liderança conversa com quem entende e executa. Sem camada comercial intermediando, sem account manager repassando dor.</p>
     </div>
     <div class="why-item">
-      <div class="why-number">03</div>      <div class="why-label" data-pt="Tecnologia Atual" data-en="Up-to-Date Tech">Tecnologia Atual</div>
-      <p class="why-desc" data-pt="Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade." data-en="Market-leading tools combined with AI for maximum efficiency and scalability.">Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade.</p>
+      <div class="why-number">03</div>      <div class="why-label" data-pt="Solução fim-a-fim" data-en="End-to-end solution">Solução fim-a-fim</div>
+      <p class="why-desc" data-pt="Da coleta no sistema do cliente ao dashboard que o gestor abre. Sem terceirizar pedaço, sem buracos no pipeline." data-en="From the data source to the dashboard the manager opens. Nothing outsourced in the middle, no gaps in the pipeline.">Da coleta no sistema do cliente ao dashboard que o gestor abre. Sem terceirizar pedaço, sem buracos no pipeline.</p>
     </div>
   </div>
 </section>
@@ -850,12 +910,12 @@
     </div>
 
     <div class="stack-col">
-      <span class="finance-highlight" data-pt="Setor financeiro" data-en="Financial sector">Setor financeiro</span>
+      <span class="finance-highlight" data-pt="Caso em destaque" data-en="Featured case">Caso em destaque</span>
       <h3>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        <span data-pt="Experiência aplicada à gestão financeira" data-en="Experience applied to financial management">Experiência aplicada à gestão financeira</span>
+        <span data-pt="Onde tenho mais histórico: gestão financeira" data-en="Where I have most history: financial management">Onde tenho mais histórico: gestão financeira</span>
       </h3>
-      <p class="sub" data-pt="Atendemos mais de 10 unidades ativas consolidando DRE, faturamento e indicadores de saúde financeira todo mês." data-en="We serve 10+ active units consolidating P&amp;L, revenue, and financial health indicators every month.">Atendemos mais de 10 unidades ativas consolidando DRE, faturamento e indicadores de saúde financeira todo mês.</p>
+      <p class="sub" data-pt="Mais de 10 unidades ativas com DRE consolidado, faturamento e indicadores rodando todo mês. É um exemplo do tipo de pipeline que entrego — o mesmo método se aplica a operações, vendas, marketing, RH ou qualquer outra área." data-en="10+ active units with consolidated P&amp;L, revenue, and indicators running every month. It's an example of the kind of pipeline I deliver — the same method applies to operations, sales, marketing, HR, or any other area.">Mais de 10 unidades ativas com DRE consolidado, faturamento e indicadores rodando todo mês. É um exemplo do tipo de pipeline que entrego — o mesmo método se aplica a operações, vendas, marketing, RH ou qualquer outra área.</p>
       <ul class="expertise-list">
         <li data-pt="DRE consolidado mensal por unidade e grupo" data-en="Monthly consolidated P&amp;L by unit and group">DRE consolidado mensal por unidade e grupo</li>
         <li data-pt="Painéis de faturamento, margem e centro de custo" data-en="Revenue, margin, and cost center dashboards">Painéis de faturamento, margem e centro de custo</li>
@@ -867,10 +927,63 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-header reveal">
+    <p class="section-label" data-pt="Dúvidas frequentes" data-en="FAQ">Dúvidas frequentes</p>
+    <h2 class="section-title" data-pt="Antes de me chamar" data-en="Before reaching out">Antes de me chamar</h2>
+  </div>
+  <div class="faq-list reveal">
+
+    <details class="faq-item">
+      <summary data-pt="Quanto tempo até a primeira entrega rodando?" data-en="How long until the first delivery is running?">Quanto tempo até a primeira entrega rodando?</summary>
+      <div class="faq-answer" data-pt="Depende do escopo. Um <b>relatório ou automação pontual</b> sai em dias a poucas semanas. Um <b>pipeline completo</b> com várias entregas é quebrado em sprints — você vê valor todo mês, não só no fim do projeto. O prazo real é definido no diagnóstico." data-en="Depends on scope. A <b>standalone report or automation</b> ships in days to a few weeks. A <b>full pipeline</b> with multiple deliveries is broken into sprints — you see value every month, not only at the end. The real timeline is defined in the diagnosis.">
+        Depende do escopo. Um <b>relatório ou automação pontual</b> sai em dias a poucas semanas. Um <b>pipeline completo</b> com várias entregas é quebrado em sprints — você vê valor todo mês, não só no fim do projeto. O prazo real é definido no diagnóstico.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="Como funciona o investimento?" data-en="How does pricing work?">Como funciona o investimento?</summary>
+      <div class="faq-answer" data-pt="Três formatos: <b>projeto pontual</b> (escopo fechado, valor fixo), <b>retainer mensal</b> (manutenção e evolução contínua) e <b>hora técnica</b> (para demandas específicas). O formato e o valor são definidos no diagnóstico, depois de entender o tamanho da operação e o resultado esperado." data-en="Three formats: <b>fixed-scope project</b> (closed scope, fixed price), <b>monthly retainer</b> (maintenance and continuous evolution), and <b>technical hours</b> (for specific demands). Format and price are defined in the diagnosis, after understanding operation size and expected outcome.">
+        Três formatos: <b>projeto pontual</b> (escopo fechado, valor fixo), <b>retainer mensal</b> (manutenção e evolução contínua) e <b>hora técnica</b> (para demandas específicas). O formato e o valor são definidos no diagnóstico, depois de entender o tamanho da operação e o resultado esperado.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="De quem são os dados e o código que você desenvolve?" data-en="Who owns the data and code you develop?">De quem são os dados e o código que você desenvolve?</summary>
+      <div class="faq-answer" data-pt="Os dados são <b>sempre seus</b>. O código de pipelines, dashboards e automações entregues no projeto fica na sua infraestrutura ou em ambiente seu — você não fica refém. Documentação técnica entregue junto. Em retainer mensal, mantenho a operação rodando, mas a propriedade não é minha." data-en="Data is <b>always yours</b>. The pipeline, dashboard, and automation code delivered stays on your infrastructure or environment — you're not locked in. Technical documentation included. Under monthly retainer, I keep operations running, but ownership is not mine.">
+        Os dados são <b>sempre seus</b>. O código de pipelines, dashboards e automações entregues no projeto fica na sua infraestrutura ou em ambiente seu — você não fica refém. Documentação técnica entregue junto. Em retainer mensal, mantenho a operação rodando, mas a propriedade não é minha.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="Atende empresas de qualquer tamanho? E qualquer área?" data-en="Do you serve any company size? Any area?">Atende empresas de qualquer tamanho? E qualquer área?</summary>
+      <div class="faq-answer" data-pt="<b>Sim.</b> Atendo de empresas em crescimento a grupos consolidados com múltiplas unidades. O escopo é dimensionado pela operação — alguns clientes começam com uma frente específica e expandem; outros já entram com um sistema completo de dados. <b>E em qualquer área:</b> financeiro, operações, comercial, marketing, RH, atendimento. O método de coletar, estruturar, analisar e automatizar é o mesmo em todas." data-en="<b>Yes.</b> I serve growing companies and consolidated groups with multiple units. Scope is sized by the operation — some clients start with a specific front and expand; others go straight to a full data system. <b>And in any area:</b> finance, operations, sales, marketing, HR, customer service. The method of collecting, structuring, analyzing, and automating is the same across them.">
+        <b>Sim.</b> Atendo de empresas em crescimento a grupos consolidados com múltiplas unidades. O escopo é dimensionado pela operação — alguns clientes começam com uma frente específica e expandem; outros já entram com um sistema completo de dados. <b>E em qualquer área:</b> financeiro, operações, comercial, marketing, RH, atendimento. O método de coletar, estruturar, analisar e automatizar é o mesmo em todas.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="Como funciona o atendimento e a estrutura do time?" data-en="How does the engagement and team structure work?">Como funciona o atendimento e a estrutura do time?</summary>
+      <div class="faq-answer" data-pt="Time <b>técnico enxuto e dedicado</b>. A liderança do seu lado conversa diretamente com quem entende e executa o projeto — sem camada comercial intermediando. Em escopos maiores, contamos com uma rede de parceiros pontuais (design, desenvolvimento, infraestrutura) que entram com escopo definido e saem." data-en="A <b>lean, dedicated technical team</b>. Your leadership talks directly to those who understand and execute the project — no commercial layer in the middle. For larger scopes, we rely on a network of focused partners (design, development, infrastructure) who join with defined scope and leave.">
+        Time <b>técnico enxuto e dedicado</b>. A liderança do seu lado conversa diretamente com quem entende e executa o projeto — sem camada comercial intermediando. Em escopos maiores, contamos com uma rede de parceiros pontuais (design, desenvolvimento, infraestrutura) que entram com escopo definido e saem.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="E se a minha ferramenta não tiver integração?" data-en="What if my tool has no integration?">E se a minha ferramenta não tiver integração?</summary>
+      <div class="faq-answer" data-pt="Já integrei pipelines com <b>ERPs próprios, SaaS de mercado, sistemas bancários, planilhas Google e Excel, APIs REST e CRMs</b>. Quando não há integração nativa, construo uma. Coleta manual periódica também é automatizada com RPA + IA quando necessário — o objetivo é tirar o humano do meio." data-en="I've integrated pipelines with <b>custom ERPs, market SaaS, banking systems, Google/Excel sheets, REST APIs, and CRMs</b>. When native integration doesn't exist, I build one. Periodic manual collection is also automated with RPA + AI when needed — the goal is to remove the human from the middle.">
+        Já integrei pipelines com <b>ERPs próprios, SaaS de mercado, sistemas bancários, planilhas Google e Excel, APIs REST e CRMs</b>. Quando não há integração nativa, construo uma. Coleta manual periódica também é automatizada com RPA + IA quando necessário — o objetivo é tirar o humano do meio.
+      </div>
+    </details>
+
+  </div>
+</section>
+
 <!-- BRAND SIGNATURE -->
 <section class="brand-signature reveal">
   <div class="brand-signature-inner">
-    <img src="assets/logo/logomark-gold-stacked.png" alt="Smart Business — Dados & IA"/>
+    <img src="assets/logo/logomark-dual-side.svg" alt="Smart Business — Dados & IA"/>
     <div class="brand-divider"></div>
     <p class="brand-tagline" data-pt="Sua empresa merece clareza. <b>Dados, IA e automação</b> para decisões sem achismo." data-en="Your business deserves clarity. <b>Data, AI, and automation</b> for decisions without guesswork.">
       Sua empresa merece clareza. <b>Dados, IA e automação</b> para decisões sem achismo.
@@ -882,11 +995,11 @@
 <section class="contact" id="contact">
   <div class="section-header reveal">
     <p class="section-label" data-pt="Contato" data-en="Contact">Contato</p>
-    <h2 class="section-title" data-pt="Vamos conversar?" data-en="Let's talk?">Vamos conversar?</h2>
+    <h2 class="section-title" data-pt="Reunião de alinhamento inicial" data-en="Initial alignment meeting">Reunião de alinhamento inicial</h2>
   </div>
   <div class="contact-card reveal">
-    <p data-pt="Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto — sem compromisso." data-en="Ready to turn your company's data into a competitive advantage? Get in touch and let's discuss your project — no strings attached.">
-      Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto — sem compromisso.
+    <p data-pt="Fale com a Smart Business por WhatsApp, e-mail ou LinkedIn. Agendamos uma reunião para <b>mapear a sua operação atual</b>, entender o resultado esperado e desenhar o plano de entrega." data-en="Reach Smart Business by WhatsApp, email, or LinkedIn. We'll book a meeting to <b>map your current operation</b>, understand the expected outcome, and draft the delivery plan.">
+      Fale com a Smart Business por WhatsApp, e-mail ou LinkedIn. Agendamos uma reunião para <b>mapear a sua operação atual</b>, entender o resultado esperado e desenhar o plano de entrega.
     </p>
     <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
