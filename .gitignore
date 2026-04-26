@@ -1,0 +1,7 @@
+*.backup
+*.bak
+.DS_Store
+Thumbs.db
+
+# Brand assets WIP — vivem no OneDrive privado, NUNCA commitar (repo é publico)
+_tmp-social/

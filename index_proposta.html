@@ -19,10 +19,12 @@
   <link rel="apple-touch-icon" href="/assets/logo/symbol-gold.png"/>
 
   <!-- Open Graph image -->
-  <meta property="og:image" content="https://smartbusiness.ia.br/assets/logo/logomark-gold-stacked.png"/>
-  <meta property="og:image:alt" content="Smart Business — Consultoria em Dados, Engenharia e Automação com IA"/>
+  <meta property="og:image" content="https://smartbusiness.ia.br/assets/social/og-cover.png"/>
+  <meta property="og:image:width" content="1584"/>
+  <meta property="og:image:height" content="396"/>
+  <meta property="og:image:alt" content="Smart Business — A visão completa da sua empresa. Decisão sem achismo."/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://smartbusiness.ia.br/assets/logo/logomark-gold-stacked.png"/>
+  <meta name="twitter:image" content="https://smartbusiness.ia.br/assets/social/og-cover.png"/>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -624,11 +626,7 @@
     /* ── FOOTER ── */
     footer {
       position: relative; z-index: 1;
-      border-top: 1px solid var(--border);
-      background: rgba(4,8,16,0.9); padding: 32px 48px; text-align: center;
-    }
-    footer p {
-      font-size: 13px; color: var(--text-muted);
+      background: rgba(4,8,16,0.6);
     }
     footer span { color: var(--gold); }
 
@@ -651,6 +649,161 @@
     .reveal-stagger.visible > *:nth-child(8) { opacity:1; transform:none; transition-delay:1.05s; }
 
     noscript .reveal, noscript .reveal-stagger > * { opacity: 1; transform: none; }
+
+    /* ── BANDA DE PROVA SOCIAL (hero) ── */
+    .hero-proof {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap;
+      margin-top: 56px; padding: 18px 28px;
+      border-top: 1px solid rgba(245,197,24,0.18);
+      border-bottom: 1px solid rgba(245,197,24,0.18);
+      max-width: 980px;
+      animation: fadeUp 0.8s 0.7s ease both;
+    }
+    .proof-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .proof-item .num {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 22px; color: var(--gold); letter-spacing: .2px;
+    }
+    .proof-item .lbl {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text); opacity: .75; font-weight: 500;
+    }
+    .proof-sep {
+      width: 1px; height: 28px; background: rgba(245,197,24,0.25);
+    }
+    @media (max-width: 720px) {
+      .hero-proof { gap: 14px; padding: 14px 16px; margin-top: 40px; }
+      .proof-sep { display: none; }
+      .proof-item .num { font-size: 18px; }
+      .proof-item .lbl { font-size: 10px; }
+    }
+
+    /* ── NAV LINKS (menu) ── */
+    nav .nav-links {
+      display: flex; gap: 28px; list-style: none; align-items: center;
+    }
+    nav .nav-links a {
+      font-family: 'Inter', sans-serif; font-size: 14px;
+      font-weight: 500; color: var(--text); text-decoration: none;
+      letter-spacing: .2px; transition: color .2s;
+    }
+    nav .nav-links a:hover { color: var(--gold); }
+    @media (max-width: 980px) {
+      nav .nav-links { display: none; }
+    }
+
+    /* ── CASES ── */
+    .cases { padding: 120px 48px; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 768px) { .cases { padding: 80px 24px; } }
+    .cases .section-header { text-align: center; margin-bottom: 56px; }
+    .cases .section-desc { margin: 0 auto; }
+    .cases-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) { .cases-grid { grid-template-columns: 1fr; } }
+    .case-card {
+      background: var(--navy-card); border: 1px solid rgba(245,197,24,0.18);
+      border-radius: var(--radius); padding: 36px 32px;
+      backdrop-filter: blur(12px); transition: border-color .2s, transform .2s;
+      position: relative; overflow: hidden;
+    }
+    .case-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+    .case-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; color: var(--gold); background: var(--gold-dim);
+      padding: 4px 10px; border-radius: 20px; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .case-headline {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: clamp(20px, 2vw, 24px); color: #fff;
+      line-height: 1.3; margin-bottom: 16px;
+    }
+    .case-headline .num {
+      color: var(--gold); font-size: clamp(28px, 3vw, 38px);
+      display: block; margin-top: 6px;
+    }
+    .case-text {
+      color: var(--text); font-size: 15px; line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .case-meta {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .case-meta .chip {
+      font-size: 11px; font-weight: 600; color: var(--text);
+      padding: 4px 10px; border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    /* ── FAQ ── */
+    .faq { padding: 100px 48px; max-width: 880px; margin: 0 auto; }
+    @media (max-width: 768px) { .faq { padding: 60px 24px; } }
+    .faq .section-header { text-align: center; margin-bottom: 40px; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--navy-card); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      transition: border-color .2s;
+    }
+    .faq-item[open] { border-color: var(--border-hover); }
+    .faq-item summary {
+      list-style: none; cursor: pointer;
+      padding: 22px 28px; font-family: 'Inter', sans-serif;
+      font-weight: 600; font-size: 16px; color: #fff;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; color: var(--gold); font-size: 22px; font-weight: 400;
+      transition: transform .2s;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body {
+      padding: 0 28px 24px; color: var(--text);
+      font-size: 15px; line-height: 1.65;
+    }
+
+    /* ── FOOTER expandido ── */
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto; padding: 60px 48px 30px;
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; padding: 40px 24px; gap: 28px; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-col h4 {
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      font-size: 13px; color: var(--gold); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 18px;
+    }
+    .footer-col a, .footer-col p {
+      display: block; color: var(--text); text-decoration: none;
+      font-size: 14px; line-height: 1.7; opacity: .85; transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--gold); opacity: 1; }
+    .footer-brand-min { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .footer-brand-min svg { width: 32px; height: 32px; color: var(--gold); }
+    .footer-brand-min .name { font-weight: 800; color: var(--gold); font-size: 17px; letter-spacing: .5px; }
+    .footer-tagline { font-size: 13px; opacity: .75; line-height: 1.6; }
+    .footer-socials { display: flex; gap: 10px; margin-top: 16px; }
+    .footer-socials a {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--gold-dim); border: 1px solid rgba(245,197,24,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+    }
+    .footer-socials a:hover { background: var(--gold); color: var(--navy); }
+    .footer-socials svg { width: 16px; height: 16px; }
+
+    /* respeitar prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      #neural-canvas { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -691,11 +844,17 @@
       <span class="business">BUSINESS</span>
     </span>
   </a>
-  <span class="nav-center" data-pt="Consultoria Dados & IA" data-en="Data & AI Consulting">Consultoria Dados & IA</span>
+  <ul class="nav-links">
+    <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
+    <li><a href="#how" data-pt="Como funciona" data-en="How it works">Como funciona</a></li>
+    <li><a href="#cases" data-pt="Cases" data-en="Cases">Cases</a></li>
+    <li><a href="#stack" data-pt="Stack" data-en="Stack">Stack</a></li>
+    <li><a href="#contact" data-pt="Contato" data-en="Contact">Contato</a></li>
+  </ul>
   <div class="nav-right">
     <button class="lang-btn active" onclick="setLang('pt')">PT</button>
     <button class="lang-btn" onclick="setLang('en')">EN</button>
-    <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="nav-cta" data-pt="Contato" data-en="Contact">Contato</a>
+    <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="nav-cta" data-pt="Falar agora" data-en="Talk now">Falar agora</a>
   </div>
 </nav>
 
@@ -703,16 +862,29 @@
 <section class="hero" id="hero">
   <p class="hero-label" data-pt="Engenharia de Dados · Análise de Dados · <span>IA</span>" data-en="Data Engineering · Data Analysis · <span>AI</span>">Engenharia de Dados · Análise de Dados · <span>IA</span></p>
   <h1 class="hero-title">
-    <span data-pt="A saúde real do seu negócio, sem " data-en="The real health of your business, no ">A saúde real do seu negócio, sem </span><span class="accent" data-pt="achismo" data-en="guesswork">achismo</span>
+    <span data-pt="A visão completa da sua empresa." data-en="The complete view of your business.">A visão completa da sua empresa.</span><br/>
+    <span class="accent" data-pt="Decisão sem achismo." data-en="Decisions without guesswork.">Decisão sem achismo.</span>
   </h1>
-  <p class="hero-subtitle" data-pt="Dados, IA e automação para você decidir com clareza — e voltar a usar seu tempo no que realmente importa." data-en="Data, AI, and automation to help you decide with clarity — and reclaim your time for what truly matters.">Dados, IA e automação para você decidir com clareza — e voltar a usar seu tempo no que realmente importa.</p>
+  <p class="hero-subtitle" data-pt="Pipelines, dashboards e IA aplicada — para você fechar o mês em <b>horas, não dias</b>." data-en="Pipelines, dashboards, and applied AI — close your month in <b>hours, not days</b>.">Pipelines, dashboards e IA aplicada — para você fechar o mês em <b>horas, não dias</b>.</p>
   <div class="hero-actions">
     <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-primary">
-      <span data-pt="Comece sua jornada" data-en="Start your journey">Comece sua jornada</span>
+      <span data-pt="Diagnóstico grátis (15 min)" data-en="Free diagnosis (15 min)">Diagnóstico grátis (15 min)</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-    <a href="#services" class="btn-secondary" data-pt="Ver serviços" data-en="View services">Ver serviços</a>
+    <a href="#cases" class="btn-secondary" data-pt="Ver cases reais →" data-en="See real cases →">Ver cases reais →</a>
   </div>
+
+  <!-- BANDA DE PROVA SOCIAL -->
+  <div class="hero-proof" aria-label="Prova social">
+    <div class="proof-item"><span class="num">10+</span><span class="lbl" data-pt="unidades ativas" data-en="active units">unidades ativas</span></div>
+    <span class="proof-sep"></span>
+    <div class="proof-item"><span class="num">100%</span><span class="lbl" data-pt="retenção mensal" data-en="monthly retention">retenção mensal</span></div>
+    <span class="proof-sep"></span>
+    <div class="proof-item"><span class="num">3 dias → 4h</span><span class="lbl" data-pt="fechamento financeiro" data-en="financial closing">fechamento financeiro</span></div>
+    <span class="proof-sep"></span>
+    <div class="proof-item"><span class="num">GCP · Azure</span><span class="lbl" data-pt="cloud nativo" data-en="cloud native">cloud nativo</span></div>
+  </div>
+
   <div class="scroll-hint">
     <div class="scroll-line"></div>
     <span data-pt="Scroll down" data-en="Scroll down">Scroll down</span>
@@ -791,13 +963,13 @@
     </div>
   </div>
   <div class="about-content">
-    <p class="about-label" data-pt="Sobre nós" data-en="About us">Sobre nós</p>
+    <p class="about-label" data-pt="Sobre" data-en="About">Sobre</p>
     <h2 class="about-title">
-      <span data-pt="Smart Business transforma incerteza em" data-en="Smart Business transforms uncertainty into">Smart Business transforma incerteza em</span>
-      <span class="accent" data-pt="vantagem inteligente" data-en="intelligent advantage">vantagem inteligente</span>
+      <span data-pt="Não somos agência. Somos" data-en="Not an agency. We are">Não somos agência. Somos</span>
+      <span class="accent" data-pt="engenheiros de dados." data-en="data engineers.">engenheiros de dados.</span>
     </h2>
-    <p class="about-text" data-pt="Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência de negócio. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades." data-en="We combine strategic insight with deep technical expertise to turn complex data into business intelligence. We accelerate growth, reduce risk, and unlock new possibilities.">Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência de negócio. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades.</p>
-    <a href="#services" class="about-link" data-pt="Saiba mais →" data-en="Learn more →">Saiba mais →</a>
+    <p class="about-text" data-pt="Rodamos pipelines em produção todo dia, em GCP e Azure. O que entregamos vira <b>ativo da sua empresa</b> — código documentado, dashboards versionados, automações que continuam funcionando depois que a gente sai. Sem dependência de fornecedor." data-en="We run pipelines in production every day on GCP and Azure. What we deliver becomes <b>your company's asset</b> — documented code, versioned dashboards, automations that keep working after we leave. No vendor lock-in.">Rodamos pipelines em produção todo dia, em GCP e Azure. O que entregamos vira <b>ativo da sua empresa</b> — código documentado, dashboards versionados, automações que continuam funcionando depois que a gente sai. Sem dependência de fornecedor.</p>
+    <a href="#cases" class="about-link" data-pt="Ver casos reais →" data-en="See real cases →">Ver casos reais →</a>
   </div>
 </section><!-- SERVICES -->
 <section class="services" id="services">
@@ -808,28 +980,36 @@
   </div>
   <div class="cards-grid reveal-stagger">
     <div class="card">
-      <div class="card-icon">📊</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="13" width="3" height="5"/><rect x="12" y="9" width="3" height="9"/><rect x="17" y="5" width="3" height="13"/></svg>
+      </div>
       <h3 class="card-title" data-pt="Análise de Dados" data-en="Data Analysis">Análise de Dados</h3>
-      <p class="card-text" data-pt="Transformamos dados brutos em insights claros. Dashboards interativos, KPIs e relatórios que apoiam decisões rápidas e seguras." data-en="We turn raw data into clear insights. Interactive dashboards, KPIs, and reports that support fast, confident decisions.">Transformamos dados brutos em insights claros. Dashboards interativos, KPIs e relatórios que apoiam decisões rápidas e seguras.</p>
-      <div class="card-tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">KPIs</span><span class="tag">Dashboards</span></div>
+      <p class="card-text" data-pt="Dashboards executivos, KPIs e relatórios que cabem na palma da mão. Decisão em segundos, não em reuniões de 1h." data-en="Executive dashboards, KPIs, and reports in the palm of your hand. Decisions in seconds, not 1-hour meetings.">Dashboards executivos, KPIs e relatórios que cabem na palma da mão. Decisão em segundos, não em reuniões de 1h.</p>
+      <div class="card-tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">KPIs</span><span class="tag">Dashboards</span></div>
     </div>
     <div class="card">
-      <div class="card-icon">⚙️</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/></svg>
+      </div>
       <h3 class="card-title" data-pt="Engenharia de Dados" data-en="Data Engineering">Engenharia de Dados</h3>
-      <p class="card-text" data-pt="Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório." data-en="We build pipelines and databases so your data flows with quality, speed, and reliability — from raw to report.">Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório.</p>
-      <div class="card-tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">ETL</span><span class="tag" data-pt="Banco de Dados" data-en="Database">Banco de Dados</span></div>
+      <p class="card-text" data-pt="Pipelines, ETL e modelagem de dados rodando em GCP/Azure. Do raw ao Power BI sem planilha no meio." data-en="Pipelines, ETL, and data modeling running on GCP/Azure. From raw to Power BI without a spreadsheet in between.">Pipelines, ETL e modelagem de dados rodando em GCP/Azure. Do raw ao Power BI sem planilha no meio.</p>
+      <div class="card-tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">BigQuery</span><span class="tag">PySpark</span></div>
     </div>
     <div class="card">
-      <div class="card-icon">🤖</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="10" r="1.2" fill="currentColor"/><circle cx="15" cy="10" r="1.2" fill="currentColor"/><path d="M9 15c1 1 2 1.5 3 1.5s2-.5 3-1.5"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="2" y1="14" x2="4" y2="14"/><line x1="20" y1="14" x2="22" y2="14"/></svg>
+      </div>
       <h3 class="card-title" data-pt="Automação com IA" data-en="AI Automation">Automação com IA</h3>
-      <p class="card-text" data-pt="Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos." data-en="We eliminate repetitive tasks with intelligent automations. Processes that used to take hours — done in seconds.">Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos.</p>
-      <div class="card-tags"><span class="tag">Python</span><span class="tag" data-pt="IA" data-en="AI">IA</span><span class="tag" data-pt="Automação" data-en="Automation">Automação</span><span class="tag" data-pt="Planilhas" data-en="Spreadsheets">Planilhas</span></div>
+      <p class="card-text" data-pt="Processos que sugavam horas viram código que roda sozinho. Conciliação, alertas, geração de relatório — sem tocar planilha." data-en="Hour-draining processes become self-running code. Reconciliation, alerts, report generation — no spreadsheet involved.">Processos que sugavam horas viram código que roda sozinho. Conciliação, alertas, geração de relatório — sem tocar planilha.</p>
+      <div class="card-tags"><span class="tag">Python</span><span class="tag">n8n</span><span class="tag">Claude / GPT</span><span class="tag" data-pt="WhatsApp Bot" data-en="WhatsApp Bot">WhatsApp Bot</span></div>
     </div>
     <div class="card">
-      <div class="card-icon">🎨</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1.5" fill="currentColor"/><circle cx="17.5" cy="10.5" r="1.5" fill="currentColor"/><circle cx="8.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="6.5" cy="12.5" r="1.5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1.4 0 2-.7 2-1.5 0-.4-.2-.8-.5-1.1-.3-.3-.5-.7-.5-1.1 0-.8.7-1.5 1.5-1.5H17c2.8 0 5-2.2 5-5 0-5-4.5-9-10-9z"/></svg>
+      </div>
       <h3 class="card-title" data-pt="Landing Pages & Identidade Visual" data-en="Landing Pages & Visual Identity">Landing Pages & Identidade Visual</h3>
-      <p class="card-text" data-pt="Criamos landing pages profissionais e identidade visual alinhada à sua marca. Paleta de cores, tipografia e design que transmitem credibilidade e convertem visitantes em clientes." data-en="We create professional landing pages and brand-aligned visual identity. Color palette, typography, and design that convey credibility and convert visitors into customers.">Criamos landing pages profissionais e identidade visual alinhada à sua marca. Paleta de cores, tipografia e design que transmitem credibilidade e convertem visitantes em clientes.</p>
-      <div class="card-tags"><span class="tag">Landing Page</span><span class="tag">Design</span><span class="tag" data-pt="Paleta de Cores" data-en="Color Palette">Paleta de Cores</span><span class="tag">Branding</span></div>
+      <p class="card-text" data-pt="Página que converte e identidade que vende sozinha. Logo, paleta, banners, social media — tudo coerente, tudo profissional." data-en="A page that converts and an identity that sells itself. Logo, palette, banners, social media — coherent and professional.">Página que converte e identidade que vende sozinha. Logo, paleta, banners, social media — tudo coerente, tudo profissional.</p>
+      <div class="card-tags"><span class="tag">Landing Page</span><span class="tag">Branding</span><span class="tag">SEO</span><span class="tag">Social Media</span></div>
     </div>
   </div>
 </section>
@@ -887,17 +1067,53 @@
   <div class="why-grid reveal-stagger">
     <div class="why-item">
       <div class="why-number">01</div>
-      <div class="why-label" data-pt="Solução Completa" data-en="Full Solution">Solução Completa</div>
-      <p class="why-desc" data-pt="Da coleta ao dashboard — sem precisar contratar múltiplos profissionais." data-en="From data collection to dashboard — no need to hire multiple professionals.">Da coleta ao dashboard — sem precisar contratar múltiplos profissionais.</p>
+      <div class="why-label" data-pt="Você fala com quem constrói" data-en="You talk to who builds">Você fala com quem constrói</div>
+      <p class="why-desc" data-pt="Sem camada comercial intermediária. O engenheiro que escreve seu código é o mesmo que entende seu negócio." data-en="No commercial intermediary. The engineer writing your code is the same who understands your business.">Sem camada comercial intermediária. O engenheiro que escreve seu código é o mesmo que entende seu negócio.</p>
     </div>
     <div class="why-item">
       <div class="why-number">02</div>
-      <div class="why-label" data-pt="Foco em Resultado" data-en="Results-Driven">Foco em Resultado</div>
-      <p class="why-desc" data-pt="Soluções práticas, objetivas e alinhadas com o que importa para o seu negócio." data-en="Practical, objective solutions aligned with what matters for your business.">Soluções práticas, objetivas e alinhadas com o que importa para o seu negócio.</p>
+      <div class="why-label" data-pt="Stack validada em produção" data-en="Production-tested stack">Stack validada em produção</div>
+      <p class="why-desc" data-pt="GCP, Azure, BigQuery, Power BI — não é lista de LinkedIn, é o que roda no pipeline dos clientes hoje." data-en="GCP, Azure, BigQuery, Power BI — not a LinkedIn list, it's what runs in client pipelines today.">GCP, Azure, BigQuery, Power BI — não é lista de LinkedIn, é o que roda no pipeline dos clientes hoje.</p>
     </div>
     <div class="why-item">
-      <div class="why-number">03</div>      <div class="why-label" data-pt="Tecnologia Atual" data-en="Up-to-Date Tech">Tecnologia Atual</div>
-      <p class="why-desc" data-pt="Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade." data-en="Market-leading tools combined with AI for maximum efficiency and scalability.">Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade.</p>
+      <div class="why-number">03</div>
+      <div class="why-label" data-pt="Especialistas em dados financeiros" data-en="Specialists in financial data">Especialistas em dados financeiros</div>
+      <p class="why-desc" data-pt="DRE consolidado, conciliação bancária, centro de custo, painel de margem — vertical em que somos referência." data-en="Consolidated P&L, bank reconciliation, cost centers, margin dashboards — a vertical where we're the reference.">DRE consolidado, conciliação bancária, centro de custo, painel de margem — vertical em que somos referência.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases reveal" id="cases">
+  <div class="section-header">
+    <p class="section-label" data-pt="Cases" data-en="Cases">Cases</p>
+    <h2 class="section-title">
+      <span data-pt="Resultados " data-en="Real, ">Resultados </span><span class="accent" data-pt="reais, mensuráveis." data-en="measurable results.">reais, mensuráveis.</span>
+    </h2>
+    <p class="section-desc" data-pt="Cases anônimos por NDA. Os números, esses são reais." data-en="Cases anonymized under NDA. The numbers, those are real.">Cases anônimos por NDA. Os números, esses são reais.</p>
+  </div>
+  <div class="cases-grid reveal-stagger">
+    <div class="case-card">
+      <span class="case-tag" data-pt="Setor financeiro · Rede de clínicas" data-en="Finance · Clinic chain">Setor financeiro · Rede de clínicas</span>
+      <div class="case-headline">
+        <span data-pt="Fechamento mensal de" data-en="Monthly closing from">Fechamento mensal de</span>
+        <span class="num">3 dias → 4 horas</span>
+      </div>
+      <p class="case-text" data-pt="Pipeline conectando Clinicorp + bancos + planilhas em um DRE consolidado. Gestor abre o painel todo dia 1 — sem ninguém precisar fechar planilha." data-en="Pipeline connecting Clinicorp + banks + spreadsheets into a consolidated P&L. Manager opens the dashboard on the 1st — no one needs to close spreadsheets.">Pipeline conectando Clinicorp + bancos + planilhas em um DRE consolidado. Gestor abre o painel todo dia 1 — sem ninguém precisar fechar planilha.</p>
+      <div class="case-meta">
+        <span class="chip">BigQuery</span><span class="chip">Power BI</span><span class="chip">Python</span><span class="chip">10+ unidades</span>
+      </div>
+    </div>
+    <div class="case-card">
+      <span class="case-tag" data-pt="Operação · Indústria" data-en="Operations · Industry">Operação · Indústria</span>
+      <div class="case-headline">
+        <span data-pt="4 fontes de dados em" data-en="4 data sources into">4 fontes de dados em</span>
+        <span class="num">1 dashboard único</span>
+      </div>
+      <p class="case-text" data-pt="ERP + planilhas + sistema legado + WhatsApp consolidados em painel único de saúde da operação. Gestão deixou de discutir 'qual número tá certo' e voltou a discutir o negócio." data-en="ERP + spreadsheets + legacy system + WhatsApp consolidated in a single operations health panel. The team stopped arguing 'which number is right' and went back to discussing the business.">ERP + planilhas + sistema legado + WhatsApp consolidados em painel único de saúde da operação. Gestão deixou de discutir "qual número tá certo" e voltou a discutir o negócio.</p>
+      <div class="case-meta">
+        <span class="chip">Azure</span><span class="chip">SQL Server</span><span class="chip">Power BI</span><span class="chip">n8n</span>
+      </div>
     </div>
   </div>
 </section>
@@ -994,6 +1210,40 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq reveal" id="faq">
+  <div class="section-header">
+    <p class="section-label" data-pt="Perguntas frequentes" data-en="FAQ">Perguntas frequentes</p>
+    <h2 class="section-title" data-pt="Tudo que perguntam antes de fechar." data-en="Everything they ask before closing.">Tudo que perguntam antes de fechar.</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary data-pt="Quanto custa um projeto?" data-en="How much does a project cost?">Quanto custa um projeto?</summary>
+      <div class="faq-body" data-pt="Depende do escopo. Diagnóstico inicial é grátis (15 min). A partir daí trabalhamos com escopo fechado por entrega ou retainer mensal. Sem surpresas." data-en="Depends on scope. Initial diagnosis is free (15 min). From there we work with fixed-scope per deliverable or monthly retainer. No surprises.">Depende do escopo. Diagnóstico inicial é grátis (15 min). A partir daí trabalhamos com escopo fechado por entrega ou retainer mensal. Sem surpresas.</div>
+    </details>
+    <details class="faq-item">
+      <summary data-pt="Quanto tempo leva para o primeiro dashboard rodar?" data-en="How long until the first dashboard is running?">Quanto tempo leva para o primeiro dashboard rodar?</summary>
+      <div class="faq-body" data-pt="Tipicamente 2 a 4 semanas para o MVP do primeiro painel. Pipelines mais complexos podem levar 6-8 semanas. Sempre entregamos algo rodando antes do final do mês." data-en="Typically 2-4 weeks for the first dashboard MVP. More complex pipelines can take 6-8 weeks. We always deliver something running before month-end.">Tipicamente 2 a 4 semanas para o MVP do primeiro painel. Pipelines mais complexos podem levar 6-8 semanas. Sempre entregamos algo rodando antes do final do mês.</div>
+    </details>
+    <details class="faq-item">
+      <summary data-pt="O código fica com vocês ou comigo?" data-en="Who owns the code?">O código fica com vocês ou comigo?</summary>
+      <div class="faq-body" data-pt="Com você. Tudo é versionado em repositório seu (GitHub/GitLab/Azure DevOps), documentado e transferível. Se um dia parar conosco, sua equipe ou outro fornecedor consegue continuar." data-en="With you. Everything is versioned in your own repository (GitHub/GitLab/Azure DevOps), documented and transferable. If you stop working with us, your team or another vendor can continue.">Com você. Tudo é versionado em repositório seu (GitHub/GitLab/Azure DevOps), documentado e transferível. Se um dia parar conosco, sua equipe ou outro fornecedor consegue continuar.</div>
+    </details>
+    <details class="faq-item">
+      <summary data-pt="Trabalham com qual ERP / banco / sistema?" data-en="Which ERPs / databases / systems?">Trabalham com qual ERP / banco / sistema?</summary>
+      <div class="faq-body" data-pt="Qualquer um que tenha API, exporta CSV ou roda em banco SQL. Já integramos Clinicorp, SAP, TOTVS, Omie, Bling, Conta Azul, planilhas Google e Excel, sistemas legados. Se conecta, conseguimos." data-en="Any system with an API, CSV export, or SQL database. We've integrated Clinicorp, SAP, TOTVS, Omie, Bling, Conta Azul, Google Sheets, Excel, and legacy systems. If it connects, we can do it.">Qualquer um que tenha API, exporta CSV ou roda em banco SQL. Já integramos Clinicorp, SAP, TOTVS, Omie, Bling, Conta Azul, planilhas Google e Excel, sistemas legados. Se conecta, conseguimos.</div>
+    </details>
+    <details class="faq-item">
+      <summary data-pt="E se eu já tiver Power BI / time de dados?" data-en="What if I already have Power BI / a data team?">E se eu já tiver Power BI / time de dados?</summary>
+      <div class="faq-body" data-pt="Melhor ainda. Atuamos como força-tarefa para destravar o que está parado, ou como mentoria técnica do seu time. Não competimos com quem você já tem — somos complemento." data-en="Even better. We act as a task force to unblock what's stuck, or as technical mentors for your team. We don't compete with who you already have — we complement.">Melhor ainda. Atuamos como força-tarefa para destravar o que está parado, ou como mentoria técnica do seu time. Não competimos com quem você já tem — somos complemento.</div>
+    </details>
+    <details class="faq-item">
+      <summary data-pt="Vocês assinam NDA?" data-en="Do you sign an NDA?">Vocês assinam NDA?</summary>
+      <div class="faq-body" data-pt="Sempre. Antes de qualquer acesso a dado sensível, NDA assinado. Por isso nossos cases ficam anônimos — confidencialidade não é discurso." data-en="Always. Before any access to sensitive data, NDA signed. That's why our cases stay anonymous — confidentiality isn't a slogan.">Sempre. Antes de qualquer acesso a dado sensível, NDA assinado. Por isso nossos cases ficam anônimos — confidencialidade não é discurso.</div>
+    </details>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-header reveal">
@@ -1024,7 +1274,69 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 <span>Smart Business</span> · <span data-pt="Todos os direitos reservados" data-en="All rights reserved">Todos os direitos reservados</span></p>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand-min">
+        <svg viewBox="-160 -160 320 320" xmlns="http://www.w3.org/2000/svg">
+          <circle r="42" fill="#F5C518" opacity=".12"/>
+          <circle r="130" stroke="currentColor" stroke-width="6" fill="none"/>
+          <g stroke="currentColor" stroke-width="3.6" stroke-linecap="round" fill="none" opacity=".85">
+            <line x1="0" y1="0" x2="0" y2="-95"/><line x1="0" y1="0" x2="82" y2="-47"/>
+            <line x1="0" y1="0" x2="82" y2="47"/><line x1="0" y1="0" x2="0" y2="95"/>
+            <line x1="0" y1="0" x2="-82" y2="47"/><line x1="0" y1="0" x2="-82" y2="-47"/>
+          </g>
+          <g stroke="currentColor" stroke-width="4.4" stroke-linecap="round" fill="none">
+            <line x1="0" y1="-95" x2="82" y2="-47"/><line x1="82" y1="-47" x2="82" y2="47"/>
+            <line x1="82" y1="47" x2="0" y2="95"/><line x1="0" y1="95" x2="-82" y2="47"/>
+            <line x1="-82" y1="47" x2="-82" y2="-47"/><line x1="-82" y1="-47" x2="0" y2="-95"/>
+          </g>
+          <g fill="currentColor">
+            <circle cx="0" cy="-95" r="14"/><circle cx="82" cy="-47" r="14"/><circle cx="82" cy="47" r="14"/>
+            <circle cx="0" cy="95" r="14"/><circle cx="-82" cy="47" r="14"/><circle cx="-82" cy="-47" r="14"/>
+          </g>
+          <circle r="22" fill="#F5C518"/>
+          <circle r="32" stroke="currentColor" stroke-width="5" fill="none"/>
+        </svg>
+        <span class="name">SMART BUSINESS</span>
+      </div>
+      <p class="footer-tagline" data-pt="A visão completa da sua empresa. Decisão sem achismo." data-en="The complete view of your business. Decisions without guesswork.">A visão completa da sua empresa. Decisão sem achismo.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/nicolaskleincg/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://instagram.com/smartbusiness_cg" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://wa.me/5567992438271" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 22a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 0 1 22 12c0 5.5-4.5 10-10 10m0-22a12 12 0 0 0-10.4 18l-1.6 6 6.2-1.6a12 12 0 1 0 5.8-22.4Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 data-pt="Empresa" data-en="Company">Empresa</h4>
+      <a href="#hero">Home</a>
+      <a href="#services" data-pt="Serviços" data-en="Services">Serviços</a>
+      <a href="#how" data-pt="Como funciona" data-en="How it works">Como funciona</a>
+      <a href="#cases">Cases</a>
+      <a href="#stack">Stack</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-pt="Serviços" data-en="Services">Serviços</h4>
+      <a href="#services" data-pt="Análise de Dados" data-en="Data Analysis">Análise de Dados</a>
+      <a href="#services" data-pt="Engenharia de Dados" data-en="Data Engineering">Engenharia de Dados</a>
+      <a href="#services" data-pt="Automação com IA" data-en="AI Automation">Automação com IA</a>
+      <a href="#services" data-pt="Landing Pages" data-en="Landing Pages">Landing Pages</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-pt="Contato" data-en="Contact">Contato</h4>
+      <a href="https://wa.me/5567992438271" target="_blank" rel="noopener">WhatsApp · (67) 99243-8271</a>
+      <a href="mailto:contato@smartbusiness.ia.br">contato@smartbusiness.ia.br</a>
+      <a href="https://www.linkedin.com/in/nicolaskleincg/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://instagram.com/smartbusiness_cg" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <p style="text-align:center;padding:20px;font-size:12px;opacity:.6;border-top:1px solid var(--border);margin:0 48px;">© 2026 <span>Smart Business</span> · <span data-pt="Todos os direitos reservados" data-en="All rights reserved">Todos os direitos reservados</span></p>
 </footer>
 
 <noscript>
