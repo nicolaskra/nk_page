@@ -39,16 +39,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
-  <!-- Cloudflare Web Analytics (privacy-first, sem cookies). Substituir token após criar zona em https://dash.cloudflare.com/?to=/:account/web-analytics -->
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}'></script>
+  <!-- Cloudflare Web Analytics (privacy-first, sem cookies) — DESABILITADO até token ser gerado em https://dash.cloudflare.com/?to=/:account/web-analytics
+       Pra ativar: criar zona, copiar token, descomentar bloco abaixo e substituir YOUR_TOKEN.
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN"}'></script>
+  -->
 
-  <!-- GA4 (event tracking) — substituir G-XXXXXXXXXX após criar property em https://analytics.google.com/ -->
+  <!-- GA4 (event tracking) — DESABILITADO até measurement ID ser criado em https://analytics.google.com/
+       Pra ativar: criar property, copiar G-XXXXX, descomentar bloco abaixo (2 trocas).
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
+  -->
+  <script>
+    // Wrapper gtag stub: trackEvent() no-opa enquanto GA4 não ativado, evita ReferenceError
+    window.gtag = window.gtag || function(){};
   </script>
 
   <!-- JSON-LD: Organization -->
@@ -2775,13 +2783,13 @@
   </div>
   <div class="diag-card">
     <form class="diag-form" id="diagForm" method="POST" novalidate>
-      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"/>
-      <input type="hidden" name="subject" value="Novo diagnóstico solicitado — smartbusiness.ia.br"/>
-      <input type="hidden" name="from_name" value="Site Smart Business"/>
-      <input type="hidden" name="redirect" value="false"/>
+      <!-- FormSubmit.co: zero setup, primeira submissão envia email de ativação pra contato@smartbusiness.ia.br -->
+      <input type="hidden" name="_subject" value="Novo diagnóstico solicitado — smartbusiness.ia.br"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="hidden" name="_captcha" value="false"/>
       <input type="hidden" name="source" id="d-source" value="direct"/>
       <input type="hidden" name="page_url" id="d-pageurl" value=""/>
-      <input type="checkbox" name="botcheck" class="diag-honeypot" tabindex="-1" autocomplete="off"/>
+      <input type="text" name="_honey" class="diag-honeypot" tabindex="-1" autocomplete="off"/>
 
       <div class="diag-row">
         <div class="diag-field" data-field="name">
@@ -3285,8 +3293,9 @@
       };
       const m = msgs[lang] || msgs.pt;
 
-      // honeypot
-      if (diagForm.botcheck && diagForm.botcheck.checked) { diagStatus.className = 'diag-status err'; diagStatus.textContent = m.honey; return; }
+      // honeypot (FormSubmit.co usa _honey — campo text invisível)
+      const honey = diagForm.querySelector('input[name="_honey"]');
+      if (honey && honey.value) { diagStatus.className = 'diag-status err'; diagStatus.textContent = m.honey; return; }
 
       submitBtn.disabled = true;
       const originalText = submitBtn.innerHTML;
@@ -3294,13 +3303,16 @@
 
       try {
         const data = new FormData(diagForm);
-        const res = await fetch('https://api.web3forms.com/submit', {
+        // FormSubmit.co endpoint AJAX — sem cadastro, ativa na primeira submissão (email de confirmação)
+        const res = await fetch('https://formsubmit.co/ajax/contato@smartbusiness.ia.br', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: data
         });
-        const json = await res.json();
-        if (res.ok && json.success) {
+        const json = await res.json().catch(() => ({}));
+        // FormSubmit.co retorna { success: "true"|"false" } (string) ou erro
+        const ok = res.ok && (json.success === true || json.success === 'true');
+        if (ok) {
           diagStatus.className = 'diag-status ok';
           diagStatus.textContent = m.ok;
           trackEvent('form_submit_success', { source: sourceField ? sourceField.value : 'direct' });

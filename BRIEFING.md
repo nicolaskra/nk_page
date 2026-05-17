@@ -102,24 +102,27 @@ Adicionado:
 - **Cloudflare Web Analytics** stub adicionado no `<head>` (1 linha, sem cookies, sem banner LGPD).
 - **Meta tags extras**: `og:site_name`, `og:locale`, `og:locale:alternate`, `meta author`.
 
-### AÇÕES MANUAIS PENDENTES (substituir placeholders no `index.html`):
+### AÇÕES MANUAIS PENDENTES
 
-1. **Web3Forms access key** (form de captura de lead):
-   - Acessar https://web3forms.com/
-   - Inserir email `contato@smartbusiness.ia.br` em "Get your free access key"
-   - Confirmar email recebido
-   - Copiar a access key (UUID)
-   - Substituir `YOUR_WEB3FORMS_ACCESS_KEY` no `index.html` (linha do `<input type="hidden" name="access_key">`).
-   - Free tier: ilimitado, sem cadastro.
+1. **Form (FormSubmit.co)** — zero setup, mas precisa de ATIVAÇÃO única:
+   - Form aponta direto pra `contato@smartbusiness.ia.br` via `https://formsubmit.co/ajax/...`
+   - **Primeira submissão** dispara email de ativação do FormSubmit pra contato@smartbusiness.ia.br
+   - Você clica no link de ativação (1 vez) — daí em diante, todas as submissões vão direto pro email
+   - Nenhuma key/conta necessária
+   - Pra testar: enviar form de teste do site → checar inbox → clicar link → submeter de novo
 
-2. **Cloudflare Web Analytics beacon token** (analytics privacy-first):
-   - Acessar https://dash.cloudflare.com/?to=/:account/web-analytics
-   - "Add a site" → `smartbusiness.ia.br`
-   - Copiar o token do snippet gerado (apenas o token, JSON do `data-cf-beacon`).
-   - Substituir `YOUR_CLOUDFLARE_BEACON_TOKEN` no `index.html` (linha do `<script defer src="...cloudflareinsights.com">`).
-   - Free tier: ilimitado, sem cookies.
+2. **Cloudflare Web Analytics** — DESABILITADO no commit (stub comentado no `<head>`):
+   - Pra ativar quando quiser: criar zona em https://dash.cloudflare.com/?to=/:account/web-analytics
+   - "Add a site" → `smartbusiness.ia.br` → copiar token
+   - Descomentar bloco no `<head>` (procurar `<!-- Cloudflare Web Analytics`) e substituir `YOUR_TOKEN`
+   - Free, sem cookies, sem banner LGPD
 
-3. **Testar form**: após inserir a key, submeter teste com email pessoal e confirmar chegada em `contato@smartbusiness.ia.br`.
+3. **GA4 (Google Analytics)** — DESABILITADO no commit (stub comentado no `<head>`):
+   - Pra ativar quando quiser: criar property em https://analytics.google.com/
+   - Copiar measurement ID (formato `G-XXXXXXXXXX`)
+   - Descomentar bloco no `<head>` (procurar `<!-- GA4`) e substituir `G-XXXXXXXXXX` (2 ocorrências)
+   - Necessário pra eventos `cta_diagnostico_click`, `wa_click`, `form_submit_success` etc serem registrados
+   - Sem GA4, eventos disparam pra `window.gtag` stub que no-opa (sem erro de console)
 
 ### Stack atual (após Fase 1)
 - HTML/CSS/JS puro single-file (`index.html`, ~1265 linhas) — refactor pra arquivos separados na Fase 2.
