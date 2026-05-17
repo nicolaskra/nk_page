@@ -81,3 +81,56 @@ Stack: Python, IA, Automação, Planilhas.
 - E-mail: contato@smartbusiness.ia.br
 - LinkedIn: https://www.linkedin.com/in/nicolaskleincg/
 - Instagram: @smartbusiness_cg
+
+---
+
+## Rodada de melhorias 17/05/2026 — Conversão + UX + SEO
+
+Plano canônico: `C:\Users\Nicolas\.claude\plans\quero-que-voce-analise-quizzical-pie.md`
+
+### Fase 0 — Baseline (concluída 17/05)
+- Removido `nk-smart-business.html` (era cópia byte-a-byte do `index.html`).
+- Estrutura visual mantida; HTML continua single-file (refactor pra `assets/css|js` planejado pra Fase 2).
+
+### Fase 1 — Conversão (concluída 17/05, aguardando keys)
+Adicionado:
+- **Seção `#numeros`** (prova social anônima): 4 KPIs (9+ clientes, 10+ unidades DRE, 20+ pipelines, 100% fechamentos no prazo), 6 chips de setor, 2 citações anônimas.
+- **Seção `#diagnostico`** (form Web3Forms): nome, email, empresa, telefone (opcional), desafio. Honeypot anti-spam. Bilíngue PT/EN. Status inline (sem redirect).
+- **Sticky CTA bar** mobile: 2 botões (Pedir diagnóstico + WhatsApp); esconde no desktop; respeita `safe-area-inset-bottom`.
+- **CTAs WhatsApp reduzidos de 6 → 4** instâncias estratégicas (float-wa, hero secundário, sticky bar, contact). Todos com `?text=Olá! Vim do site smartbusiness.ia.br` prefill pra ajudar tracking manual.
+- **CTAs primários (hero, nav, pains)** agora apontam pro `#diagnostico` (form), não mais pro WhatsApp.
+- **Cloudflare Web Analytics** stub adicionado no `<head>` (1 linha, sem cookies, sem banner LGPD).
+- **Meta tags extras**: `og:site_name`, `og:locale`, `og:locale:alternate`, `meta author`.
+
+### AÇÕES MANUAIS PENDENTES (substituir placeholders no `index.html`):
+
+1. **Web3Forms access key** (form de captura de lead):
+   - Acessar https://web3forms.com/
+   - Inserir email `contato@smartbusiness.ia.br` em "Get your free access key"
+   - Confirmar email recebido
+   - Copiar a access key (UUID)
+   - Substituir `YOUR_WEB3FORMS_ACCESS_KEY` no `index.html` (linha do `<input type="hidden" name="access_key">`).
+   - Free tier: ilimitado, sem cadastro.
+
+2. **Cloudflare Web Analytics beacon token** (analytics privacy-first):
+   - Acessar https://dash.cloudflare.com/?to=/:account/web-analytics
+   - "Add a site" → `smartbusiness.ia.br`
+   - Copiar o token do snippet gerado (apenas o token, JSON do `data-cf-beacon`).
+   - Substituir `YOUR_CLOUDFLARE_BEACON_TOKEN` no `index.html` (linha do `<script defer src="...cloudflareinsights.com">`).
+   - Free tier: ilimitado, sem cookies.
+
+3. **Testar form**: após inserir a key, submeter teste com email pessoal e confirmar chegada em `contato@smartbusiness.ia.br`.
+
+### Stack atual (após Fase 1)
+- HTML/CSS/JS puro single-file (`index.html`, ~1265 linhas) — refactor pra arquivos separados na Fase 2.
+- Canvas API para neural-network animation (a otimizar pra mobile na Fase 3).
+- Toggle PT/EN via `data-pt`/`data-en` + agora também `data-pt-placeholder`/`data-en-placeholder` para inputs.
+- Google Fonts: Inter + Space Grotesk (subset pendente Fase 3).
+- Web3Forms: captura de lead sem backend.
+- Cloudflare Web Analytics: métricas sem cookies.
+
+### Fases pendentes
+- **Fase 2**: refactor CSS/JS em arquivos próprios + mockup Figma + hierarquia visual + micro-interações.
+- **Fase 3**: subset de fontes, pausar neural-canvas em mobile, WebP, OG image dedicada 1200x630, sitemap+robots, Schema enriquecido.
+- **Fase 4**: GitHub Action Lighthouse CI, lychee link checker, CLAUDE.md do repo, UptimeRobot.
+- **Fase 5**: /security-review, /simplify, /review, lighthouse comparativo.

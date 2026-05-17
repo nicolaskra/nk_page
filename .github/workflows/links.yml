@@ -1,0 +1,41 @@
+name: Link Check
+
+on:
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1'  # toda segunda 06h UTC
+  workflow_dispatch:
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run lychee link checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --exclude-mail
+            --exclude-path .github
+            --accept 200,201,202,204,206,301,302,303,304,307,308,403,429
+            './**/*.html'
+            './**/*.md'
+          fail: true
+          format: markdown
+
+      - name: Create issue if links broken
+        if: failure() && github.event_name == 'schedule'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: 'Link checker: links quebrados detectados'
+          content-filepath: ./lychee/out.md
+          labels: |
+            broken-links
+            automated

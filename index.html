@@ -13,23 +13,45 @@
   <meta property="og:title" content="Smart Business — Dados & IA"/>
   <meta property="og:description" content="Dados que decidem. Automação que transforma. Análise de Dados, Engenharia e Automação com IA para empresas."/>
   <meta property="og:url" content="https://smartbusiness.ia.br/"/>
+  <meta property="og:site_name" content="Smart Business"/>
+  <meta property="og:locale" content="pt_BR"/>
+  <meta property="og:locale:alternate" content="en_US"/>
+  <meta name="author" content="Smart Business — Nicolas Klein"/>
 
   <!-- Favicon & icons -->
-  <link rel="icon" type="image/png" href="/assets/logo/symbol-gold.png"/>
-  <link rel="apple-touch-icon" href="/assets/logo/symbol-gold.png"/>
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/sb_simbolo_navy.svg" media="(prefers-color-scheme: light)"/>
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/sb_simbolo_branco.svg" media="(prefers-color-scheme: dark)"/>
+  <link rel="icon" type="image/png" href="/assets/logo/sb_simbolo_gold.png"/>
+  <link rel="apple-touch-icon" href="/assets/logo/sb_simbolo_gold.png"/>
 
   <!-- Open Graph image -->
-  <meta property="og:image" content="https://smartbusiness.ia.br/assets/logo/logomark-gold-stacked.png"/>
+  <meta property="og:image" content="https://smartbusiness.ia.br/assets/social/og-cover.png"/>
+  <meta property="og:image:secure_url" content="https://smartbusiness.ia.br/assets/social/og-cover.png"/>
+  <meta property="og:image:type" content="image/png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
   <meta property="og:image:alt" content="Smart Business — Consultoria em Dados, Engenharia e Automação com IA"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://smartbusiness.ia.br/assets/logo/logomark-gold-stacked.png"/>
+  <meta name="twitter:image" content="https://smartbusiness.ia.br/assets/social/og-cover.png"/>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
-  <!-- JSON-LD -->
+  <!-- Cloudflare Web Analytics (privacy-first, sem cookies). Substituir token após criar zona em https://dash.cloudflare.com/?to=/:account/web-analytics -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}'></script>
+
+  <!-- GA4 (event tracking) — substituir G-XXXXXXXXXX após criar property em https://analytics.google.com/ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
+
+  <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,7 +60,90 @@
     "url": "https://smartbusiness.ia.br/",
     "email": "contato@smartbusiness.ia.br",
     "telephone": "+5567992438271",
-    "knowsAbout": ["Data Engineering", "Data Analysis", "Power BI", "Python", "SQL", "AI Automation"]
+    "logo": "https://smartbusiness.ia.br/assets/logo/sb_simbolo_gold.png",
+    "founder": { "@type": "Person", "name": "Nicolas Klein", "sameAs": "https://www.linkedin.com/in/nicolaskleincg/" },
+    "knowsAbout": ["Data Engineering", "Data Analysis", "Power BI", "Python", "SQL", "BigQuery", "Spark", "DBA", "AI Automation", "Dimensional Modeling"]
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Smart Business",
+    "url": "https://smartbusiness.ia.br/",
+    "inLanguage": ["pt-BR", "en"],
+    "publisher": { "@type": "Organization", "name": "Smart Business" }
+  }
+  </script>
+
+  <!-- JSON-LD: ProfessionalService + OfferCatalog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Smart Business",
+    "url": "https://smartbusiness.ia.br/",
+    "image": "https://smartbusiness.ia.br/assets/social/og-cover.png",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Campo Grande",
+      "addressRegion": "MS",
+      "addressCountry": "BR"
+    },
+    "areaServed": { "@type": "Country", "name": "Brazil" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços Smart Business",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Engenharia de Dados", "description": "Pipelines, modelagem dimensional, DBA, big data em Spark — GCP/BigQuery ou on-premises." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Análise de Dados", "description": "Dashboards, KPIs e relatórios em Power BI com fonte única e auditável." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automação com IA", "description": "Automações orquestradas com Claude, ChatGPT, n8n e Python." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Pages & Identidade Visual", "description": "Páginas que convertem e identidade visual alinhada à marca." } }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quanto custa um projeto?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sob escopo. Cada projeto é cotado depois do diagnóstico (gratuito), porque o preço justo depende do tamanho da base, complexidade dos joins e quantidade de fontes. Você recebe proposta clara antes de assinar qualquer coisa." }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanto tempo demora pra primeira entrega?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Primeira versão funcional em 2–4 semanas para projetos típicos (1–3 fontes, dashboard de gestão financeira). Evolução contínua depois disso, com cronograma realista entregue no próprio diagnóstico." }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso ter TI interna ou equipe técnica?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Não. A maior parte dos clientes ativos não tem time de TI. Cuido da configuração, ingestão e infraestrutura do início ao fim. Você só precisa de alguém que entenda do negócio para validar os números." }
+      },
+      {
+        "@type": "Question",
+        "name": "Trabalha remoto ou presencial?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Remoto para qualquer lugar, com ritos ágeis semanais (uma reunião curta + acompanhamento via Slack/WhatsApp). Já atendi clientes em BA, SP, RJ, MG e MS sem encontros presenciais. Presencial é possível mediante combinação." }
+      },
+      {
+        "@type": "Question",
+        "name": "Os dados ficam seguros? E LGPD?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tudo roda na sua infraestrutura (Google Cloud, Microsoft, AWS ou on-premises) com seus acessos. Não armazeno dados de cliente em ambiente próprio. Acesso revogável a qualquer momento. NDA assinado antes do diagnóstico se necessário." }
+      },
+      {
+        "@type": "Question",
+        "name": "E se quisermos encerrar? O que acontece com o que foi feito?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Você fica com tudo: código no seu Git, pipelines na sua infra, dashboards no seu Power BI ou Looker, documentação no seu Drive. Sem lock-in técnico, sem dependência de fornecedor. Outro consultor consegue dar continuidade direto." }
+      }
+    ]
   }
   </script>
 
@@ -59,7 +164,32 @@
       --radius: 16px;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+    /* ── A11y: skip link + focus visível ── */
+    .skip-link {
+      position: absolute; top: -100px; left: 16px;
+      background: var(--gold); color: var(--navy);
+      padding: 10px 18px; border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700; font-size: 14px;
+      text-decoration: none; z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 16px; outline: 3px solid #fff; outline-offset: 2px; }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    button:focus-visible, a:focus-visible, summary:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    input:focus-visible, textarea:focus-visible {
+      outline: none;
+    }
 
     body {
       background: var(--navy);
@@ -69,12 +199,15 @@
       line-height: 1.6;
     }
 
-    /* CANVAS */
+    /* CANVAS — escondido em mobile (economiza CPU/bateria) e em reduced-motion */
     #neural-canvas {
       position: fixed; top: 0; left: 0;
       width: 100%; height: 100%;
       z-index: 0; pointer-events: none;
       will-change: transform;
+    }
+    @media (max-width: 768px), (prefers-reduced-motion: reduce) {
+      #neural-canvas { display: none; }
     }
 
     /* ── NAV ── */
@@ -91,14 +224,28 @@
     }
 
     .nav-logo {
-      display: flex; align-items: center;
+      display: flex; align-items: center; gap: 12px;
       text-decoration: none;
       height: 40px;
     }
-    .nav-logo img {
-      height: 100%; width: auto;
-      display: block;
-      object-fit: contain;
+    .nav-logo svg.symbol {
+      height: 38px; width: 38px;
+      color: var(--gold);
+      flex: 0 0 auto;
+    }
+    .nav-logo .wordmark {
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .nav-logo .wordmark .smart {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800; font-size: 18px;
+      color: var(--gold); letter-spacing: .5px;
+    }
+    .nav-logo .wordmark .business {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600; font-size: 9px;
+      color: #fff; letter-spacing: 5px;
+      margin-top: 4px; padding-left: 1px;
     }
 
     .nav-center {
@@ -493,24 +640,46 @@
       position: relative; z-index: 1;
       display: flex; flex-direction: column; align-items: center; gap: 24px;
     }
-    .brand-signature img {
-      max-width: 360px; width: 100%; height: auto; display: block;
+    .brand-stack {
+      display: flex; align-items: center; gap: 28px;
       filter: drop-shadow(0 8px 32px rgba(245,197,24,0.15));
+    }
+    .brand-stack .brand-symbol {
+      width: 120px; height: 120px; color: var(--gold); flex: 0 0 auto;
+    }
+    .brand-stack .brand-name { display: flex; flex-direction: column; line-height: 1; }
+    .brand-stack .brand-smart {
+      font-family: 'Inter', sans-serif; font-weight: 800; font-size: 56px;
+      color: var(--gold); letter-spacing: 1px;
+    }
+    .brand-stack .brand-business {
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 22px;
+      color: #fff; letter-spacing: 11px; margin-top: 10px; padding-left: 4px;
+    }
+    @media (max-width: 560px) {
+      .brand-stack { flex-direction: column; gap: 14px; }
+      .brand-stack .brand-symbol { width: 96px; height: 96px; }
+      .brand-stack .brand-smart { font-size: 44px; }
+      .brand-stack .brand-business { font-size: 18px; letter-spacing: 9px; }
     }
     .brand-signature .brand-tagline {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(18px, 2.2vw, 22px);
       font-weight: 500; color: var(--text-muted);
-      max-width: 560px; line-height: 1.5; letter-spacing: -0.01em;
+      max-width: 640px; line-height: 1.55; letter-spacing: -0.01em;
     }
-    .brand-signature .brand-tagline b { color: var(--gold); font-weight: 700; }
+    .brand-signature .brand-tagline b {
+      display: block; margin-top: 6px;
+      color: var(--gold); font-weight: 700;
+      font-size: clamp(22px, 2.6vw, 28px);
+      letter-spacing: -0.01em;
+    }
     .brand-signature .brand-divider {
       width: 60px; height: 2px; background: var(--gold);
       margin: 8px 0 4px; border-radius: 2px;
     }
     @media (max-width: 768px) {
       .brand-signature { padding: 60px 24px; }
-      .brand-signature img { max-width: 260px; }
     }
 
     /* ── CONTACT ── */
@@ -604,14 +773,1178 @@
     .reveal-stagger.visible > *:nth-child(8) { opacity:1; transform:none; transition-delay:1.05s; }
 
     noscript .reveal, noscript .reveal-stagger > * { opacity: 1; transform: none; }
+
+    /* ── PROOF / NÚMEROS (prova social anônima) ── */
+    .proof { padding: 100px 48px 40px; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 768px) { .proof { padding: 60px 24px 24px; } }
+    .proof .section-header { text-align: center; margin-bottom: 48px; }
+    .proof .section-desc { margin: 0 auto; }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+    @media (max-width: 900px) { .proof-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .proof-grid { grid-template-columns: 1fr 1fr; gap: 12px; } }
+    .proof-item { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 20px; text-align: center; backdrop-filter: blur(12px); transition: border-color .2s, transform .2s; }
+    .proof-item:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .proof-num { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4vw, 44px); font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .proof-label { color: var(--text-muted); font-size: 13px; font-weight: 500; line-height: 1.4; }
+    .proof-sectors { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 40px; }
+    .proof-sectors .tool { font-size: 12px; }
+    .proof-meta { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+    .proof-meta-row {
+      display: flex; align-items: center; gap: 14px;
+      justify-content: center; flex-wrap: wrap;
+    }
+    .proof-meta-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    .proof-meta-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .proof-meta-chips .chip {
+      display: inline-flex; align-items: center;
+      padding: 4px 10px; border-radius: 6px;
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 11px; font-weight: 700;
+      color: var(--gold);
+      background: rgba(245,197,24,0.12);
+      border: 1px solid rgba(245,197,24,0.28);
+      letter-spacing: 0.5px;
+    }
+    .proof-quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 760px) { .proof-quotes { grid-template-columns: 1fr; } }
+    .quote { background: var(--navy-card); border-left: 3px solid var(--gold); border-radius: 12px; padding: 24px 28px; backdrop-filter: blur(12px); }
+    .quote p { color: var(--text-muted); font-size: 14px; line-height: 1.65; margin-bottom: 12px; font-style: italic; }
+    .quote .who { font-size: 12px; font-weight: 600; color: var(--gold); letter-spacing: 0.5px; }
+
+    /* ── DIAGNÓSTICO / FORM ── */
+    .diag { padding: 120px 48px; max-width: 880px; margin: 0 auto; }
+    @media (max-width: 768px) { .diag { padding: 80px 24px; } }
+    .diag-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 48px 40px; background: var(--navy-card); backdrop-filter: blur(12px); }
+    @media (max-width: 560px) { .diag-card { padding: 32px 24px; } }
+    .diag-form { display: grid; gap: 18px; margin-top: 32px; }
+    .diag-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 560px) { .diag-row { grid-template-columns: 1fr; } }
+    .diag-field { display: flex; flex-direction: column; gap: 6px; }
+    .diag-field label { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+    .diag-field input, .diag-field textarea {
+      width: 100%; background: rgba(8,13,26,0.6);
+      border: 1px solid rgba(245,197,24,0.18); border-radius: 10px;
+      color: #fff; font-family: 'Inter', sans-serif; font-size: 15px;
+      padding: 12px 14px; transition: border-color .2s, background .2s;
+    }
+    .diag-field input:focus, .diag-field textarea:focus {
+      outline: none; border-color: var(--gold); background: rgba(8,13,26,0.85);
+    }
+    .diag-field textarea { min-height: 110px; resize: vertical; line-height: 1.5; }
+    .diag-field .hint { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; letter-spacing: 0; text-transform: none; }
+    .diag-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+    .diag-submit {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--gold); color: var(--navy);
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      border: none; cursor: pointer; padding: 16px 36px;
+      border-radius: 12px; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .diag-submit:hover:not(:disabled) {
+      background: var(--gold-light); transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(245,197,24,0.25);
+    }
+    .diag-submit:disabled { opacity: 0.55; cursor: wait; }
+    .diag-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 8px; }
+    .diag-foot small { font-size: 12px; color: rgba(255,255,255,0.55); }
+    .diag-foot small a { color: var(--gold); text-decoration: none; }
+    .diag-status { font-size: 14px; margin-top: 12px; padding: 12px 16px; border-radius: 10px; display: none; }
+    .diag-status.ok { display: block; background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.3); color: #6df2a7; }
+    .diag-status.err { display: block; background: rgba(231,76,60,0.12); border: 1px solid rgba(231,76,60,0.3); color: #ff8a7a; }
+
+    /* ── HERO SPLIT (Direção A: Editorial Tech) ── */
+    .hero-split {
+      min-height: 100vh; padding: 120px 48px 80px;
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.05fr;
+      gap: 64px; align-items: center;
+    }
+    @media (max-width: 960px) {
+      .hero-split { grid-template-columns: 1fr; gap: 40px; padding: 110px 24px 60px; text-align: center; }
+    }
+    .hero-left { display: flex; flex-direction: column; align-items: flex-start; }
+    @media (max-width: 960px) { .hero-left { align-items: center; } }
+    .hero-left .hero-label { margin-bottom: 24px; }
+    .hero-left .hero-title {
+      font-size: clamp(36px, 5.2vw, 64px);
+      max-width: 540px; margin-bottom: 22px;
+      text-align: left;
+    }
+    @media (max-width: 960px) { .hero-left .hero-title { text-align: center; } }
+    .hero-left .hero-subtitle {
+      max-width: 480px; margin-bottom: 36px; text-align: left;
+    }
+    @media (max-width: 960px) { .hero-left .hero-subtitle { text-align: center; } }
+    .hero-left .hero-actions { justify-content: flex-start; margin-bottom: 40px; }
+    @media (max-width: 960px) { .hero-left .hero-actions { justify-content: center; } }
+
+    /* Stats inline (hero) */
+    .hero-stats {
+      display: flex; gap: 32px; flex-wrap: wrap;
+      padding-top: 28px; margin-top: 4px;
+      border-top: 1px solid rgba(245,197,24,0.12);
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+    @media (max-width: 960px) { .hero-stats { justify-content: center; } }
+    .hero-stat { display: flex; flex-direction: column; gap: 4px; }
+    .hero-stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px; font-weight: 700; color: var(--gold);
+      line-height: 1; letter-spacing: -0.02em;
+    }
+    .hero-stat-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.7); text-transform: uppercase;
+    }
+
+    /* Hero visual (animação antes/depois SVG) */
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      max-width: 560px; width: 100%; margin: 0 auto;
+      border-radius: 20px;
+      background: linear-gradient(160deg, rgba(26,34,64,0.95), rgba(15,22,46,0.8));
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(245,197,24,0.03);
+      overflow: hidden;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .hero-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 70% 0%, rgba(245,197,24,0.10), transparent 55%);
+      pointer-events: none;
+    }
+    .visual-frame {
+      position: absolute; inset: 24px;
+      display: flex; flex-direction: column;
+    }
+    .visual-label {
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    }
+    .visual-label::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 8px var(--gold);
+    }
+    .visual-stage { flex: 1; position: relative; display: flex; flex-direction: column; gap: 8px; min-height: 0; }
+
+    /* ── ETL PIPELINE ── */
+    .etl-pipeline { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .etl-stage {
+      position: relative;
+      display: grid; grid-template-columns: 38px 1fr; gap: 12px;
+      padding: 9px 12px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left: 3px solid rgba(255,255,255,0.10);
+      border-radius: 8px;
+      transition: background 0.4s ease, border-color 0.4s ease, opacity 0.4s ease;
+      opacity: 0.42;
+      flex: 1; min-height: 0;
+    }
+    .etl-stage.active {
+      opacity: 1;
+      background: rgba(245,197,24,0.06);
+      border-color: rgba(245,197,24,0.22);
+      border-left-color: var(--gold);
+      box-shadow: 0 0 0 1px rgba(245,197,24,0.08), 0 8px 24px -8px rgba(245,197,24,0.18);
+    }
+    .etl-stage.done {
+      opacity: 0.85;
+      border-left-color: #2ecc71;
+      background: rgba(46,204,113,0.04);
+    }
+    .etl-badge {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(140deg, rgba(245,197,24,0.18), rgba(245,197,24,0.04));
+      border: 1px solid rgba(245,197,24,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      align-self: center;
+      position: relative;
+      transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .etl-badge svg { width: 20px; height: 20px; display: block; }
+    .etl-stage.active .etl-badge {
+      box-shadow: 0 0 18px -2px rgba(245,197,24,0.45), inset 0 0 0 1px rgba(255,216,77,0.4);
+      background: linear-gradient(140deg, rgba(245,197,24,0.30), rgba(245,197,24,0.08));
+    }
+    .etl-stage.active {
+      animation: stageBreathe 2.6s ease-in-out infinite;
+    }
+    @keyframes stageBreathe {
+      0%, 100% { box-shadow: 0 0 0 1px rgba(245,197,24,0.08), 0 8px 24px -8px rgba(245,197,24,0.18); }
+      50%      { box-shadow: 0 0 0 1px rgba(245,197,24,0.20), 0 14px 36px -8px rgba(245,197,24,0.36); }
+    }
+    .etl-stage.done .etl-badge {
+      background: rgba(46,204,113,0.12);
+      border-color: rgba(46,204,113,0.32);
+      color: #6df2a7;
+    }
+    .etl-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .etl-head {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 8px;
+    }
+    .etl-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px; font-weight: 700; color: #fff;
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+    .etl-pct {
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 10px; font-weight: 700; color: var(--gold);
+      letter-spacing: 0.5px; min-width: 32px; text-align: right;
+    }
+    .etl-stage.done .etl-pct { color: #6df2a7; }
+    .etl-items {
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 10px; line-height: 1.45;
+      color: rgba(255,255,255,0.55);
+      min-height: 13px;
+      transition: color 0.3s ease;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .etl-stage.active .etl-items { color: rgba(255,255,255,0.85); }
+    .etl-items .ok { color: #6df2a7; }
+    .etl-items .ar { color: var(--gold); }
+    .etl-meta {
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 2px;
+      transition: color 0.3s ease;
+    }
+    .etl-stage.active .etl-meta { color: rgba(245,197,24,0.85); }
+    .etl-stage.done .etl-meta { color: rgba(109,242,167,0.75); }
+
+    .etl-progress-bar {
+      position: relative; height: 3px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px; overflow: hidden;
+      margin-top: 5px;
+    }
+    .etl-progress-bar .fill {
+      position: absolute; top: 0; left: 0; bottom: 0;
+      width: 0%;
+      background: linear-gradient(90deg, rgba(245,197,24,0.45), var(--gold) 60%, #FFD84D);
+      box-shadow: 0 0 8px rgba(245,197,24,0.5);
+      transition: width 0.15s linear, background 0.4s ease;
+      border-radius: 2px;
+    }
+    .etl-stage.done .etl-progress-bar .fill {
+      background: linear-gradient(90deg, rgba(46,204,113,0.5), #2ecc71);
+      box-shadow: 0 0 6px rgba(46,204,113,0.45);
+    }
+    /* Shimmer no fill ativo */
+    .etl-stage.active .etl-progress-bar .fill::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+      background-size: 60% 100%; background-repeat: no-repeat;
+      animation: shimmerSlide 1.8s linear infinite;
+    }
+    @keyframes shimmerSlide {
+      0%   { background-position: -60% 0; }
+      100% { background-position: 160% 0; }
+    }
+
+    /* Conector vertical entre stages — com dot fluindo */
+    .etl-stage + .etl-stage::before {
+      content: ''; position: absolute;
+      top: -8px; left: 19px;
+      width: 2px; height: 8px;
+      background: linear-gradient(to bottom,
+        rgba(245,197,24,0) 0%,
+        rgba(245,197,24,0.9) 50%,
+        rgba(245,197,24,0) 100%);
+      background-size: 100% 300%;
+      animation: connectorFlow 1.5s linear infinite;
+      border-radius: 2px;
+    }
+    @keyframes connectorFlow {
+      0%   { background-position: 0 -150%; }
+      100% { background-position: 0 150%; }
+    }
+
+    /* Progress bar temporal (sob o visual) */
+    .visual-progress {
+      margin-top: 12px;
+      position: relative; height: 2px;
+      background: rgba(255,255,255,0.08); border-radius: 2px;
+      overflow: hidden;
+    }
+    .visual-progress .track {
+      position: absolute; top: 0; left: 0; bottom: 0;
+      width: 100%; transform-origin: left;
+      background: linear-gradient(90deg, rgba(245,197,24,0.3), var(--gold) 50%, rgba(245,197,24,0.3));
+    }
+    .visual-progress .dot {
+      position: absolute; top: 50%; left: 0;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px var(--gold), 0 0 0 3px rgba(245,197,24,0.18);
+      transform: translate(-50%, -50%);
+    }
+
+    .visual-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 14px; font-size: 10px; font-weight: 600;
+      letter-spacing: 1.5px; color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+    .visual-foot .pulse {
+      width: 6px; height: 6px; border-radius: 50%; background: #2ecc71;
+      box-shadow: 0 0 0 0 rgba(46,204,113,0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(46,204,113,0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(46,204,113,0); }
+      100% { box-shadow: 0 0 0 0 rgba(46,204,113,0); }
+    }
+
+    /* ── DASHBOARD EXAMPLE (Direção A — preview real) ── */
+    .example { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 768px) { .example { padding: 60px 16px; } }
+    .example .section-header { text-align: center; margin-bottom: 40px; }
+    .example .section-desc { margin: 0 auto; }
+
+    .ex-window {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, rgba(26,34,64,0.95), rgba(15,22,46,0.85));
+      backdrop-filter: blur(14px);
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(245,197,24,0.04);
+    }
+    .ex-chrome {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(8,13,26,0.4);
+    }
+    .ex-dots { display: flex; gap: 6px; }
+    .ex-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .ex-dots .r { background: #ff5f57; }
+    .ex-dots .y { background: #febc2e; }
+    .ex-dots .g { background: #28c840; }
+    .ex-url {
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 11px; color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.04); padding: 5px 12px;
+      border-radius: 6px;
+      flex: 1; max-width: 460px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .ex-tab {
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 6px;
+      color: var(--gold); background: rgba(245,197,24,0.10);
+      letter-spacing: 0.5px;
+    }
+    .ex-body { padding: 28px 32px; }
+    @media (max-width: 560px) { .ex-body { padding: 20px 16px; } }
+
+    .ex-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .ex-titles { display: flex; flex-direction: column; gap: 4px; }
+    .ex-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; font-weight: 700; color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .ex-sub {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .ex-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ex-filter {
+      font-size: 11px; font-weight: 500;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 5px 12px; border-radius: 20px;
+    }
+    .ex-filter.active { color: var(--navy); background: var(--gold); border-color: var(--gold); font-weight: 600; }
+
+    /* Insight banner */
+    .ex-insight {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: linear-gradient(95deg, rgba(245,197,24,0.16), rgba(245,197,24,0.04) 70%);
+      border: 1px solid rgba(245,197,24,0.30);
+      border-left: 3px solid var(--gold);
+      margin-bottom: 18px;
+      box-shadow: 0 6px 18px -10px rgba(245,197,24,0.35);
+    }
+    .ex-insight-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(245,197,24,0.22);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); flex-shrink: 0;
+    }
+    .ex-insight-icon svg { width: 18px; height: 18px; }
+    .ex-insight-body { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+    .ex-insight-tag {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .ex-insight-text { color: #fff; font-size: 13px; line-height: 1.45; }
+    .ex-insight-text b { color: var(--gold); font-weight: 700; }
+    .ex-insight-action {
+      font-size: 11px; font-weight: 600;
+      color: var(--gold); text-decoration: none;
+      padding: 6px 10px; border-radius: 6px;
+      border: 1px solid rgba(245,197,24,0.30);
+      background: rgba(245,197,24,0.04);
+      white-space: nowrap; transition: background .2s, border-color .2s;
+    }
+    .ex-insight-action:hover { background: rgba(245,197,24,0.14); border-color: var(--gold); }
+    @media (max-width: 560px) {
+      .ex-insight { flex-direction: column; align-items: flex-start; }
+      .ex-insight-action { align-self: stretch; text-align: center; }
+    }
+
+    .ex-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+    @media (max-width: 760px) { .ex-kpis { grid-template-columns: repeat(2, 1fr); } }
+    .ex-kpi {
+      background: rgba(245,197,24,0.04);
+      border: 1px solid rgba(245,197,24,0.12);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .ex-kpi-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    .ex-kpi-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--gold); line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .ex-kpi-delta {
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 11px; font-weight: 700;
+      margin-top: 2px;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .ex-kpi-delta.up { color: #6df2a7; }
+    .ex-kpi-delta.down { color: #ff8a7a; }
+    .ex-kpi-delta::before {
+      content: ''; width: 0; height: 0;
+      border-left: 4px solid transparent; border-right: 4px solid transparent;
+    }
+    .ex-kpi-delta.up::before { border-bottom: 6px solid #6df2a7; }
+    .ex-kpi-delta.down::before { border-top: 6px solid #ff8a7a; }
+    .ex-kpi-spark { width: 100%; height: 28px; margin-top: 8px; display: block; }
+    .ex-kpi-spark path.line { fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .ex-kpi-spark path.area { stroke: none; }
+    .ex-kpi-spark .pt { fill: var(--gold); }
+
+    .ex-row { display: grid; grid-template-columns: 1.5fr 1fr; gap: 12px; margin-bottom: 12px; }
+    @media (max-width: 900px) { .ex-row { grid-template-columns: 1fr; } }
+    .ex-card {
+      background: rgba(255,255,255,0.022);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .ex-card-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 14px; gap: 10px;
+    }
+    .ex-card-title {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    .ex-card-meta {
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 10px; color: rgba(255,255,255,0.4);
+    }
+
+    /* Bar chart area com gridlines + anotação */
+    .ex-chart-area { position: relative; height: 156px; padding-top: 18px; }
+    .ex-gridlines {
+      position: absolute; inset: 18px 0 18px 0;
+      display: flex; flex-direction: column; justify-content: space-between;
+      pointer-events: none; z-index: 0;
+    }
+    .ex-gridlines span {
+      display: block; width: 100%; height: 1px;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px dashed rgba(255,255,255,0.06);
+      background: transparent;
+    }
+    .ex-bar-annot {
+      position: absolute; right: 0; top: -2px;
+      background: rgba(245,197,24,0.18);
+      border: 1px solid rgba(245,197,24,0.35);
+      color: var(--gold);
+      font-family: 'SF Mono', monospace;
+      font-size: 10px; font-weight: 700;
+      padding: 3px 8px; border-radius: 6px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px -4px rgba(245,197,24,0.4);
+    }
+    .ex-bar-annot::after {
+      content: ''; position: absolute;
+      bottom: -4px; right: 18px;
+      border: 4px solid transparent;
+      border-top-color: rgba(245,197,24,0.35);
+    }
+    .ex-bars { position: relative; display: flex; align-items: flex-end; gap: 6px; height: 100%; padding-top: 6px; z-index: 1; }
+    .ex-bars > div {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      gap: 4px; height: 100%;
+    }
+    .ex-bars .bar {
+      width: 100%; min-height: 6%;
+      background: linear-gradient(180deg, var(--gold), rgba(245,197,24,0.25));
+      border-radius: 4px 4px 0 0;
+    }
+    .ex-bars .bar.curr { background: linear-gradient(180deg, #FFD84D, var(--gold)); }
+    .ex-bars .lbl {
+      font-size: 9px; color: rgba(255,255,255,0.4);
+      font-family: 'SF Mono', monospace;
+    }
+
+    .ex-donut { display: flex; align-items: center; gap: 16px; }
+    .ex-donut svg { flex-shrink: 0; }
+    .ex-donut-legend { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 0; }
+    .ex-donut-legend li {
+      list-style: none; display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: var(--text-muted);
+    }
+    .ex-donut-legend .sw { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+    .ex-donut-legend .v {
+      font-family: 'SF Mono', monospace; font-size: 11px;
+      color: rgba(255,255,255,0.55); margin-left: auto;
+    }
+
+    .ex-line svg { width: 100%; height: 80px; display: block; }
+
+    .ex-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .ex-table th {
+      text-align: left; padding: 8px 10px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .ex-table td {
+      padding: 9px 10px; color: var(--text-muted);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .ex-table tr:last-child td { border-bottom: none; }
+    .ex-table tr.total td {
+      border-top: 1px solid rgba(245,197,24,0.22);
+      background: rgba(245,197,24,0.04);
+      color: #fff; font-weight: 700;
+      padding-top: 11px;
+    }
+    .ex-table tr.total td:first-child { letter-spacing: 1px; text-transform: uppercase; font-size: 11px; }
+    .ex-table .num {
+      font-family: 'SF Mono', monospace; text-align: right;
+    }
+    .ex-table .pos { color: #6df2a7; }
+    .ex-table .neg { color: #ff8a7a; }
+    .ex-table .bar-cell {
+      position: relative; min-width: 80px;
+    }
+    .ex-table .bar-cell::after {
+      content: ''; position: absolute; bottom: 4px; left: 10px; right: 10px;
+      height: 3px; border-radius: 2px;
+      background: rgba(245,197,24,0.18);
+    }
+    .ex-table .bar-cell .fillit {
+      position: absolute; bottom: 4px; left: 10px;
+      height: 3px; border-radius: 2px;
+      background: var(--gold);
+    }
+
+    .ex-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-top: 14px; flex-wrap: wrap;
+      font-size: 11px; color: rgba(255,255,255,0.45);
+    }
+    .ex-foot .live {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #6df2a7; font-weight: 600;
+    }
+    .ex-foot .live::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: #2ecc71; box-shadow: 0 0 6px #2ecc71;
+    }
+
+    /* ── BENTO GRID (Services Direção A) ── */
+    .services-bento {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: minmax(180px, auto);
+      gap: 16px;
+    }
+    @media (max-width: 900px) {
+      .services-bento { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .services-bento { grid-template-columns: 1fr; }
+    }
+    .bento {
+      position: relative; overflow: hidden;
+      background: var(--navy-card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 32px 28px;
+      backdrop-filter: blur(12px);
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+    }
+    .bento::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .4s;
+    }
+    .bento:hover { transform: translateY(-3px); border-color: var(--border-hover); box-shadow: 0 20px 60px rgba(0,0,0,0.32); }
+    .bento:hover::before { transform: scaleX(1); }
+    .bento-top { display: flex; flex-direction: column; gap: 16px; }
+    .bento-icon {
+      width: 44px; height: 44px; border-radius: 11px;
+      background: var(--gold-dim);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .bento-title { font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; color: #fff; line-height: 1.25; }
+    .bento-text { color: var(--text-muted); font-size: 14px; line-height: 1.65; margin-top: 8px; }
+    .bento-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+    .bento-tags .tag { font-size: 11px; padding: 3px 10px; }
+    .bento-deco { position: absolute; right: -20px; bottom: -20px; opacity: 0.06; pointer-events: none; }
+    .bento-deco svg { width: 140px; height: 140px; color: var(--gold); }
+    .bento.wide { grid-column: span 3; }
+    .bento.medium { grid-column: span 3; }
+    .bento.featured { grid-column: span 4; grid-row: span 1; }
+    .bento.compact { grid-column: span 2; }
+    @media (max-width: 900px) {
+      .bento.wide, .bento.medium, .bento.featured, .bento.compact { grid-column: span 2; }
+    }
+    @media (max-width: 560px) {
+      .bento.wide, .bento.medium, .bento.featured, .bento.compact { grid-column: span 1; }
+    }
+
+    /* ── DASHBOARD v2 (insights 3-up + multi-color KPIs + line + DRE + top10 + compare) ── */
+    .ex-insights-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin-bottom: 18px;
+    }
+    @media (max-width: 760px) { .ex-insights-row { grid-template-columns: 1fr; } }
+    .ex-mini-insight {
+      display: grid; grid-template-columns: 32px 1fr;
+      gap: 12px; align-items: center;
+      padding: 12px 14px; border-radius: 10px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: border-color .2s;
+    }
+    .ex-mini-insight:hover { border-color: rgba(245,197,24,0.25); }
+    .ex-mini-insight .icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .ex-mini-insight.ok    .icon { background: rgba(109,242,167,0.14); color: #6df2a7; }
+    .ex-mini-insight.alert .icon { background: rgba(245,197,24,0.16); color: var(--gold); }
+    .ex-mini-insight.warn  .icon { background: rgba(255,138,122,0.12); color: #ff8a7a; }
+    .ex-mini-insight .text {
+      font-size: 12px; line-height: 1.45;
+      color: var(--text-muted);
+    }
+    .ex-mini-insight .text b { color: #fff; font-weight: 700; }
+
+    /* KPI color variants + valor monospace */
+    .ex-kpi-value {
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      letter-spacing: -1px;
+    }
+    .ex-kpi.gold    .ex-kpi-value { color: var(--gold); }
+    .ex-kpi.danger  .ex-kpi-value { color: #ff8a7a; }
+    .ex-kpi.success .ex-kpi-value { color: #6df2a7; }
+    .ex-kpi.blue    .ex-kpi-value { color: #74b9ff; }
+
+    /* Line chart Receita vs Despesa */
+    .ex-linechart { position: relative; height: 220px; }
+    .ex-linechart svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    .ex-line-legend {
+      display: flex; gap: 18px; margin-bottom: 12px;
+      font-size: 11px; color: var(--text-muted);
+    }
+    .ex-line-legend .leg {
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .ex-line-legend .swatch {
+      width: 10px; height: 3px; border-radius: 2px;
+    }
+    .ex-line-legend .swatch.dashed {
+      background: linear-gradient(90deg, #74b9ff 50%, transparent 50%);
+      background-size: 6px 3px;
+    }
+
+    /* Donut grande */
+    .ex-donut-big {
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 24px; align-items: center;
+    }
+    @media (max-width: 560px) { .ex-donut-big { grid-template-columns: 1fr; justify-items: center; } }
+    .ex-donut-wrap { width: 180px; height: 180px; position: relative; flex-shrink: 0; }
+    .ex-donut-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .ex-donut-wrap .center {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .ex-donut-wrap .center .v {
+      font-family: 'SF Mono', monospace;
+      font-size: 22px; font-weight: 700; color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .ex-donut-wrap .center .l {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-top: 4px;
+    }
+    .ex-donut-legend2 { display: flex; flex-direction: column; gap: 12px; font-size: 12px; min-width: 0; }
+    .ex-donut-legend2 .row {
+      display: grid; grid-template-columns: 12px 1fr auto auto;
+      gap: 10px; align-items: center;
+    }
+    .ex-donut-legend2 .sw { width: 10px; height: 10px; border-radius: 3px; }
+    .ex-donut-legend2 .nm { color: #fff; font-weight: 500; }
+    .ex-donut-legend2 .vv { font-family: 'SF Mono', monospace; font-weight: 700; color: var(--text-muted); font-size: 11px; }
+    .ex-donut-legend2 .pc {
+      font-family: 'SF Mono', monospace; font-weight: 700;
+      color: rgba(255,255,255,0.4); font-size: 11px;
+      min-width: 36px; text-align: right;
+    }
+
+    /* DRE table hierárquica */
+    .ex-dre { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .ex-dre th {
+      text-align: left; padding: 9px 10px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .ex-dre th.num { text-align: right; }
+    .ex-dre td {
+      padding: 9px 10px; color: var(--text-muted);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .ex-dre td.num { text-align: right; font-family: 'SF Mono', monospace; font-weight: 600; }
+    .ex-dre tr.avo td {
+      background: rgba(245,197,24,0.06);
+      font-weight: 800; text-transform: uppercase;
+      font-size: 10px; letter-spacing: 1px;
+      color: #fff; padding: 11px 10px;
+    }
+    .ex-dre tr.pai td { font-weight: 700; color: #fff; }
+    .ex-dre tr.pai .name { padding-left: 18px; }
+    .ex-dre tr.filho .name { padding-left: 36px; font-size: 11px; }
+    .ex-dre .expand { color: rgba(255,255,255,0.4); margin-right: 6px; font-size: 10px; }
+    .ex-dre .pctbar {
+      display: inline-block; width: 60px; height: 4px;
+      background: rgba(255,255,255,0.06); border-radius: 2px;
+      margin-right: 8px; vertical-align: middle;
+    }
+    .ex-dre .pctbar .fill { display: block; height: 100%; background: var(--gold); border-radius: 2px; }
+    .ex-dre .deltap { color: #6df2a7; font-weight: 700; font-size: 10px; }
+    .ex-dre .deltan { color: #ff8a7a; font-weight: 700; font-size: 10px; }
+    .ex-dre .deltaw { color: var(--gold); font-weight: 700; font-size: 10px; }
+
+    /* Top expenses list */
+    .ex-barlist { display: flex; flex-direction: column; gap: 12px; }
+    .ex-barlist .row {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 12px; font-size: 12px;
+    }
+    .ex-barlist .name { color: #fff; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .ex-barlist .val { font-family: 'SF Mono', monospace; font-weight: 700; color: var(--text-muted); }
+    .ex-barlist .track {
+      grid-column: 1 / -1;
+      background: rgba(255,255,255,0.05);
+      border-radius: 3px; overflow: hidden;
+      height: 5px;
+    }
+    .ex-barlist .fill { height: 100%; border-radius: 3px; }
+    .ex-barlist .fill.g1 { background: linear-gradient(90deg, var(--gold), #FFD84D); }
+    .ex-barlist .fill.g2 { background: linear-gradient(90deg, #74b9ff, #a29bfe); }
+    .ex-barlist .fill.g3 { background: linear-gradient(90deg, #6df2a7, #74b9ff); }
+    .ex-barlist .fill.warn { background: var(--gold); box-shadow: 0 0 8px rgba(245,197,24,0.4); }
+    .ex-barlist .alert { color: var(--gold); }
+
+    /* Comparison cards (3-up) */
+    .ex-compare {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin-top: 14px;
+    }
+    @media (max-width: 760px) { .ex-compare { grid-template-columns: 1fr; } }
+    .ex-compare .card-mini {
+      background: rgba(255,255,255,0.022);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 16px 18px;
+    }
+    .ex-compare .head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .ex-compare .head .t { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .ex-compare .head .s { font-family: 'SF Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.4); }
+    .ex-compare .stat {
+      display: flex; align-items: baseline; justify-content: space-between;
+      padding: 5px 0;
+    }
+    .ex-compare .stat-l { color: var(--text-muted); font-size: 12px; }
+    .ex-compare .stat-v {
+      font-family: 'SF Mono', monospace; font-weight: 700;
+      font-size: 14px; color: #6df2a7;
+    }
+    .ex-compare .stat-v.gold { color: var(--gold); }
+    .ex-compare .stat-v.blue { color: #74b9ff; }
+
+    /* ── PLANOS ── */
+    .plans { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 768px) { .plans { padding: 60px 16px; } }
+    .plans .section-header { text-align: center; margin-bottom: 48px; }
+    .plans .section-desc { margin: 0 auto; }
+    .plans-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 920px) { .plans-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
+    .plan {
+      position: relative;
+      background: var(--navy-card); backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      display: flex; flex-direction: column;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .plan:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: 0 20px 60px rgba(0,0,0,0.32); }
+    .plan.featured {
+      border-color: rgba(245,197,24,0.45);
+      background: linear-gradient(160deg, rgba(245,197,24,0.06), rgba(26,34,64,0.95));
+      box-shadow: 0 30px 80px -20px rgba(245,197,24,0.18);
+    }
+    .plan .badge {
+      position: absolute; top: -10px; right: 18px;
+      padding: 4px 12px; border-radius: 100px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      background: var(--gold); color: var(--navy);
+    }
+    .plan-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .plan-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px; font-weight: 700; color: #fff;
+      line-height: 1.25; margin-bottom: 6px;
+    }
+    .plan-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 24px; }
+    .plan-price {
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 28px; font-weight: 700;
+      color: #fff; letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .plan-price-sub { font-size: 11px; color: rgba(255,255,255,0.45); font-weight: 500; margin-bottom: 24px; letter-spacing: 0.5px; }
+    .plan-features { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .plan-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13px; color: var(--text-muted); line-height: 1.5;
+    }
+    .plan-features li::before {
+      content: ''; flex-shrink: 0; margin-top: 5px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--gold-dim); border: 1px solid rgba(245,197,24,0.35);
+      background-image: linear-gradient(45deg, transparent 40%, var(--gold) 40%, var(--gold) 60%, transparent 60%);
+      background-size: 8px 1.5px; background-repeat: no-repeat; background-position: center 5px;
+    }
+    .plan-features li.highlight { color: #fff; font-weight: 600; }
+    .plan-features li.highlight::before {
+      background: var(--gold);
+      border-color: var(--gold);
+      box-shadow: 0 0 8px rgba(245,197,24,0.4);
+    }
+    .plan-features li b { color: #fff; font-weight: 600; }
+    .plan-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 13px 20px; border-radius: 10px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+      text-decoration: none;
+      transition: background .2s, transform .2s, border-color .2s, color .2s;
+    }
+    .plan-cta.secondary {
+      background: transparent; color: var(--gold);
+      border: 1px solid rgba(245,197,24,0.30);
+    }
+    .plan-cta.secondary:hover { border-color: var(--gold); background: rgba(245,197,24,0.06); }
+    .plan-cta.primary {
+      background: var(--gold); color: var(--navy);
+    }
+    .plan-cta.primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .plans-note {
+      margin-top: 32px; text-align: center;
+      font-size: 12px; color: rgba(255,255,255,0.5);
+    }
+    .plans-note a { color: var(--gold); text-decoration: none; border-bottom: 1px dashed rgba(245,197,24,0.4); }
+
+    /* ── SOBRE O NICOLAS ── */
+    .nicolas { padding: 120px 48px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 280px 1fr; gap: 56px; align-items: center; }
+    @media (max-width: 760px) { .nicolas { grid-template-columns: 1fr; gap: 36px; padding: 80px 24px; text-align: center; } }
+    .nicolas-photo { position: relative; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .nicolas-avatar {
+      width: 100%; max-width: 280px; aspect-ratio: 1;
+      border-radius: 24px; overflow: hidden; position: relative;
+      background: linear-gradient(160deg, rgba(245,197,24,0.18), rgba(15,22,46,0.85));
+      border: 1px solid rgba(245,197,24,0.25);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(245,197,24,0.04);
+    }
+    .nicolas-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .nicolas-avatar .pattern {
+      position: absolute; inset: 0; opacity: 0.95;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); z-index: 1;
+      filter: drop-shadow(0 6px 20px rgba(245,197,24,0.30));
+    }
+    .nicolas-avatar .pattern svg { width: 78%; height: 78%; }
+    .nicolas-status {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 100px;
+      background: rgba(46,204,113,0.10);
+      border: 1px solid rgba(46,204,113,0.30);
+      font-size: 12px; font-weight: 600;
+      color: #6df2a7; letter-spacing: 0.3px;
+    }
+    .nicolas-status .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #2ecc71;
+      box-shadow: 0 0 0 0 rgba(46,204,113,0.7);
+      animation: pulse 2s infinite;
+    }
+    .nicolas-content { display: flex; flex-direction: column; }
+    .nicolas-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 3px; color: var(--gold);
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .nicolas-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700; letter-spacing: -0.02em;
+      color: #fff; line-height: 1.15;
+      margin-bottom: 20px;
+      text-wrap: balance;
+    }
+    .nicolas-title .accent { color: var(--gold); }
+    .nicolas-bio { color: var(--text-muted); font-size: 15px; line-height: 1.75; margin-bottom: 24px; max-width: 580px; }
+    @media (max-width: 760px) { .nicolas-bio { margin-left: auto; margin-right: auto; } }
+    .nicolas-bio b { color: #fff; font-weight: 600; }
+    .nicolas-facts {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 10px; margin-bottom: 28px;
+    }
+    @media (max-width: 460px) { .nicolas-facts { grid-template-columns: 1fr; } }
+    .nicolas-fact {
+      display: flex; flex-direction: column; gap: 2px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--navy-card);
+      backdrop-filter: blur(8px);
+      text-align: left;
+    }
+    .nicolas-fact-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    .nicolas-fact-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px; font-weight: 700; color: #fff;
+      line-height: 1.3;
+    }
+    .nicolas-fact-value .gold { color: var(--gold); }
+    .nicolas-coverage {
+      display: flex; align-items: center; gap: 14px;
+      flex-wrap: wrap; margin-bottom: 24px;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(245,197,24,0.04);
+    }
+    @media (max-width: 760px) { .nicolas-coverage { justify-content: center; } }
+    .nicolas-coverage-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+    }
+    .nicolas-coverage-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .nicolas-coverage-chips .chip {
+      display: inline-flex; align-items: center;
+      padding: 4px 10px; border-radius: 6px;
+      font-family: 'SF Mono', 'Space Grotesk', monospace;
+      font-size: 11px; font-weight: 700;
+      color: var(--gold);
+      background: rgba(245,197,24,0.12);
+      border: 1px solid rgba(245,197,24,0.28);
+      letter-spacing: 0.5px;
+    }
+
+    .nicolas-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    @media (max-width: 760px) { .nicolas-links { justify-content: center; } }
+    .nicolas-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 18px; border-radius: 10px;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, transform .2s, color .2s;
+    }
+    .nicolas-link.primary { background: var(--gold); color: var(--navy); }
+    .nicolas-link.primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .nicolas-link.secondary {
+      border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted);
+    }
+    .nicolas-link.secondary:hover { border-color: var(--gold); color: var(--gold); }
+    .nicolas-link svg { width: 16px; height: 16px; }
+
+    /* ── WHY (Diferenciais refinados) ── */
+    .why-item .why-icon {
+      width: 52px; height: 52px; border-radius: 13px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(245,197,24,0.22);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      color: var(--gold);
+    }
+    .why-item .why-icon svg { width: 26px; height: 26px; }
+    .why-item .why-desc-strong { color: #fff; font-weight: 600; }
+    .why-item .why-desc-strong-gold { color: var(--gold); font-weight: 700; }
+
+    /* ── FAQ ── */
+    .faq { padding: 100px 48px; max-width: 800px; margin: 0 auto; }
+    @media (max-width: 768px) { .faq { padding: 60px 20px; } }
+    .faq .section-header { text-align: center; margin-bottom: 40px; }
+    .faq .section-desc { margin: 0 auto; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--navy-card);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+      transition: border-color .25s;
+    }
+    .faq-item:hover { border-color: var(--border-hover); }
+    .faq-item[open] { border-color: rgba(245,197,24,0.30); }
+    .faq-item summary {
+      list-style: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 600; color: #fff;
+      transition: background .2s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px; font-weight: 300;
+      color: var(--gold); line-height: 1;
+      transition: transform .3s ease;
+      flex-shrink: 0;
+    }
+    .faq-item[open] summary { background: rgba(245,197,24,0.05); }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 0 22px 22px;
+      color: var(--text-muted);
+      font-size: 14px; line-height: 1.75;
+      animation: faqSlideIn .35s ease;
+    }
+    .faq-answer p + p { margin-top: 10px; }
+    .faq-answer b { color: #fff; font-weight: 600; }
+    .faq-answer a { color: var(--gold); text-decoration: none; border-bottom: 1px dashed rgba(245,197,24,0.4); }
+    @keyframes faqSlideIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Form validation states ── */
+    .diag-field.invalid input,
+    .diag-field.invalid textarea {
+      border-color: rgba(231,76,60,0.55);
+      background: rgba(231,76,60,0.06);
+    }
+    .diag-field-error {
+      font-size: 11px; color: #ff8a7a; font-weight: 500;
+      margin-top: 4px; display: none;
+    }
+    .diag-field.invalid .diag-field-error { display: block; }
+
+    /* ── STICKY MOBILE CTA BAR ── */
+    .sticky-cta {
+      display: none;
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 250;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(8,13,26,0.92); backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      gap: 10px;
+    }
+    .sticky-cta a {
+      flex: 1; text-align: center; font-size: 14px; font-weight: 600;
+      text-decoration: none; padding: 12px 8px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .sticky-cta .primary { background: var(--gold); color: var(--navy); }
+    .sticky-cta .secondary { border: 1px solid rgba(245,197,24,0.35); color: var(--gold); }
+    @media (max-width: 768px) {
+      .sticky-cta { display: flex; }
+      body { padding-bottom: 72px; }
+      .float-wa { display: none; }
+    }
   </style>
 </head>
 <body>
 
+<a href="#hero" class="skip-link" data-pt="Pular para o conteúdo" data-en="Skip to content">Pular para o conteúdo</a>
+
 <canvas id="neural-canvas"></canvas>
 
 <!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="float-wa" aria-label="WhatsApp">
+<a href="https://wa.me/5567992438271?text=Ol%C3%A1!%20Vim%20do%20site%20smartbusiness.ia.br" target="_blank" rel="noopener noreferrer" class="float-wa" aria-label="WhatsApp">
   <span class="tooltip" data-pt="Fale comigo" data-en="Talk to me">Fale comigo</span>
   <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
 </a>
@@ -619,33 +1952,161 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo" aria-label="Smart Business — página inicial">
-    <img src="/assets/logo/logomark-gold-side.png" alt="Smart Business" decoding="async"/>
+    <svg class="symbol" viewBox="-160 -160 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle r="42" fill="#F5C518" opacity=".12"/>
+      <circle r="130" stroke="currentColor" stroke-width="6" fill="none"/>
+      <g stroke="currentColor" stroke-width="3.6" stroke-linecap="round" fill="none" opacity=".85">
+        <line x1="0" y1="0" x2="0" y2="-95"/><line x1="0" y1="0" x2="82" y2="-47"/>
+        <line x1="0" y1="0" x2="82" y2="47"/><line x1="0" y1="0" x2="0" y2="95"/>
+        <line x1="0" y1="0" x2="-82" y2="47"/><line x1="0" y1="0" x2="-82" y2="-47"/>
+      </g>
+      <g stroke="currentColor" stroke-width="4.4" stroke-linecap="round" fill="none">
+        <line x1="0" y1="-95" x2="82" y2="-47"/><line x1="82" y1="-47" x2="82" y2="47"/>
+        <line x1="82" y1="47" x2="0" y2="95"/><line x1="0" y1="95" x2="-82" y2="47"/>
+        <line x1="-82" y1="47" x2="-82" y2="-47"/><line x1="-82" y1="-47" x2="0" y2="-95"/>
+      </g>
+      <g fill="currentColor">
+        <circle cx="0" cy="-95" r="14"/><circle cx="82" cy="-47" r="14"/><circle cx="82" cy="47" r="14"/>
+        <circle cx="0" cy="95" r="14"/><circle cx="-82" cy="47" r="14"/><circle cx="-82" cy="-47" r="14"/>
+      </g>
+      <circle r="22" fill="#F5C518"/>
+      <circle r="32" stroke="currentColor" stroke-width="5" fill="none"/>
+    </svg>
+    <span class="wordmark">
+      <span class="smart">SMART</span>
+      <span class="business">BUSINESS</span>
+    </span>
   </a>
   <span class="nav-center" data-pt="Consultoria Dados & IA" data-en="Data & AI Consulting">Consultoria Dados & IA</span>
   <div class="nav-right">
     <button class="lang-btn active" onclick="setLang('pt')">PT</button>
     <button class="lang-btn" onclick="setLang('en')">EN</button>
-    <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="nav-cta" data-pt="Contato" data-en="Contact">Contato</a>
+    <a href="#diagnostico" class="nav-cta" data-pt="Pedir diagnóstico" data-en="Get diagnosis">Pedir diagnóstico</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <p class="hero-label" data-pt="Engenharia de Dados · Análise de Dados · <span>IA</span>" data-en="Data Engineering · Data Analysis · <span>AI</span>">Engenharia de Dados · Análise de Dados · <span>IA</span></p>
-  <h1 class="hero-title">
-    <span data-pt="A saúde real do seu negócio, sem " data-en="The real health of your business, no ">A saúde real do seu negócio, sem </span><span class="accent" data-pt="achismo" data-en="guesswork">achismo</span>
-  </h1>
-  <p class="hero-subtitle" data-pt="Dados, IA e automação para você decidir com clareza — e voltar a usar seu tempo no que realmente importa." data-en="Data, AI, and automation to help you decide with clarity — and reclaim your time for what truly matters.">Dados, IA e automação para você decidir com clareza — e voltar a usar seu tempo no que realmente importa.</p>
-  <div class="hero-actions">
-    <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-primary">
-      <span data-pt="Comece sua jornada" data-en="Start your journey">Comece sua jornada</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-    <a href="#services" class="btn-secondary" data-pt="Ver serviços" data-en="View services">Ver serviços</a>
+<!-- HERO (split-screen Direção A) -->
+<section class="hero-split" id="hero">
+  <div class="hero-left">
+    <p class="hero-label" data-pt="Engenharia de Dados · Análise de Dados · <span>IA</span>" data-en="Data Engineering · Data Analysis · <span>AI</span>">Engenharia de Dados · Análise de Dados · <span>IA</span></p>
+    <h1 class="hero-title">
+      <span data-pt="A saúde real do seu negócio, sem " data-en="The real health of your business, no ">A saúde real do seu negócio, sem </span><span class="accent" data-pt="achismo" data-en="guesswork">achismo</span>
+    </h1>
+    <p class="hero-subtitle" data-pt="Dados, IA e automação para você decidir com clareza — e voltar a usar seu tempo no que realmente importa." data-en="Data, AI, and automation to help you decide with clarity — and reclaim your time for what truly matters.">Dados, IA e automação para você decidir com clareza — e voltar a usar seu tempo no que realmente importa.</p>
+    <div class="hero-actions">
+      <a href="#diagnostico" class="btn-primary">
+        <span data-pt="Pedir diagnóstico gratuito" data-en="Get free diagnosis">Pedir diagnóstico gratuito</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://wa.me/5567992438271?text=Ol%C3%A1!%20Vim%20do%20site%20smartbusiness.ia.br" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-pt="Falar no WhatsApp" data-en="Talk on WhatsApp">Falar no WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">9+</span>
+        <span class="hero-stat-label" data-pt="Clientes ativos" data-en="Active clients">Clientes ativos</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">100%</span>
+        <span class="hero-stat-label" data-pt="Fechamentos no prazo" data-en="On-time closings">Fechamentos no prazo</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-pt="-80%" data-en="-80%">-80%</span>
+        <span class="hero-stat-label" data-pt="Tempo de fechamento médio" data-en="Avg closing time">Tempo de fechamento médio</span>
+      </div>
+    </div>
   </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span data-pt="Scroll down" data-en="Scroll down">Scroll down</span>
+
+  <div class="hero-visual" id="heroVisual" aria-hidden="true">
+    <div class="visual-frame">
+      <div class="visual-label" data-pt="Antes &amp; depois" data-en="Before &amp; after">Antes &amp; depois</div>
+      <div class="visual-stage">
+        <div class="etl-pipeline" id="etlPipeline" role="list">
+
+          <div class="etl-stage" data-stage="extract" role="listitem">
+            <div class="etl-badge" aria-label="Extract">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M3 5v6c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
+                <path d="M3 11v6c0 1.7 4 3 9 3s9-1.3 9-3v-6"/>
+              </svg>
+            </div>
+            <div class="etl-body">
+              <div class="etl-head">
+                <span class="etl-title">Extract</span>
+                <span class="etl-pct">0%</span>
+              </div>
+              <div class="etl-items"
+                   data-pt-idle="Aguardando fontes…"
+                   data-en-idle="Awaiting sources…"
+                   data-pt-items="planilha_jan.xlsx|extrato_bancario.csv|Clinicorp API|DRE_consolidado.xlsx"
+                   data-en-items="january_sheet.xlsx|bank_statement.csv|Clinicorp API|consolidated_PnL.xlsx">Aguardando fontes…</div>
+              <div class="etl-progress-bar"><div class="fill"></div></div>
+              <div class="etl-meta" data-pt="5 fontes · 12,4k linhas" data-en="5 sources · 12.4k rows">5 fontes · 12,4k linhas</div>
+            </div>
+          </div>
+
+          <div class="etl-stage" data-stage="transform" role="listitem">
+            <div class="etl-badge" aria-label="Transform">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="etl-body">
+              <div class="etl-head">
+                <span class="etl-title">Transform</span>
+                <span class="etl-pct">0%</span>
+              </div>
+              <div class="etl-items"
+                   data-pt-idle="Aguardando…"
+                   data-en-idle="Waiting…"
+                   data-pt-items="limpando #REF! e #N/A|dedup por chave composta|join 5 fontes|cálculo de margem"
+                   data-en-items="cleaning #REF! and #N/A|deduping by composite key|joining 5 sources|computing margins">Aguardando…</div>
+              <div class="etl-progress-bar"><div class="fill"></div></div>
+              <div class="etl-meta" data-pt="8 operações · 0,42s/k linhas" data-en="8 operations · 0.42s/k rows">8 operações · 0,42s/k linhas</div>
+            </div>
+          </div>
+
+          <div class="etl-stage" data-stage="load" role="listitem">
+            <div class="etl-badge" aria-label="Load">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <div class="etl-body">
+              <div class="etl-head">
+                <span class="etl-title">Load</span>
+                <span class="etl-pct">0%</span>
+              </div>
+              <div class="etl-items"
+                   data-pt-idle="Aguardando…"
+                   data-en-idle="Waiting…"
+                   data-pt-items="DRE consolidado → Power BI|KPIs financeiros → dashboard|alertas → WhatsApp gestor|histórico → BigQuery"
+                   data-en-items="consolidated P&amp;L → Power BI|financial KPIs → dashboard|alerts → manager WhatsApp|history → BigQuery">Aguardando…</div>
+              <div class="etl-progress-bar"><div class="fill"></div></div>
+              <div class="etl-meta" data-pt="4 destinos · 14 alertas/mês" data-en="4 targets · 14 alerts/mo">4 destinos · 14 alertas/mês</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="visual-progress" aria-hidden="true">
+        <div class="dot" id="visualDot"></div>
+      </div>
+      <div class="visual-foot">
+        <span class="state-label"
+              data-state-pt-extract="Extraindo dados das fontes"
+              data-state-en-extract="Extracting data from sources"
+              data-state-pt-transform="Limpando, deduplicando e cruzando"
+              data-state-en-transform="Cleaning, deduping, joining"
+              data-state-pt-load="Carregando dashboards e KPIs"
+              data-state-en-load="Loading dashboards and KPIs"
+              data-state-pt-done="Pipeline concluído · pronto pra decidir"
+              data-state-en-done="Pipeline complete · ready to decide">Extraindo dados das fontes</span>
+        <span style="display:flex;align-items:center;gap:8px"><span class="pulse"></span><span data-pt="Ao vivo" data-en="Live">Ao vivo</span></span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -685,60 +2146,86 @@
       <span data-pt="Deixe o operacional com a máquina. " data-en="Let the machine handle the operational. ">Deixe o operacional com a máquina. </span>
       <strong data-pt="O estratégico é seu." data-en="Strategy is yours.">O estratégico é seu.</strong>
     </p>
-    <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-primary">
+    <a href="#diagnostico" class="btn-primary">
       <span data-pt="Quero automatizar isso" data-en="I want to automate this">Quero automatizar isso</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about reveal" id="about">
-  <div class="about-visual">
-    <div class="about-sphere">
-      <div class="sphere-icon">🧠</div>
-    </div>
-  </div>
-  <div class="about-content">
-    <p class="about-label" data-pt="Sobre nós" data-en="About us">Sobre nós</p>
-    <h2 class="about-title">
-      <span data-pt="Smart Business transforma incerteza em" data-en="Smart Business transforms uncertainty into">Smart Business transforma incerteza em</span>
-      <span class="accent" data-pt="vantagem inteligente" data-en="intelligent advantage">vantagem inteligente</span>
-    </h2>
-    <p class="about-text" data-pt="Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência de negócio. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades." data-en="We combine strategic insight with deep technical expertise to turn complex data into business intelligence. We accelerate growth, reduce risk, and unlock new possibilities.">Combinamos visão estratégica com expertise técnica profunda para transformar dados complexos em inteligência de negócio. Aceleramos crescimento, reduzimos riscos e desbloqueamos novas possibilidades.</p>
-    <a href="#services" class="about-link" data-pt="Saiba mais →" data-en="Learn more →">Saiba mais →</a>
-  </div>
-</section><!-- SERVICES -->
+<!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-header reveal">
     <p class="section-label" data-pt="Serviços" data-en="Services">Serviços</p>
     <h2 class="section-title" data-pt="O que oferecemos" data-en="What we offer">O que oferecemos</h2>
     <p class="section-desc" data-pt="Soluções end-to-end em dados para empresas que querem crescer com inteligência." data-en="End-to-end data solutions for companies that want to grow intelligently.">Soluções end-to-end em dados para empresas que querem crescer com inteligência.</p>
   </div>
-  <div class="cards-grid reveal-stagger">
-    <div class="card">
-      <div class="card-icon">📊</div>
-      <h3 class="card-title" data-pt="Análise de Dados" data-en="Data Analysis">Análise de Dados</h3>
-      <p class="card-text" data-pt="Transformamos dados brutos em insights claros. Dashboards interativos, KPIs e relatórios que apoiam decisões rápidas e seguras." data-en="We turn raw data into clear insights. Interactive dashboards, KPIs, and reports that support fast, confident decisions.">Transformamos dados brutos em insights claros. Dashboards interativos, KPIs e relatórios que apoiam decisões rápidas e seguras.</p>
-      <div class="card-tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">KPIs</span><span class="tag">Dashboards</span></div>
+  <div class="services-bento reveal-stagger">
+    <!-- Engenharia de Dados — featured (span 4) -->
+    <div class="bento featured">
+      <div class="bento-top">
+        <div class="bento-icon">⚙️</div>
+        <h3 class="bento-title" data-pt="Engenharia de Dados" data-en="Data Engineering">Engenharia de Dados</h3>
+        <p class="bento-text" data-pt="Da ingestão à camada de serving: pipelines, modelagem dimensional, DBA e big data processado em Spark — rodando em GCP, BigQuery ou on-premises com a mesma qualidade." data-en="From ingestion to serving layer: pipelines, dimensional modeling, DBA, and big data processed in Spark — running on GCP, BigQuery, or on-premises with the same quality.">Da ingestão à camada de serving: pipelines, modelagem dimensional, DBA e big data processado em Spark — rodando em GCP, BigQuery ou on-premises com a mesma qualidade.</p>
+      </div>
+      <div class="bento-tags">
+        <span class="tag">SQL</span>
+        <span class="tag">Python</span>
+        <span class="tag">PySpark</span>
+        <span class="tag">ETL</span>
+        <span class="tag">DBA</span>
+        <span class="tag">GCP</span>
+        <span class="tag">BigQuery</span>
+        <span class="tag" data-pt="Modelagem Dimensional" data-en="Dimensional Modeling">Modelagem Dimensional</span>
+      </div>
+      <div class="bento-deco">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 11v6c0 1.7 4 3 9 3s9-1.3 9-3v-6"/></svg>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-icon">⚙️</div>
-      <h3 class="card-title" data-pt="Engenharia de Dados" data-en="Data Engineering">Engenharia de Dados</h3>
-      <p class="card-text" data-pt="Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório." data-en="We build pipelines and databases so your data flows with quality, speed, and reliability — from raw to report.">Estruturamos pipelines e bancos de dados para que seus dados fluam com qualidade, velocidade e confiabilidade — do raw ao relatório.</p>
-      <div class="card-tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">ETL</span><span class="tag" data-pt="Banco de Dados" data-en="Database">Banco de Dados</span></div>
+
+    <!-- Análise de Dados — compact (span 2) -->
+    <div class="bento compact">
+      <div class="bento-top">
+        <div class="bento-icon">📊</div>
+        <h3 class="bento-title" data-pt="Análise de Dados" data-en="Data Analysis">Análise de Dados</h3>
+        <p class="bento-text" data-pt="Dashboards, KPIs e relatórios que apoiam decisões — com fonte única e auditável." data-en="Dashboards, KPIs, and reports that support decisions — with a single, auditable source.">Dashboards, KPIs e relatórios que apoiam decisões — com fonte única e auditável.</p>
+      </div>
+      <div class="bento-tags">
+        <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">KPIs</span>
+      </div>
+      <div class="bento-deco">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-icon">🤖</div>
-      <h3 class="card-title" data-pt="Automação com IA" data-en="AI Automation">Automação com IA</h3>
-      <p class="card-text" data-pt="Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos." data-en="We eliminate repetitive tasks with intelligent automations. Processes that used to take hours — done in seconds.">Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos.</p>
-      <div class="card-tags"><span class="tag">Python</span><span class="tag" data-pt="IA" data-en="AI">IA</span><span class="tag" data-pt="Automação" data-en="Automation">Automação</span><span class="tag" data-pt="Planilhas" data-en="Spreadsheets">Planilhas</span></div>
+
+    <!-- Automação IA — wide (span 3) -->
+    <div class="bento wide">
+      <div class="bento-top">
+        <div class="bento-icon">🤖</div>
+        <h3 class="bento-title" data-pt="Automação com IA" data-en="AI Automation">Automação com IA</h3>
+        <p class="bento-text" data-pt="Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos — com Claude, ChatGPT, n8n e Python orquestrados." data-en="We eliminate repetitive tasks with intelligent automations. Processes that used to take hours — done in seconds — with Claude, ChatGPT, n8n, and Python orchestrated.">Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos — com Claude, ChatGPT, n8n e Python orquestrados.</p>
+      </div>
+      <div class="bento-tags">
+        <span class="tag" data-pt="IA" data-en="AI">IA</span><span class="tag">n8n</span><span class="tag">Python</span><span class="tag" data-pt="WhatsApp" data-en="WhatsApp">WhatsApp</span>
+      </div>
+      <div class="bento-deco">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-icon">🎨</div>
-      <h3 class="card-title" data-pt="Landing Pages & Identidade Visual" data-en="Landing Pages & Visual Identity">Landing Pages & Identidade Visual</h3>
-      <p class="card-text" data-pt="Criamos landing pages profissionais e identidade visual alinhada à sua marca. Paleta de cores, tipografia e design que transmitem credibilidade e convertem visitantes em clientes." data-en="We create professional landing pages and brand-aligned visual identity. Color palette, typography, and design that convey credibility and convert visitors into customers.">Criamos landing pages profissionais e identidade visual alinhada à sua marca. Paleta de cores, tipografia e design que transmitem credibilidade e convertem visitantes em clientes.</p>
-      <div class="card-tags"><span class="tag">Landing Page</span><span class="tag">Design</span><span class="tag" data-pt="Paleta de Cores" data-en="Color Palette">Paleta de Cores</span><span class="tag">Branding</span></div>
+
+    <!-- Landing & Design — medium (span 3) -->
+    <div class="bento medium">
+      <div class="bento-top">
+        <div class="bento-icon">🎨</div>
+        <h3 class="bento-title" data-pt="Landing Pages & Identidade Visual" data-en="Landing Pages & Visual Identity">Landing Pages & Identidade Visual</h3>
+        <p class="bento-text" data-pt="Páginas que convertem e identidade visual alinhada à sua marca. Design que transmite credibilidade — o site que você está vendo é exemplo." data-en="Pages that convert and brand-aligned visual identity. Design that conveys credibility — the site you're seeing is the example.">Páginas que convertem e identidade visual alinhada à sua marca. Design que transmite credibilidade — o site que você está vendo é exemplo.</p>
+      </div>
+      <div class="bento-tags">
+        <span class="tag">Landing Page</span><span class="tag">Design</span><span class="tag">Branding</span>
+      </div>
+      <div class="bento-deco">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2a10 10 0 0 0-9.8 12c.9 4.5 5 8 9.8 8 1.4 0 2.5-1.1 2.5-2.5 0-.6-.3-1.2-.7-1.7-.4-.4-.7-1-.7-1.7 0-1.4 1.1-2.5 2.5-2.5h2.7a4.5 4.5 0 0 0 4.5-4.5C22.8 6.4 17.9 2 12 2z"/></svg>
+      </div>
     </div>
   </div>
 </section>
@@ -787,26 +2274,120 @@
   </div>
 </section>
 
-<!-- WHY ME -->
+<!-- PROOF / NÚMEROS (prova social anônima) -->
+<section class="proof reveal" id="numeros">
+  <div class="section-header">
+    <p class="section-label" data-pt="Resultados" data-en="Results">Resultados</p>
+    <h2 class="section-title">
+      <span data-pt="Operação rodando " data-en="Operations running ">Operação rodando </span><span class="accent" data-pt="todo mês" data-en="every month">todo mês</span>
+    </h2>
+    <p class="section-desc" data-pt="Não é portfólio bonito de slide. É o que está em produção agora — fechamento mensal, dashboards e automações em clientes ativos." data-en="Not pretty slide decks. It's what's in production right now — monthly closings, dashboards, and automations on active clients.">Não é portfólio bonito de slide. É o que está em produção agora — fechamento mensal, dashboards e automações em clientes ativos.</p>
+  </div>
+  <div class="proof-grid reveal-stagger">
+    <div class="proof-item">
+      <div class="proof-num">9+</div>
+      <div class="proof-label" data-pt="Clientes ativos" data-en="Active clients">Clientes ativos</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">10+</div>
+      <div class="proof-label" data-pt="Unidades com DRE mensal" data-en="Units with monthly P&amp;L">Unidades com DRE mensal</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">20+</div>
+      <div class="proof-label" data-pt="Pipelines em produção" data-en="Pipelines in production">Pipelines em produção</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">100%</div>
+      <div class="proof-label" data-pt="Fechamentos no prazo (últimos 6 meses)" data-en="On-time closings (last 6 months)">Fechamentos no prazo (últimos 6 meses)</div>
+    </div>
+  </div>
+  <div class="proof-meta">
+    <div class="proof-meta-row">
+      <span class="proof-meta-label" data-pt="Setores" data-en="Sectors">Setores</span>
+      <div class="proof-meta-chips">
+        <span class="tool" data-pt="Financeiro" data-en="Financial">Financeiro</span>
+        <span class="tool" data-pt="Consórcio" data-en="Consortium">Consórcio</span>
+        <span class="tool" data-pt="Odontologia" data-en="Dentistry">Odontologia</span>
+        <span class="tool" data-pt="Esportes" data-en="Sports">Esportes</span>
+        <span class="tool" data-pt="Indústria" data-en="Industry">Indústria</span>
+        <span class="tool" data-pt="Jurídico" data-en="Legal">Jurídico</span>
+      </div>
+    </div>
+    <div class="proof-meta-row">
+      <span class="proof-meta-label" data-pt="Atendido em" data-en="Served in">Atendido em</span>
+      <div class="proof-meta-chips">
+        <span class="chip">BA</span>
+        <span class="chip">SP</span>
+        <span class="chip">RJ</span>
+        <span class="chip">MG</span>
+        <span class="chip">MS</span>
+      </div>
+    </div>
+    <div class="proof-meta-row">
+      <span class="proof-meta-label" data-pt="Atividades" data-en="Activities">Atividades</span>
+      <div class="proof-meta-chips">
+        <span class="tool" data-pt="Dashboards" data-en="Dashboards">Dashboards</span>
+        <span class="tool" data-pt="Pipelines" data-en="Pipelines">Pipelines</span>
+        <span class="tool" data-pt="Conciliação" data-en="Reconciliation">Conciliação</span>
+        <span class="tool" data-pt="DRE" data-en="P&amp;L">DRE</span>
+        <span class="tool" data-pt="Forecast" data-en="Forecast">Forecast</span>
+        <span class="tool" data-pt="Automação WhatsApp" data-en="WhatsApp automation">Automação WhatsApp</span>
+        <span class="tool" data-pt="Alertas" data-en="Alerts">Alertas</span>
+      </div>
+    </div>
+  </div>
+  <div class="proof-quotes reveal-stagger">
+    <div class="quote">
+      <p data-pt="“Fechamento que levava 5 dias virou 1 hora. O time recuperou tempo pra decidir, não só apurar.”" data-en="“Closings that took 5 days now take 1 hour. The team got back time to decide, not just compile.”">“Fechamento que levava 5 dias virou 1 hora. O time recuperou tempo pra decidir, não só apurar.”</p>
+      <span class="who" data-pt="Diretor financeiro · grupo de consórcio" data-en="CFO · consortium group">Diretor financeiro · grupo de consórcio</span>
+    </div>
+    <div class="quote">
+      <p data-pt="“Hoje todo mundo olha o mesmo número. Antes cada área defendia o seu Excel.”" data-en="“Now everyone looks at the same number. Before, each team defended its own Excel file.”">“Hoje todo mundo olha o mesmo número. Antes cada área defendia o seu Excel.”</p>
+      <span class="who" data-pt="Controller · rede de clínicas" data-en="Controller · clinic network">Controller · rede de clínicas</span>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS (Why) — refinados -->
 <section class="why" id="why">
   <div class="section-header reveal">
     <p class="section-label" data-pt="Diferenciais" data-en="Why Us">Diferenciais</p>
-    <h2 class="section-title" data-pt="Por que a Smart Business?" data-en="Why Smart Business?">Por que a Smart Business?</h2>
+    <h2 class="section-title" data-pt="O que ninguém mais te promete" data-en="What no one else promises">O que ninguém mais te promete</h2>
   </div>
   <div class="why-grid reveal-stagger">
     <div class="why-item">
-      <div class="why-number">01</div>
-      <div class="why-label" data-pt="Solução Completa" data-en="Full Solution">Solução Completa</div>
-      <p class="why-desc" data-pt="Da coleta ao dashboard — sem precisar contratar múltiplos profissionais." data-en="From data collection to dashboard — no need to hire multiple professionals.">Da coleta ao dashboard — sem precisar contratar múltiplos profissionais.</p>
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 11.08V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h6"/>
+          <polyline points="14 3 14 8 19 8"/>
+          <circle cx="18" cy="18" r="3"/>
+          <path d="M18 14v1"/><path d="M18 21v1"/>
+          <path d="M22 18h-1"/><path d="M15 18h-1"/>
+        </svg>
+      </div>
+      <div class="why-label" data-pt="Você fala comigo" data-en="You talk to me">Você fala comigo</div>
+      <p class="why-desc" data-pt="Sem analista júnior te respondendo, sem PMO entre nós. <span class='why-desc-strong'>Quem entende do projeto é quem entrega.</span>" data-en="No junior analyst replying, no PMO between us. <span class='why-desc-strong'>The one who knows the project is the one who delivers.</span>">Sem analista júnior te respondendo, sem PMO entre nós. <span class="why-desc-strong">Quem entende do projeto é quem entrega.</span></p>
     </div>
     <div class="why-item">
-      <div class="why-number">02</div>
-      <div class="why-label" data-pt="Foco em Resultado" data-en="Results-Driven">Foco em Resultado</div>
-      <p class="why-desc" data-pt="Soluções práticas, objetivas e alinhadas com o que importa para o seu negócio." data-en="Practical, objective solutions aligned with what matters for your business.">Soluções práticas, objetivas e alinhadas com o que importa para o seu negócio.</p>
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <div class="why-label" data-pt="Código fica com você" data-en="Code stays with you">Código fica com você</div>
+      <p class="why-desc" data-pt="Repositório, pipelines, dashboards e documentação na <span class='why-desc-strong'>sua infraestrutura</span>. Zero lock-in: se quiser sair, leva tudo." data-en="Repository, pipelines, dashboards, and docs in <span class='why-desc-strong'>your infrastructure</span>. Zero lock-in: if you leave, you take everything.">Repositório, pipelines, dashboards e documentação na <span class="why-desc-strong">sua infraestrutura</span>. Zero lock-in: se quiser sair, leva tudo.</p>
     </div>
     <div class="why-item">
-      <div class="why-number">03</div>      <div class="why-label" data-pt="Tecnologia Atual" data-en="Up-to-Date Tech">Tecnologia Atual</div>
-      <p class="why-desc" data-pt="Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade." data-en="Market-leading tools combined with AI for maximum efficiency and scalability.">Ferramentas de mercado combinadas com IA para máxima eficiência e escalabilidade.</p>
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+      </div>
+      <div class="why-label" data-pt="Provo antes de fechar" data-en="Proof before close">Provo antes de fechar</div>
+      <p class="why-desc" data-pt="<span class='why-desc-strong-gold'>Diagnóstico gratuito</span> com proposta concreta antes de qualquer contrato. Você só assina depois de ver caminho claro." data-en="<span class='why-desc-strong-gold'>Free diagnosis</span> with concrete proposal before any contract. You only sign after seeing a clear path.">
+        <span class="why-desc-strong-gold">Diagnóstico gratuito</span> com proposta concreta antes de qualquer contrato. Você só assina depois de ver caminho claro.</p>
     </div>
   </div>
 </section>
@@ -853,27 +2434,428 @@
       <span class="finance-highlight" data-pt="Setor financeiro" data-en="Financial sector">Setor financeiro</span>
       <h3>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        <span data-pt="Experiência aplicada à gestão financeira" data-en="Experience applied to financial management">Experiência aplicada à gestão financeira</span>
+        <span data-pt="Inteligência financeira ponta-a-ponta" data-en="End-to-end financial intelligence">Inteligência financeira ponta-a-ponta</span>
       </h3>
-      <p class="sub" data-pt="Atendemos mais de 10 unidades ativas consolidando DRE, faturamento e indicadores de saúde financeira todo mês." data-en="We serve 10+ active units consolidating P&amp;L, revenue, and financial health indicators every month.">Atendemos mais de 10 unidades ativas consolidando DRE, faturamento e indicadores de saúde financeira todo mês.</p>
+      <p class="sub" data-pt="Mais de 10 unidades ativas atendidas em todo o ciclo financeiro — do operacional diário ao board pack executivo." data-en="10+ active units served across the full financial cycle — from daily ops to executive board pack.">Mais de 10 unidades ativas atendidas em todo o ciclo financeiro — do operacional diário ao board pack executivo.</p>
       <ul class="expertise-list">
-        <li data-pt="DRE consolidado mensal por unidade e grupo" data-en="Monthly consolidated P&amp;L by unit and group">DRE consolidado mensal por unidade e grupo</li>
-        <li data-pt="Painéis de faturamento, margem e centro de custo" data-en="Revenue, margin, and cost center dashboards">Painéis de faturamento, margem e centro de custo</li>
-        <li data-pt="Conciliação automatizada com Clinicorp, bancos e planilhas" data-en="Automated reconciliation with Clinicorp, banks, and spreadsheets">Conciliação automatizada com Clinicorp, bancos e planilhas</li>
-        <li data-pt="Diagnóstico de saúde financeira com metas e alertas" data-en="Financial health diagnosis with targets and alerts">Diagnóstico de saúde financeira com metas e alertas</li>
-        <li data-pt="Pipeline de consórcio, folha e pró-labore" data-en="Consortium, payroll, and owner-compensation pipeline">Pipeline de consórcio, folha e pró-labore</li>
+        <li data-pt="Fluxo de caixa diário e projeção rolante 12 meses" data-en="Daily cash flow and 12-month rolling forecast">Fluxo de caixa diário e projeção rolante 12 meses</li>
+        <li data-pt="Conciliação automatizada multi-fonte (bancos, ERPs, planilhas)" data-en="Automated multi-source reconciliation (banks, ERPs, spreadsheets)">Conciliação automatizada multi-fonte (bancos, ERPs, planilhas)</li>
+        <li data-pt="Contas a receber e a pagar com aging, alertas e régua de cobrança" data-en="A/R and A/P with aging, alerts, and collection workflows">Contas a receber e a pagar com aging, alertas e régua de cobrança</li>
+        <li data-pt="Painéis executivos: DRE, margem, EBITDA, working capital" data-en="Executive dashboards: P&amp;L, margin, EBITDA, working capital">Painéis executivos: DRE, margem, EBITDA, working capital</li>
+        <li data-pt="Análise de centro de custo, rateio e drill-down multi-unidade" data-en="Cost center analysis, allocation, and multi-unit drill-down">Análise de centro de custo, rateio e drill-down multi-unidade</li>
+        <li data-pt="Forecast orçamentário com cenários e variação real vs. orçado" data-en="Budget forecasting with scenarios and actual vs. planned variance">Forecast orçamentário com cenários e variação real vs. orçado</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- EXEMPLO REAL (dashboard preview Direção A) -->
+<section class="example reveal" id="exemplo">
+  <div class="section-header">
+    <p class="section-label" data-pt="Exemplo real" data-en="Real example">Exemplo real</p>
+    <h2 class="section-title">
+      <span data-pt="O que você recebe " data-en="What you get ">O que você recebe </span><span class="accent" data-pt="no final" data-en="at the end">no final</span>
+    </h2>
+    <p class="section-desc" data-pt="Painel pronto pra ação — anonimizado, mas é o tipo de saída que rodamos em clientes ativos hoje." data-en="Action-ready dashboard — anonymized, but it's the kind of output we run in active clients today.">Painel pronto pra ação — anonimizado, mas é o tipo de saída que rodamos em clientes ativos hoje.</p>
+  </div>
+
+  <div class="ex-window">
+    <div class="ex-chrome">
+      <div class="ex-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      <div class="ex-url">app.powerbi.com / painel-financeiro / abr-2026</div>
+      <div class="ex-tab">Power BI</div>
+    </div>
+    <div class="ex-body">
+      <div class="ex-header">
+        <div class="ex-titles">
+          <span class="ex-title" data-pt="Painel Financeiro Consolidado" data-en="Consolidated Financial Dashboard">Painel Financeiro Consolidado</span>
+          <span class="ex-sub" data-pt="Cliente · Abril/2026 · atualizado há 12 min" data-en="Client · April/2026 · updated 12 min ago">Cliente · Abril/2026 · atualizado há 12 min</span>
+        </div>
+        <div class="ex-filters">
+          <span class="ex-filter active">LTM</span>
+          <span class="ex-filter">YTD</span>
+          <span class="ex-filter" data-pt="Mês" data-en="Month">Mês</span>
+          <span class="ex-filter" data-pt="Unidade ▾" data-en="Unit ▾">Unidade ▾</span>
+        </div>
+      </div>
+
+      <!-- Insight banner -->
+      <div class="ex-insight">
+        <div class="ex-insight-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18h6"/><path d="M10 22h4"/>
+            <path d="M12 2a7 7 0 0 0-4 12.7c.8.6 1.5 1.4 1.7 2.3h4.6c.2-.9.9-1.7 1.7-2.3A7 7 0 0 0 12 2z"/>
+          </svg>
+        </div>
+        <div class="ex-insight-body">
+          <span class="ex-insight-tag" data-pt="Insight automático" data-en="Auto-insight">Insight automático</span>
+          <span class="ex-insight-text" data-pt="Margem subiu <b>+2,8 p.p.</b> após automação da conciliação bancária — economia estimada de <b>R$ 38k/mês</b> em horas-pessoa." data-en="Margin grew <b>+2.8 p.p.</b> after bank reconciliation automation — estimated saving of <b>R$ 38k/month</b> in people-hours.">Margem subiu <b>+2,8 p.p.</b> após automação da conciliação bancária — economia estimada de <b>R$ 38k/mês</b> em horas-pessoa.</span>
+        </div>
+        <a href="#diagnostico" class="ex-insight-action" data-pt="Quero esse insight →" data-en="Get this insight →">Quero esse insight →</a>
+      </div>
+
+      <div class="ex-kpis">
+        <div class="ex-kpi">
+          <span class="ex-kpi-label" data-pt="Receita LTM" data-en="LTM Revenue">Receita LTM</span>
+          <span class="ex-kpi-value">R$ 1,42M</span>
+          <span class="ex-kpi-delta up">+18,3% YoY</span>
+          <svg class="ex-kpi-spark" viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true">
+            <path class="area" d="M0,22 L10,20 L20,21 L30,17 L40,18 L50,14 L60,12 L70,10 L80,8 L90,5 L100,3 L100,28 L0,28 Z" fill="rgba(245,197,24,0.20)"/>
+            <path class="line" d="M0,22 L10,20 L20,21 L30,17 L40,18 L50,14 L60,12 L70,10 L80,8 L90,5 L100,3" stroke="#F5C518"/>
+            <circle class="pt" cx="100" cy="3" r="2"/>
+          </svg>
+        </div>
+        <div class="ex-kpi">
+          <span class="ex-kpi-label" data-pt="Margem" data-en="Margin">Margem</span>
+          <span class="ex-kpi-value">38,1%</span>
+          <span class="ex-kpi-delta up">+2,8 p.p.</span>
+          <svg class="ex-kpi-spark" viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true">
+            <path class="area" d="M0,20 L10,21 L20,19 L30,18 L40,17 L50,14 L60,13 L70,11 L80,9 L90,7 L100,5 L100,28 L0,28 Z" fill="rgba(245,197,24,0.20)"/>
+            <path class="line" d="M0,20 L10,21 L20,19 L30,18 L40,17 L50,14 L60,13 L70,11 L80,9 L90,7 L100,5" stroke="#F5C518"/>
+            <circle class="pt" cx="100" cy="5" r="2"/>
+          </svg>
+        </div>
+        <div class="ex-kpi">
+          <span class="ex-kpi-label" data-pt="EBITDA" data-en="EBITDA">EBITDA</span>
+          <span class="ex-kpi-value">R$ 412k</span>
+          <span class="ex-kpi-delta up">+24,1%</span>
+          <svg class="ex-kpi-spark" viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true">
+            <path class="area" d="M0,24 L10,23 L20,22 L30,21 L40,17 L50,14 L60,12 L70,9 L80,7 L90,5 L100,2 L100,28 L0,28 Z" fill="rgba(245,197,24,0.20)"/>
+            <path class="line" d="M0,24 L10,23 L20,22 L30,21 L40,17 L50,14 L60,12 L70,9 L80,7 L90,5 L100,2" stroke="#F5C518"/>
+            <circle class="pt" cx="100" cy="2" r="2"/>
+          </svg>
+        </div>
+        <div class="ex-kpi">
+          <span class="ex-kpi-label" data-pt="Inadimplência" data-en="Default rate">Inadimplência</span>
+          <span class="ex-kpi-value">1,4%</span>
+          <span class="ex-kpi-delta down">-0,6 p.p.</span>
+          <svg class="ex-kpi-spark" viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true">
+            <path class="area" d="M0,6 L10,7 L20,8 L30,10 L40,12 L50,13 L60,15 L70,17 L80,20 L90,22 L100,23 L100,28 L0,28 Z" fill="rgba(109,242,167,0.18)"/>
+            <path class="line" d="M0,6 L10,7 L20,8 L30,10 L40,12 L50,13 L60,15 L70,17 L80,20 L90,22 L100,23" stroke="#6df2a7"/>
+            <circle class="pt" cx="100" cy="23" r="2" fill="#6df2a7"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="ex-row">
+        <div class="ex-card">
+          <div class="ex-card-head">
+            <span class="ex-card-title" data-pt="Receita por mês (R$ mil)" data-en="Revenue by month (R$ k)">Receita por mês (R$ mil)</span>
+            <span class="ex-card-meta">12m · LTM</span>
+          </div>
+          <div class="ex-chart-area">
+            <div class="ex-gridlines" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="ex-bar-annot" data-pt="R$ 156k · recorde" data-en="R$ 156k · record">R$ 156k · recorde</div>
+            <div class="ex-bars">
+              <div><div class="bar" style="height:38%"></div><span class="lbl">M</span></div>
+              <div><div class="bar" style="height:48%"></div><span class="lbl">J</span></div>
+              <div><div class="bar" style="height:44%"></div><span class="lbl">J</span></div>
+              <div><div class="bar" style="height:58%"></div><span class="lbl">A</span></div>
+              <div><div class="bar" style="height:54%"></div><span class="lbl">S</span></div>
+              <div><div class="bar" style="height:62%"></div><span class="lbl">O</span></div>
+              <div><div class="bar" style="height:71%"></div><span class="lbl">N</span></div>
+              <div><div class="bar" style="height:69%"></div><span class="lbl">D</span></div>
+              <div><div class="bar" style="height:78%"></div><span class="lbl">J</span></div>
+              <div><div class="bar" style="height:82%"></div><span class="lbl">F</span></div>
+              <div><div class="bar" style="height:88%"></div><span class="lbl">M</span></div>
+              <div><div class="bar curr" style="height:96%"></div><span class="lbl">A</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ex-card">
+          <div class="ex-card-head">
+            <span class="ex-card-title" data-pt="Composição por unidade" data-en="Mix by unit">Composição por unidade</span>
+            <span class="ex-card-meta" data-pt="4 unidades" data-en="4 units">4 unidades</span>
+          </div>
+          <div class="ex-donut">
+            <svg width="110" height="110" viewBox="0 0 42 42" aria-hidden="true">
+              <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="rgba(255,255,255,0.06)" stroke-width="6"/>
+              <circle cx="21" cy="21" r="15.9" fill="transparent"
+                stroke="#F5C518" stroke-width="6"
+                stroke-dasharray="38 100" stroke-dashoffset="25" transform="rotate(-90 21 21)"/>
+              <circle cx="21" cy="21" r="15.9" fill="transparent"
+                stroke="#FFD84D" stroke-width="6"
+                stroke-dasharray="28 100" stroke-dashoffset="-13" transform="rotate(-90 21 21)"/>
+              <circle cx="21" cy="21" r="15.9" fill="transparent"
+                stroke="rgba(245,197,24,0.55)" stroke-width="6"
+                stroke-dasharray="22 100" stroke-dashoffset="-41" transform="rotate(-90 21 21)"/>
+              <circle cx="21" cy="21" r="15.9" fill="transparent"
+                stroke="rgba(245,197,24,0.30)" stroke-width="6"
+                stroke-dasharray="12 100" stroke-dashoffset="-63" transform="rotate(-90 21 21)"/>
+              <text x="21" y="19.5" text-anchor="middle" fill="#fff"
+                font-family="Space Grotesk, sans-serif" font-size="5" font-weight="700">R$ 1,42M</text>
+              <text x="21" y="24" text-anchor="middle" fill="rgba(255,255,255,0.55)"
+                font-family="Inter, sans-serif" font-size="2.6" font-weight="600" letter-spacing="0.3">TOTAL · LTM</text>
+            </svg>
+            <ul class="ex-donut-legend">
+              <li><span class="sw" style="background:#F5C518"></span><span data-pt="Unidade A" data-en="Unit A">Unidade A</span><span class="v">38%</span></li>
+              <li><span class="sw" style="background:#FFD84D"></span><span data-pt="Unidade B" data-en="Unit B">Unidade B</span><span class="v">28%</span></li>
+              <li><span class="sw" style="background:rgba(245,197,24,0.55)"></span><span data-pt="Unidade C" data-en="Unit C">Unidade C</span><span class="v">22%</span></li>
+              <li><span class="sw" style="background:rgba(245,197,24,0.30)"></span><span data-pt="Unidade D" data-en="Unit D">Unidade D</span><span class="v">12%</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-row">
+        <div class="ex-card">
+          <div class="ex-card-head">
+            <span class="ex-card-title" data-pt="Top 5 centros de custo (mês)" data-en="Top 5 cost centers (month)">Top 5 centros de custo (mês)</span>
+            <span class="ex-card-meta" data-pt="Abr/26" data-en="Apr/26">Abr/26</span>
+          </div>
+          <table class="ex-table">
+            <thead>
+              <tr>
+                <th data-pt="Centro" data-en="Center">Centro</th>
+                <th class="num" data-pt="R$ mil" data-en="R$ k">R$ mil</th>
+                <th class="num" data-pt="% Receita" data-en="% Revenue">% Receita</th>
+                <th class="num bar-cell" data-pt="Δ vs Mar" data-en="Δ vs Mar">Δ vs Mar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-pt="Folha" data-en="Payroll">Folha</td>
+                <td class="num">42,1</td>
+                <td class="num">29,5%</td>
+                <td class="num bar-cell"><span class="pos">+3,2%</span><span class="fillit" style="width:62%"></span></td>
+              </tr>
+              <tr>
+                <td data-pt="Marketing" data-en="Marketing">Marketing</td>
+                <td class="num">18,6</td>
+                <td class="num">13,1%</td>
+                <td class="num bar-cell"><span class="pos">+8,4%</span><span class="fillit" style="width:48%"></span></td>
+              </tr>
+              <tr>
+                <td data-pt="Insumos" data-en="Supplies">Insumos</td>
+                <td class="num">14,2</td>
+                <td class="num">10,0%</td>
+                <td class="num bar-cell"><span class="neg">-1,8%</span><span class="fillit" style="width:34%"></span></td>
+              </tr>
+              <tr>
+                <td data-pt="Infra TI" data-en="IT Infra">Infra TI</td>
+                <td class="num">9,8</td>
+                <td class="num">6,9%</td>
+                <td class="num bar-cell"><span class="pos">+12,1%</span><span class="fillit" style="width:24%"></span></td>
+              </tr>
+              <tr>
+                <td data-pt="Outros" data-en="Other">Outros</td>
+                <td class="num">7,3</td>
+                <td class="num">5,1%</td>
+                <td class="num bar-cell"><span class="neg">-4,2%</span><span class="fillit" style="width:18%"></span></td>
+              </tr>
+              <tr class="total">
+                <td data-pt="Total" data-en="Total">Total</td>
+                <td class="num">92,0</td>
+                <td class="num">64,6%</td>
+                <td class="num"><span class="pos">+2,7%</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ex-card">
+          <div class="ex-card-head">
+            <span class="ex-card-title" data-pt="Margem · tendência LTM" data-en="Margin · LTM trend">Margem · tendência LTM</span>
+            <span class="ex-card-meta" style="color:#6df2a7">+2,8 p.p.</span>
+          </div>
+          <div class="ex-line">
+            <svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(245,197,24,0.30)"/>
+                  <stop offset="100%" stop-color="rgba(245,197,24,0)"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,60 L18,58 L36,54 L54,52 L72,48 L90,46 L108,42 L126,38 L144,34 L162,30 L180,26 L200,20"
+                stroke="#F5C518" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M0,60 L18,58 L36,54 L54,52 L72,48 L90,46 L108,42 L126,38 L144,34 L162,30 L180,26 L200,20 L200,80 L0,80 Z"
+                fill="url(#lineFill)"/>
+              <circle cx="200" cy="20" r="3" fill="#F5C518"/>
+              <circle cx="200" cy="20" r="6" fill="none" stroke="#F5C518" stroke-opacity="0.4" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:9px;color:rgba(255,255,255,0.4);font-family:'SF Mono',monospace">
+            <span>35,3%</span><span>36,1%</span><span>37,2%</span><span>38,1%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-foot">
+        <span class="live" data-pt="Atualização automática a cada hora" data-en="Auto-refresh every hour">Atualização automática a cada hora</span>
+        <span data-pt="Última extração: hoje, 09:42 BRT" data-en="Last extraction: today, 09:42 BRT">Última extração: hoje, 09:42 BRT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal" id="faq">
+  <div class="section-header">
+    <p class="section-label" data-pt="Perguntas frequentes" data-en="FAQ">Perguntas frequentes</p>
+    <h2 class="section-title">
+      <span data-pt="Dúvidas " data-en="Common ">Dúvidas </span><span class="accent" data-pt="que todo mundo tem" data-en="questions">que todo mundo tem</span>
+    </h2>
+    <p class="section-desc" data-pt="Não achou a sua? Pergunta direto no diagnóstico — eu mesmo respondo." data-en="Didn't find yours? Just ask via the diagnosis form — I'll reply personally.">Não achou a sua? Pergunta direto no diagnóstico — eu mesmo respondo.</p>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary data-pt="Quanto custa um projeto?" data-en="How much does a project cost?">Quanto custa um projeto?</summary>
+      <div class="faq-answer">
+        <p data-pt="<b>Sob escopo.</b> Cada projeto é cotado depois do diagnóstico (gratuito), porque o preço justo depende do tamanho da base, complexidade dos joins e quantidade de fontes." data-en="<b>By scope.</b> Each project is quoted after the diagnosis (free), because fair pricing depends on database size, join complexity, and number of sources.">
+          <b>Sob escopo.</b> Cada projeto é cotado depois do diagnóstico (gratuito), porque o preço justo depende do tamanho da base, complexidade dos joins e quantidade de fontes.</p>
+        <p data-pt="Você recebe proposta clara <b>antes de assinar qualquer coisa</b> — sem surpresa depois." data-en="You receive a clear proposal <b>before signing anything</b> — no surprise later.">
+          Você recebe proposta clara <b>antes de assinar qualquer coisa</b> — sem surpresa depois.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="Quanto tempo demora pra primeira entrega?" data-en="How long until the first delivery?">Quanto tempo demora pra primeira entrega?</summary>
+      <div class="faq-answer">
+        <p data-pt="<b>Primeira versão funcional em 2–4 semanas</b> pra projetos típicos (1–3 fontes, dashboard de gestão financeira). Evolução contínua depois disso." data-en="<b>First working version in 2–4 weeks</b> for typical projects (1–3 sources, financial dashboard). Continuous evolution afterwards.">
+          <b>Primeira versão funcional em 2–4 semanas</b> pra projetos típicos (1–3 fontes, dashboard de gestão financeira). Evolução contínua depois disso.</p>
+        <p data-pt="O diagnóstico já te entrega cronograma realista pro seu caso, com marcos por sprint." data-en="The diagnosis already delivers a realistic timeline for your case, with milestones per sprint.">
+          O diagnóstico já te entrega cronograma realista pro seu caso, com marcos por sprint.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="Preciso ter TI interna ou equipe técnica?" data-en="Do I need internal IT or a tech team?">Preciso ter TI interna ou equipe técnica?</summary>
+      <div class="faq-answer">
+        <p data-pt="<b>Não.</b> A maior parte dos clientes ativos não tem time de TI. Cuido da configuração, ingestão e infraestrutura do início ao fim." data-en="<b>No.</b> Most active clients don't have an IT team. I handle setup, ingestion, and infrastructure end-to-end.">
+          <b>Não.</b> A maior parte dos clientes ativos não tem time de TI. Cuido da configuração, ingestão e infraestrutura do início ao fim.</p>
+        <p data-pt="Você só precisa de alguém que entenda do negócio pra validar os números. Aliás, geralmente é o próprio dono ou o controller." data-en="You just need someone who knows the business to validate the numbers. Usually it's the owner or the controller.">
+          Você só precisa de alguém que entenda do negócio pra validar os números. Aliás, geralmente é o próprio dono ou o controller.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="Trabalha remoto ou presencial?" data-en="Remote or on-site?">Trabalha remoto ou presencial?</summary>
+      <div class="faq-answer">
+        <p data-pt="<b>Remoto pra qualquer lugar</b>, com ritos ágeis semanais (uma reunião curta + Slack/WhatsApp pra acompanhar). Já atendi clientes em <b>BA, SP, RJ, MG e MS</b> sem nenhum encontro presencial." data-en="<b>Remote anywhere</b>, with weekly agile rituals (one short meeting + Slack/WhatsApp for follow-up). Already served clients in <b>BA, SP, RJ, MG, and MS</b> with zero in-person meetings.">
+          <b>Remoto pra qualquer lugar</b>, com ritos ágeis semanais (uma reunião curta + Slack/WhatsApp pra acompanhar). Já atendi clientes em <b>BA, SP, RJ, MG e MS</b> sem nenhum encontro presencial.</p>
+        <p data-pt="Presencial é possível mediante combinação." data-en="On-site is possible by arrangement.">
+          Presencial é possível mediante combinação.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="Os dados ficam seguros? E LGPD?" data-en="Is data secure? What about LGPD?">Os dados ficam seguros? E LGPD?</summary>
+      <div class="faq-answer">
+        <p data-pt="<b>Tudo roda na sua infraestrutura</b> (Google Cloud, Microsoft, AWS ou on-premises) com seus acessos. Não armazeno dados de cliente em ambiente próprio." data-en="<b>Everything runs on your infrastructure</b> (Google Cloud, Microsoft, AWS, or on-premises) with your credentials. I don't store client data in my own environment.">
+          <b>Tudo roda na sua infraestrutura</b> (Google Cloud, Microsoft, AWS ou on-premises) com seus acessos. Não armazeno dados de cliente em ambiente próprio.</p>
+        <p data-pt="Acesso revogável a qualquer momento. NDA assinado antes do diagnóstico se você precisar." data-en="Access revocable at any time. NDA signed before diagnosis if needed.">
+          Acesso revogável a qualquer momento. NDA assinado antes do diagnóstico se você precisar.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-pt="E se quisermos encerrar? O que acontece com o que foi feito?" data-en="What if we want to end the project?">E se quisermos encerrar? O que acontece com o que foi feito?</summary>
+      <div class="faq-answer">
+        <p data-pt="<b>Você fica com tudo:</b> código no seu Git, pipelines na sua infra, dashboards no seu Power BI / Looker, documentação no seu Drive." data-en="<b>You keep everything:</b> code in your Git, pipelines in your infra, dashboards in your Power BI / Looker, docs in your Drive.">
+          <b>Você fica com tudo:</b> código no seu Git, pipelines na sua infra, dashboards no seu Power BI / Looker, documentação no seu Drive.</p>
+        <p data-pt="Sem lock-in técnico, sem dependência de fornecedor. Outro consultor consegue dar continuidade direto." data-en="No technical lock-in, no vendor dependency. Another consultant can take over directly.">
+          Sem lock-in técnico, sem dependência de fornecedor. Outro consultor consegue dar continuidade direto.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO / FORM (Web3Forms — captura de lead) -->
+<section class="diag reveal" id="diagnostico">
+  <div class="section-header">
+    <p class="section-label" data-pt="Diagnóstico gratuito" data-en="Free diagnosis">Diagnóstico gratuito</p>
+    <h2 class="section-title">
+      <span data-pt="Conte o que está " data-en="Tell us what's ">Conte o que está </span><span class="accent" data-pt="travando" data-en="stuck">travando</span>
+    </h2>
+    <p class="section-desc" data-pt="Em até 1 dia útil você recebe uma resposta com um caminho concreto — e sem compromisso." data-en="Within 1 business day you'll get a reply with a concrete path — no strings attached.">Em até 1 dia útil você recebe uma resposta com um caminho concreto — e sem compromisso.</p>
+  </div>
+  <div class="diag-card">
+    <form class="diag-form" id="diagForm" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"/>
+      <input type="hidden" name="subject" value="Novo diagnóstico solicitado — smartbusiness.ia.br"/>
+      <input type="hidden" name="from_name" value="Site Smart Business"/>
+      <input type="hidden" name="redirect" value="false"/>
+      <input type="hidden" name="source" id="d-source" value="direct"/>
+      <input type="hidden" name="page_url" id="d-pageurl" value=""/>
+      <input type="checkbox" name="botcheck" class="diag-honeypot" tabindex="-1" autocomplete="off"/>
+
+      <div class="diag-row">
+        <div class="diag-field" data-field="name">
+          <label for="d-nome" data-pt="Nome" data-en="Name">Nome</label>
+          <input id="d-nome" name="name" type="text" required autocomplete="name" maxlength="80"/>
+          <span class="diag-field-error" data-pt="Informe seu nome." data-en="Please enter your name.">Informe seu nome.</span>
+        </div>
+        <div class="diag-field" data-field="email">
+          <label for="d-email" data-pt="Email" data-en="Email">Email</label>
+          <input id="d-email" name="email" type="email" required autocomplete="email" maxlength="120"/>
+          <span class="diag-field-error" data-pt="Email parece inválido." data-en="Email seems invalid.">Email parece inválido.</span>
+        </div>
+      </div>
+      <div class="diag-row">
+        <div class="diag-field" data-field="company">
+          <label for="d-empresa" data-pt="Empresa" data-en="Company">Empresa</label>
+          <input id="d-empresa" name="company" type="text" required autocomplete="organization" maxlength="80"/>
+          <span class="diag-field-error" data-pt="Informe a empresa." data-en="Please enter the company.">Informe a empresa.</span>
+        </div>
+        <div class="diag-field" data-field="phone">
+          <label for="d-tel" data-pt="WhatsApp (opcional)" data-en="WhatsApp (optional)">WhatsApp (opcional)</label>
+          <input id="d-tel" name="phone" type="tel" autocomplete="tel" maxlength="20" placeholder="(67) 99999-9999"/>
+        </div>
+      </div>
+      <div class="diag-field" data-field="message">
+        <label for="d-desafio" data-pt="Qual o desafio principal hoje?" data-en="What's the main challenge today?">Qual o desafio principal hoje?</label>
+        <textarea id="d-desafio" name="message" required maxlength="800" minlength="30" data-pt-placeholder="Ex.: O fechamento mensal leva 4 dias. Quero reduzir pra 1." data-en-placeholder="Ex.: Monthly closing takes 4 days. I want to cut it to 1."></textarea>
+        <span class="hint" data-pt="Quanto mais específico, melhor a resposta." data-en="The more specific, the better the answer.">Quanto mais específico, melhor a resposta.</span>
+        <span class="diag-field-error" data-pt="Conta um pouco mais sobre o desafio (mín. 30 caracteres)." data-en="Tell us a bit more about the challenge (min. 30 chars).">Conta um pouco mais sobre o desafio (mín. 30 caracteres).</span>
+      </div>
+      <div class="diag-foot">
+        <small data-pt="Seus dados não são compartilhados. Resposta vai direto pro meu email." data-en="Your data is not shared. The reply goes straight to my inbox.">Seus dados não são compartilhados. Resposta vai direto pro meu email.</small>
+        <button type="submit" class="diag-submit">
+          <span data-pt="Enviar diagnóstico" data-en="Send diagnosis">Enviar diagnóstico</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="diag-status" id="diagStatus" role="status" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 
 <!-- BRAND SIGNATURE -->
 <section class="brand-signature reveal">
   <div class="brand-signature-inner">
-    <img src="assets/logo/logomark-gold-stacked.png" alt="Smart Business — Dados & IA"/>
+    <div class="brand-stack" aria-label="Smart Business — Dados & IA">
+      <svg class="brand-symbol" viewBox="-160 -160 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle r="42" fill="#F5C518" opacity=".12"/>
+        <circle r="130" stroke="currentColor" stroke-width="3" fill="none"/>
+        <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".85">
+          <line x1="0" y1="0" x2="0" y2="-95"/><line x1="0" y1="0" x2="82" y2="-47"/>
+          <line x1="0" y1="0" x2="82" y2="47"/><line x1="0" y1="0" x2="0" y2="95"/>
+          <line x1="0" y1="0" x2="-82" y2="47"/><line x1="0" y1="0" x2="-82" y2="-47"/>
+        </g>
+        <g stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none">
+          <line x1="0" y1="-95" x2="82" y2="-47"/><line x1="82" y1="-47" x2="82" y2="47"/>
+          <line x1="82" y1="47" x2="0" y2="95"/><line x1="0" y1="95" x2="-82" y2="47"/>
+          <line x1="-82" y1="47" x2="-82" y2="-47"/><line x1="-82" y1="-47" x2="0" y2="-95"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="0" cy="-95" r="9"/><circle cx="82" cy="-47" r="9"/><circle cx="82" cy="47" r="9"/>
+          <circle cx="0" cy="95" r="9"/><circle cx="-82" cy="47" r="9"/><circle cx="-82" cy="-47" r="9"/>
+        </g>
+        <circle r="20" fill="#F5C518"/>
+        <circle r="30" stroke="currentColor" stroke-width="3" fill="none"/>
+      </svg>
+      <div class="brand-name">
+        <div class="brand-smart">SMART</div>
+        <div class="brand-business">BUSINESS</div>
+      </div>
+    </div>
     <div class="brand-divider"></div>
-    <p class="brand-tagline" data-pt="Sua empresa merece clareza. <b>Dados, IA e automação</b> para decisões sem achismo." data-en="Your business deserves clarity. <b>Data, AI, and automation</b> for decisions without guesswork.">
-      Sua empresa merece clareza. <b>Dados, IA e automação</b> para decisões sem achismo.
+    <p class="brand-tagline" data-pt="A visão completa da sua empresa. <b>Decisão sem achismo.</b>" data-en="The complete view of your business. <b>Decisions without guesswork.</b>">
+      A visão completa da sua empresa. <b>Decisão sem achismo.</b>
     </p>
   </div>
 </section>
@@ -888,7 +2870,7 @@
     <p data-pt="Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto — sem compromisso." data-en="Ready to turn your company's data into a competitive advantage? Get in touch and let's discuss your project — no strings attached.">
       Pronto para transformar os dados da sua empresa em vantagem competitiva? Entre em contato e vamos discutir o seu projeto — sem compromisso.
     </p>
-    <a href="https://wa.me/5567992438271" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+    <a href="https://wa.me/5567992438271?text=Ol%C3%A1!%20Vim%20do%20site%20smartbusiness.ia.br" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
       <span data-pt="(67) 99243-8271 — WhatsApp" data-en="(67) 99243-8271 — WhatsApp">(67) 99243-8271 — WhatsApp</span>
     </a>
@@ -905,6 +2887,15 @@
   </div>
 </section>
 
+<!-- STICKY CTA BAR (mobile) -->
+<div class="sticky-cta" role="navigation" aria-label="Ações rápidas">
+  <a href="#diagnostico" class="primary" data-pt="Pedir diagnóstico" data-en="Get diagnosis">Pedir diagnóstico</a>
+  <a href="https://wa.me/5567992438271?text=Ol%C3%A1!%20Vim%20do%20site%20smartbusiness.ia.br" target="_blank" rel="noopener noreferrer" class="secondary">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    WhatsApp
+  </a>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <p>© 2026 <span>Smart Business</span> · <span data-pt="Todos os direitos reservados" data-en="All rights reserved">Todos os direitos reservados</span></p>
@@ -916,11 +2907,15 @@
 
 <script>
   // ── NEURAL CANVAS (FAST SYNAPSE) ──
+  // Skip total em mobile, reduced-motion, ou se canvas estiver display:none (CSS já cuida)
   const canvas = document.getElementById('neural-canvas');
-  const ctx = canvas.getContext('2d');
+  const canvasEnabled = canvas && getComputedStyle(canvas).display !== 'none';
+  const ctx = canvasEnabled ? canvas.getContext('2d') : null;
   let W, H, nodes = [], mouse = { x: -999, y: -999 };
+  let canvasInView = true;
+  let canvasRafRunning = false;
 
-  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function resize() { if (!canvasEnabled) return; W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
 
   class Node {
     constructor() { this.reset(); }
@@ -949,6 +2944,8 @@
   }
 
   function draw() {
+    if (!canvasEnabled || !canvasInView) { canvasRafRunning = false; return; }
+    canvasRafRunning = true;
     ctx.clearRect(0, 0, W, H);
     const maxDist = 140, mouseDist = 200;
 
@@ -979,9 +2976,22 @@
     requestAnimationFrame(draw);
   }
 
-  window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-  window.addEventListener('resize', () => { resize(); init(); });
-  resize(); init(); draw();
+  if (canvasEnabled) {
+    window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    window.addEventListener('resize', () => { resize(); init(); });
+    resize(); init(); draw();
+
+    // Pausa quando hero sair do viewport (canvas é fixed mas só vale como decoração do hero)
+    const heroForCanvas = document.getElementById('hero');
+    if (heroForCanvas && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          canvasInView = e.isIntersecting;
+          if (canvasInView && !canvasRafRunning) draw();
+        });
+      }, { threshold: 0 }).observe(heroForCanvas);
+    }
+  }
 
   // ── SCROLL REVEAL ──
   const observer = new IntersectionObserver(entries => {
@@ -997,12 +3007,327 @@
       const val = el.getAttribute('data-' + lang);
       if (val.includes('<')) { el.innerHTML = val; } else { el.textContent = val; }
     });
+    document.querySelectorAll('[data-' + lang + '-placeholder]').forEach(el => {
+      el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
+    });
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
   }
 
   const savedLang = localStorage.getItem('lang');
   if (savedLang && savedLang !== 'pt') setLang(savedLang);
+
+  // Aplicar placeholders bilíngues do form de diagnóstico após troca de idioma
+  document.querySelectorAll('[data-pt-placeholder]').forEach(el => {
+    const lang = document.documentElement.lang || 'pt';
+    el.placeholder = el.getAttribute('data-' + lang + '-placeholder') || el.getAttribute('data-pt-placeholder');
+  });
+
+  // ── HERO ETL PIPELINE (Direção A — refinada: Extract → Transform → Load) ──
+  (function() {
+    const visual = document.getElementById('heroVisual');
+    if (!visual) return;
+    const stages = visual.querySelectorAll('.etl-stage');
+    const labelEl = visual.querySelector('.state-label');
+    const dot = visual.querySelector('#visualDot');
+
+    // Ciclo: extract (4s) → transform (4s) → load (4s) → done (2.5s) → reset
+    const STAGE_DUR = 4000;        // duração ativa de cada estágio
+    const DONE_DUR  = 2500;        // pausa "tudo pronto"
+    const RESET_FADE = 600;        // fade pra recomeçar
+    const TOTAL = STAGE_DUR * 3 + DONE_DUR + RESET_FADE;
+    const stageNames = ['extract', 'transform', 'load'];
+
+    function getLang() { return document.documentElement.lang || 'pt'; }
+    function easeInOutCubic(t) { return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2; }
+
+    function setFooter(state) {
+      if (!labelEl) return;
+      const v = labelEl.getAttribute('data-state-' + getLang() + '-' + state);
+      if (v) labelEl.textContent = v;
+    }
+
+    function resetAll() {
+      stages.forEach(st => {
+        st.classList.remove('active', 'done');
+        const fill = st.querySelector('.fill');
+        const pct = st.querySelector('.etl-pct');
+        const items = st.querySelector('.etl-items');
+        if (fill) fill.style.width = '0%';
+        if (pct) pct.textContent = '0%';
+        if (items) items.innerHTML = items.getAttribute('data-' + getLang() + '-idle') || '';
+      });
+    }
+
+    function setStageProgress(stageEl, pct) {
+      const fill = stageEl.querySelector('.fill');
+      const pctEl = stageEl.querySelector('.etl-pct');
+      if (fill) fill.style.width = pct + '%';
+      if (pctEl) pctEl.textContent = Math.round(pct) + '%';
+    }
+
+    function updateStageItems(stageEl, progress) {
+      // progress 0..1 dentro do estágio → mostra item correspondente
+      const items = stageEl.querySelector('.etl-items');
+      if (!items) return;
+      const lang = getLang();
+      const list = (items.getAttribute('data-' + lang + '-items') || '').split('|');
+      if (list.length === 0) return;
+      const lastDone = Math.min(list.length - 1, Math.floor(progress * list.length));
+      const currentIdx = Math.min(list.length - 1, Math.floor(progress * list.length));
+      const current = list[currentIdx];
+      // Mostra: item atual com spinner, anteriores com ✓
+      let html = '';
+      if (currentIdx > 0) {
+        html += '<span class="ok">✓ ' + escapeHtml(list[currentIdx - 1]) + '</span>  ·  ';
+      }
+      html += '<span class="ar">▸ ' + escapeHtml(current) + '</span>';
+      items.innerHTML = html;
+    }
+
+    function markDone(stageEl) {
+      stageEl.classList.remove('active');
+      stageEl.classList.add('done');
+      setStageProgress(stageEl, 100);
+      const items = stageEl.querySelector('.etl-items');
+      if (items) {
+        const list = (items.getAttribute('data-' + getLang() + '-items') || '').split('|');
+        const last = list[list.length - 1] || '';
+        items.innerHTML = '<span class="ok">✓ ' + escapeHtml(last) + '</span>';
+      }
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    let startTs = 0;
+
+    function frame(now) {
+      if (!startTs) startTs = now;
+      const elapsed = (now - startTs) % TOTAL;
+
+      // Progresso global p/ dot
+      if (dot) dot.style.left = (elapsed / TOTAL * 100) + '%';
+
+      // Reset visual no início de cada ciclo
+      if (elapsed < 30) resetAll();
+
+      stageNames.forEach((name, i) => {
+        const stageEl = stages[i];
+        if (!stageEl) return;
+        const stageStart = i * STAGE_DUR;
+        const stageEnd = stageStart + STAGE_DUR;
+
+        if (elapsed < stageStart) {
+          // ainda não chegou
+          return;
+        } else if (elapsed >= stageStart && elapsed < stageEnd) {
+          // ativo
+          if (!stageEl.classList.contains('active')) {
+            stageEl.classList.add('active');
+            setFooter(name);
+          }
+          stageEl.classList.remove('done');
+          const rawProg = (elapsed - stageStart) / STAGE_DUR;
+          const eased = easeInOutCubic(rawProg);
+          setStageProgress(stageEl, eased * 100);
+          updateStageItems(stageEl, rawProg);
+        } else {
+          // já passou → done
+          if (!stageEl.classList.contains('done')) {
+            markDone(stageEl);
+          }
+        }
+      });
+
+      // Done state (todos os 3 completos)
+      const doneStart = STAGE_DUR * 3;
+      if (elapsed >= doneStart && elapsed < doneStart + DONE_DUR) {
+        if (labelEl.dataset.currentFooter !== 'done') {
+          setFooter('done');
+          labelEl.dataset.currentFooter = 'done';
+        }
+      } else if (elapsed < doneStart) {
+        labelEl.dataset.currentFooter = '';
+      }
+
+      requestAnimationFrame(frame);
+    }
+
+    // Inicializa com idle
+    resetAll();
+    setFooter('extract');
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      requestAnimationFrame(frame);
+    } else {
+      // Reduced motion: mostra todos como done
+      stages.forEach(s => markDone(s));
+      setFooter('done');
+    }
+  })();
+
+  // ── EVENT TRACKING (GA4-safe wrapper) ──
+  function trackEvent(name, params) {
+    params = params || {};
+    if (typeof gtag === 'function') {
+      try { gtag('event', name, params); } catch (_) {}
+    }
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+      console.log('[track]', name, params);
+    }
+  }
+
+  // ── SOURCE TRACKING (qual CTA originou a navegação pro form) ──
+  (function() {
+    function getSection(el) {
+      if (el.closest('.sticky-cta')) return 'sticky-cta';
+      if (el.closest('nav')) return 'nav';
+      if (el.closest('.float-wa')) return 'floating';
+      const sec = el.closest('section');
+      return sec ? sec.id : 'unknown';
+    }
+
+    // CTAs internos pro diagnóstico
+    document.querySelectorAll('a[href="#diagnostico"]').forEach(link => {
+      link.addEventListener('click', () => {
+        const section = getSection(link);
+        // Se for um CTA de plano (data-plan), usa o nome do plano como source
+        const plan = link.getAttribute('data-plan');
+        const source = plan ? ('plano-' + plan) : section;
+        sessionStorage.setItem('last_cta_source', source);
+        trackEvent('cta_diagnostico_click', { section: section, plan: plan || null });
+      });
+    });
+
+    // WhatsApp clicks — com source no prefill text + tracking
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      const originalHref = link.getAttribute('href');
+      link.addEventListener('click', () => {
+        const section = getSection(link);
+        trackEvent('wa_click', { section: section });
+      });
+      // Atualiza prefill com origem específica
+      link.addEventListener('mouseenter', () => {
+        const section = getSection(link);
+        const baseUrl = originalHref.split('?')[0];
+        const text = encodeURIComponent('Olá! Vim do site smartbusiness.ia.br · seção: ' + section);
+        link.setAttribute('href', baseUrl + '?text=' + text);
+      }, { once: false });
+    });
+  })();
+
+  // ── DIAGNÓSTICO FORM (Web3Forms + validação + máscara) ──
+  const diagForm = document.getElementById('diagForm');
+  const diagStatus = document.getElementById('diagStatus');
+  if (diagForm) {
+    // Máscara telefone BR
+    const telInput = diagForm.querySelector('#d-tel');
+    if (telInput) {
+      telInput.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+        if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
+        else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+        else if (v.length > 2) v = v.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+        else if (v.length > 0) v = v.replace(/^(\d{0,2})/, '($1');
+        e.target.value = v;
+      });
+    }
+
+    // Validação client-side
+    function validateForm() {
+      diagForm.querySelectorAll('.diag-field').forEach(f => f.classList.remove('invalid'));
+      const fields = {
+        name:    diagForm.querySelector('#d-nome').value.trim(),
+        email:   diagForm.querySelector('#d-email').value.trim(),
+        company: diagForm.querySelector('#d-empresa').value.trim(),
+        message: diagForm.querySelector('#d-desafio').value.trim()
+      };
+      const errors = [];
+      if (fields.name.length < 2) errors.push('name');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) errors.push('email');
+      if (fields.company.length < 2) errors.push('company');
+      if (fields.message.length < 30) errors.push('message');
+      errors.forEach(name => {
+        const f = diagForm.querySelector('.diag-field[data-field="' + name + '"]');
+        if (f) f.classList.add('invalid');
+      });
+      return errors.length === 0;
+    }
+
+    diagForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      diagStatus.className = 'diag-status';
+      diagStatus.textContent = '';
+
+      // Validação
+      if (!validateForm()) {
+        const firstInvalid = diagForm.querySelector('.diag-field.invalid');
+        if (firstInvalid) {
+          firstInvalid.querySelector('input, textarea').focus();
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      // Preenche metadados antes do envio
+      const sourceField = diagForm.querySelector('#d-source');
+      const pageUrlField = diagForm.querySelector('#d-pageurl');
+      if (sourceField) sourceField.value = sessionStorage.getItem('last_cta_source') || 'direct';
+      if (pageUrlField) pageUrlField.value = location.href;
+
+      const submitBtn = diagForm.querySelector('.diag-submit');
+      const lang = document.documentElement.lang || 'pt';
+      const msgs = {
+        pt: { sending: 'Enviando…', ok: 'Recebido! Em até 1 dia útil você terá retorno no email informado.', err: 'Não consegui enviar. Tenta de novo ou fala no WhatsApp.', honey: 'Erro.' },
+        en: { sending: 'Sending…', ok: 'Got it! You\'ll hear back within 1 business day at the email provided.', err: 'Could not send. Try again or message on WhatsApp.', honey: 'Error.' }
+      };
+      const m = msgs[lang] || msgs.pt;
+
+      // honeypot
+      if (diagForm.botcheck && diagForm.botcheck.checked) { diagStatus.className = 'diag-status err'; diagStatus.textContent = m.honey; return; }
+
+      submitBtn.disabled = true;
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span>' + m.sending + '</span>';
+
+      try {
+        const data = new FormData(diagForm);
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        const json = await res.json();
+        if (res.ok && json.success) {
+          diagStatus.className = 'diag-status ok';
+          diagStatus.textContent = m.ok;
+          trackEvent('form_submit_success', { source: sourceField ? sourceField.value : 'direct' });
+          diagForm.reset();
+        } else {
+          diagStatus.className = 'diag-status err';
+          diagStatus.textContent = m.err;
+          trackEvent('form_submit_error', { source: sourceField ? sourceField.value : 'direct' });
+        }
+      } catch (err) {
+        diagStatus.className = 'diag-status err';
+        diagStatus.textContent = m.err;
+        trackEvent('form_submit_error', { source: sourceField ? sourceField.value : 'direct', reason: 'network' });
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+
+    // Limpa erro do campo conforme user digita
+    diagForm.querySelectorAll('input, textarea').forEach(input => {
+      input.addEventListener('input', () => {
+        const field = input.closest('.diag-field');
+        if (field) field.classList.remove('invalid');
+      });
+    });
+  }
 </script>
 </body>
 </html>

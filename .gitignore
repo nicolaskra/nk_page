@@ -1,0 +1,13 @@
+# Local previews / experiments (não vão pra produção)
+preview/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Lighthouse CI artifacts (geradas pelos workflows)
+.lighthouseci/
+lhci/
