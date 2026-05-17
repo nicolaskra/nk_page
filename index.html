@@ -2783,13 +2783,14 @@
   </div>
   <div class="diag-card">
     <form class="diag-form" id="diagForm" method="POST" novalidate>
-      <!-- FormSubmit.co: zero setup, primeira submissão envia email de ativação pra contato@smartbusiness.ia.br -->
-      <input type="hidden" name="_subject" value="Novo diagnóstico solicitado — smartbusiness.ia.br"/>
-      <input type="hidden" name="_template" value="table"/>
-      <input type="hidden" name="_captcha" value="false"/>
+      <!-- Web3Forms (access key vinculada ao domain smartbusiness.ia.br) -->
+      <input type="hidden" name="access_key" value="e3b9a0e9-a10c-4c24-82af-a1e24b616129"/>
+      <input type="hidden" name="subject" value="Novo diagnóstico solicitado — smartbusiness.ia.br"/>
+      <input type="hidden" name="from_name" value="Site Smart Business"/>
+      <input type="hidden" name="redirect" value="false"/>
       <input type="hidden" name="source" id="d-source" value="direct"/>
       <input type="hidden" name="page_url" id="d-pageurl" value=""/>
-      <input type="text" name="_honey" class="diag-honeypot" tabindex="-1" autocomplete="off"/>
+      <input type="checkbox" name="botcheck" class="diag-honeypot" tabindex="-1" autocomplete="off"/>
 
       <div class="diag-row">
         <div class="diag-field" data-field="name">
@@ -3293,9 +3294,8 @@
       };
       const m = msgs[lang] || msgs.pt;
 
-      // honeypot (FormSubmit.co usa _honey — campo text invisível)
-      const honey = diagForm.querySelector('input[name="_honey"]');
-      if (honey && honey.value) { diagStatus.className = 'diag-status err'; diagStatus.textContent = m.honey; return; }
+      // honeypot Web3Forms (campo checkbox botcheck)
+      if (diagForm.botcheck && diagForm.botcheck.checked) { diagStatus.className = 'diag-status err'; diagStatus.textContent = m.honey; return; }
 
       submitBtn.disabled = true;
       const originalText = submitBtn.innerHTML;
@@ -3303,15 +3303,13 @@
 
       try {
         const data = new FormData(diagForm);
-        // FormSubmit.co endpoint AJAX — sem cadastro, ativa na primeira submissão (email de confirmação)
-        const res = await fetch('https://formsubmit.co/ajax/contato@smartbusiness.ia.br', {
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: data
         });
         const json = await res.json().catch(() => ({}));
-        // FormSubmit.co retorna { success: "true"|"false" } (string) ou erro
-        const ok = res.ok && (json.success === true || json.success === 'true');
+        const ok = res.ok && json.success === true;
         if (ok) {
           diagStatus.className = 'diag-status ok';
           diagStatus.textContent = m.ok;

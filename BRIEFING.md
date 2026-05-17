@@ -104,20 +104,19 @@ Adicionado:
 
 ### AÇÕES MANUAIS PENDENTES
 
-1. **Form (FormSubmit.co)** — zero setup, mas precisa de ATIVAÇÃO única:
-   - Form aponta direto pra `contato@smartbusiness.ia.br` via `https://formsubmit.co/ajax/...`
-   - **Primeira submissão** dispara email de ativação do FormSubmit pra contato@smartbusiness.ia.br
-   - Você clica no link de ativação (1 vez) — daí em diante, todas as submissões vão direto pro email
-   - Nenhuma key/conta necessária
-   - Pra testar: enviar form de teste do site → checar inbox → clicar link → submeter de novo
+1. **Form (Web3Forms)** — ✅ ATIVO desde 17/05/2026:
+   - Access key `e3b9a0e9-a10c-4c24-82af-a1e24b616129` vinculada ao domain `smartbusiness.ia.br`
+   - Form posta direto em `https://api.web3forms.com/submit`
+   - Submissões chegam em `contato@smartbusiness.ia.br` sem precisar de ativação manual
+   - (FormSubmit.co foi tentado antes mas estava com HTTP 522 outage)
 
-2. **Cloudflare Web Analytics** — DESABILITADO no commit (stub comentado no `<head>`):
+2. **Cloudflare Web Analytics** — DESABILITADO (stub comentado no `<head>`):
    - Pra ativar quando quiser: criar zona em https://dash.cloudflare.com/?to=/:account/web-analytics
    - "Add a site" → `smartbusiness.ia.br` → copiar token
    - Descomentar bloco no `<head>` (procurar `<!-- Cloudflare Web Analytics`) e substituir `YOUR_TOKEN`
    - Free, sem cookies, sem banner LGPD
 
-3. **GA4 (Google Analytics)** — DESABILITADO no commit (stub comentado no `<head>`):
+3. **GA4 (Google Analytics)** — DESABILITADO (stub comentado no `<head>`):
    - Pra ativar quando quiser: criar property em https://analytics.google.com/
    - Copiar measurement ID (formato `G-XXXXXXXXXX`)
    - Descomentar bloco no `<head>` (procurar `<!-- GA4`) e substituir `G-XXXXXXXXXX` (2 ocorrências)
