@@ -15,7 +15,6 @@ nk_page/
 ├── nk-smart-business.html  # Cópia sincronizada (link legado)
 ├── assets/logo/            # Logos oficiais (PNG) — ver seção "Identidade Visual"
 ├── CNAME                   # smartbusiness.ia.br
-├── BRIEFING.md             # Briefing original do projeto (23/03/2026)
 └── README.md               # Este arquivo
 ```
 
