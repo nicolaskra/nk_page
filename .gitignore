@@ -1,5 +1,8 @@
 # Local previews / experiments (não vão pra produção)
+# `preview/` sozinho não cobria os arquivos preview_*.html na raiz — e o GitHub Pages
+# serve a raiz de main, então um `git add -A` publicaria rascunho em produção.
 preview/
+preview_*.html
 
 # OS / editor
 .DS_Store

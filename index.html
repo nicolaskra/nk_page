@@ -139,12 +139,12 @@
       {
         "@type": "Question",
         "name": "Trabalha remoto ou presencial?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Remoto para qualquer lugar, com ritos ágeis semanais (uma reunião curta + acompanhamento via Slack/WhatsApp). Já atendi clientes em BA, SP, RJ, MG e MS sem encontros presenciais. Presencial é possível mediante combinação." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Remoto para qualquer lugar, com uma reunião curta por semana e acompanhamento via WhatsApp. Já atendi clientes em BA, MA, MG, MS, RJ e SP sem encontros presenciais. Presencial é possível mediante combinação." }
       },
       {
         "@type": "Question",
         "name": "Os dados ficam seguros? E LGPD?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Tudo roda na sua infraestrutura (Google Cloud, Microsoft, AWS ou on-premises) com seus acessos. Não armazeno dados de cliente em ambiente próprio. Acesso revogável a qualquer momento. NDA assinado antes do diagnóstico se necessário." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Nos projetos de dados e BI, tudo roda na sua infraestrutura (Google Cloud, Microsoft, AWS ou on-premises) com seus acessos, e nada de cliente fica hospedado em ambiente meu. Nas automações de atendimento, a operação roda em plataforma dedicada com os dados de cada cliente isolados, e você recebe por escrito onde o dado fica, por quanto tempo e quem acessa. Acesso revogável a qualquer momento. NDA assinado antes do diagnóstico se necessário." }
       },
       {
         "@type": "Question",
@@ -763,6 +763,35 @@
     footer span { color: var(--gold); }
 
     /* ── SCROLL ANIMATIONS ── */
+
+    /* ===== GEN AI (proposta) ===== */
+    .genai { padding: 120px 48px; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 768px) { .genai { padding: 80px 24px; } }
+    .genai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    .genai-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color .25s; }
+    .genai-card:hover { border-color: var(--border-hover); }
+    .genai-top { display: flex; gap: 13px; align-items: center; margin-bottom: 13px; }
+    .genai-ico { width: 40px; height: 40px; border-radius: 10px; background: var(--gold-dim); display: flex; align-items: center; justify-content: center; flex: none; }
+    .genai-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; margin: 0; }
+    .genai-sub { font-size: 13px; color: var(--gold); font-weight: 500; margin: 2px 0 0; }
+    .genai-text { font-size: 15px; color: var(--text); opacity: .92; margin: 0; }
+    .genai-gain { margin: 13px 0 0; padding-top: 13px; border-top: 1px solid rgba(255,255,255,.09); font-size: 14.5px; }
+    .genai-gain b { color: var(--gold); }
+    .genai-strip { margin-top: 18px; padding: 22px 24px; background: var(--navy-mid); border: 1px solid var(--border); border-radius: var(--radius); }
+    .genai-strip-title { font-family: 'Space Grotesk', sans-serif; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0 0 13px; }
+    .genai-strip ul { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; }
+    .genai-strip li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+    .genai-strip li svg { flex: none; margin-top: 5px; }
+    .services-extra { margin: 22px 0 0; font-size: 15px; opacity: .85; }
+    @media (max-width: 780px) { .genai-grid, .genai-strip ul { grid-template-columns: 1fr; } }
+
+    /* acessibilidade: quem pediu menos movimento ve tudo de cara */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-stagger > *, .reveal-stagger.visible > * {
+        opacity: 1 !important; transform: none !important; transition: none !important;
+      }
+    }
+
     .reveal {
       opacity: 0; transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
@@ -1943,7 +1972,102 @@
       body { padding-bottom: 72px; }
       .float-wa { display: none; }
     }
-  </style>
+  
+/* ── mini-casos (substituem os contadores) ── */
+/* o card Gen AI ocupa a linha inteira respeitando a contagem de colunas de cada
+   breakpoint (6 no desktop, 2 em <=900px, 1 em <=560px) — ver FIX no bloco SUBS */
+.services-bento .bento.fullrow{ grid-column:1 / -1; }
+
+.cases{
+  display:grid;
+  /* min(100%,300px): a trilha nunca excede o container. Com minmax(300px,1fr) puro
+     o card estourava 28px a 320px e o overflow-x:hidden do body cortava em silêncio */
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
+  gap:22px;
+  margin-top:16px;
+  margin-bottom:48px;   /* herda o respiro que o .proof-grid antigo tinha */
+}
+.case{
+  background:var(--navy-card,rgba(15,26,53,.78));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:30px 28px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.case-tag{
+  align-self:flex-start;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--gold,#F5C518);
+  border:1px solid rgba(245,197,24,.32);
+  border-radius:999px;
+  padding:5px 12px;
+}
+.case-title{
+  font-size:1.14rem;
+  line-height:1.35;
+  font-weight:700;
+  color:#fff;
+  margin:0;
+}
+.case-body{
+  font-size:.95rem;
+  line-height:1.6;
+  color:rgba(255,255,255,.82);
+  margin:0;
+}
+.case-facts{
+  list-style:none;
+  margin:4px 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+  border-top:1px solid rgba(255,255,255,.09);
+  padding-top:16px;
+}
+.case-facts li{
+  position:relative;
+  padding-left:22px;
+  font-size:.92rem;
+  line-height:1.5;
+  color:#fff;
+}
+.case-facts li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.5em;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--gold,#F5C518);
+}
+
+/* ── stack agrupada por funcao ── */
+.tool-groups{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.tool-group-label{
+  display:block;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold,#F5C518);
+  margin-bottom:10px;
+}
+@media (max-width:640px){
+  .case{padding:24px 20px;}
+}
+
+</style>
 </head>
 <body>
 
@@ -2007,20 +2131,6 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="https://wa.me/5567992438271?text=Ol%C3%A1!%20Vim%20do%20site%20smartbusiness.ia.br" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-pt="Falar no WhatsApp" data-en="Talk on WhatsApp">Falar no WhatsApp</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="hero-stat-num">9+</span>
-        <span class="hero-stat-label" data-pt="Clientes ativos" data-en="Active clients">Clientes ativos</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">100%</span>
-        <span class="hero-stat-label" data-pt="Fechamentos no prazo" data-en="On-time closings">Fechamentos no prazo</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num" data-pt="-80%" data-en="-80%">-80%</span>
-        <span class="hero-stat-label" data-pt="Tempo de fechamento médio" data-en="Avg closing time">Tempo de fechamento médio</span>
-      </div>
     </div>
   </div>
 
@@ -2172,7 +2282,7 @@
     <!-- Engenharia de Dados — featured (span 4) -->
     <div class="bento featured">
       <div class="bento-top">
-        <div class="bento-icon">⚙️</div>
+        <div class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="21" height="21"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
         <h3 class="bento-title" data-pt="Engenharia de Dados" data-en="Data Engineering">Engenharia de Dados</h3>
         <p class="bento-text" data-pt="Da ingestão à camada de serving: pipelines, modelagem dimensional, DBA e big data processado em Spark — rodando em GCP, BigQuery ou on-premises com a mesma qualidade." data-en="From ingestion to serving layer: pipelines, dimensional modeling, DBA, and big data processed in Spark — running on GCP, BigQuery, or on-premises with the same quality.">Da ingestão à camada de serving: pipelines, modelagem dimensional, DBA e big data processado em Spark — rodando em GCP, BigQuery ou on-premises com a mesma qualidade.</p>
       </div>
@@ -2194,7 +2304,7 @@
     <!-- Análise de Dados — compact (span 2) -->
     <div class="bento compact">
       <div class="bento-top">
-        <div class="bento-icon">📊</div>
+        <div class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="21" height="21"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
         <h3 class="bento-title" data-pt="Análise de Dados" data-en="Data Analysis">Análise de Dados</h3>
         <p class="bento-text" data-pt="Dashboards, KPIs e relatórios que apoiam decisões — com fonte única e auditável." data-en="Dashboards, KPIs, and reports that support decisions — with a single, auditable source.">Dashboards, KPIs e relatórios que apoiam decisões — com fonte única e auditável.</p>
       </div>
@@ -2206,35 +2316,95 @@
       </div>
     </div>
 
-    <!-- Automação IA — wide (span 3) -->
-    <div class="bento wide">
+    <!-- Gen AI — linha inteira -->
+    <div class="bento wide fullrow">
       <div class="bento-top">
-        <div class="bento-icon">🤖</div>
-        <h3 class="bento-title" data-pt="Automação com IA" data-en="AI Automation">Automação com IA</h3>
-        <p class="bento-text" data-pt="Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos — com Claude, ChatGPT, n8n e Python orquestrados." data-en="We eliminate repetitive tasks with intelligent automations. Processes that used to take hours — done in seconds — with Claude, ChatGPT, n8n, and Python orchestrated.">Eliminamos tarefas repetitivas com automações inteligentes. Processos que antes levavam horas, feitos em segundos — com Claude, ChatGPT, n8n e Python orquestrados.</p>
+        <div class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="21" height="21"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 4v4M8 14h.01M16 14h.01M9.5 17.5h5"/></svg></div>
+        <h3 class="bento-title" data-pt="Gen AI aplicada" data-en="Applied Gen AI">Gen AI aplicada</h3>
+        <p class="bento-text" data-pt="Inteligência artificial ligada aos seus dados: revisão automática de código, resposta consultada na base real e métrica conferida antes de virar decisão." data-en="Artificial intelligence connected to your data: automated code review, answers pulled from the real database, and metrics verified before they become decisions.">Inteligência artificial ligada aos seus dados: revisão automática de código, resposta consultada na base real e métrica conferida antes de virar decisão.</p>
       </div>
       <div class="bento-tags">
-        <span class="tag" data-pt="IA" data-en="AI">IA</span><span class="tag">n8n</span><span class="tag">Python</span><span class="tag" data-pt="WhatsApp" data-en="WhatsApp">WhatsApp</span>
+        <span class="tag">Agents</span><span class="tag">MCP Servers</span><span class="tag">Skills</span><span class="tag">n8n</span><span class="tag">Python</span>
       </div>
       <div class="bento-deco">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
       </div>
     </div>
 
-    <!-- Landing & Design — medium (span 3) -->
-    <div class="bento medium">
-      <div class="bento-top">
-        <div class="bento-icon">🎨</div>
-        <h3 class="bento-title" data-pt="Landing Pages & Identidade Visual" data-en="Landing Pages & Visual Identity">Landing Pages & Identidade Visual</h3>
-        <p class="bento-text" data-pt="Páginas que convertem e identidade visual alinhada à sua marca. Design que transmite credibilidade — o site que você está vendo é exemplo." data-en="Pages that convert and brand-aligned visual identity. Design that conveys credibility — the site you're seeing is the example.">Páginas que convertem e identidade visual alinhada à sua marca. Design que transmite credibilidade — o site que você está vendo é exemplo.</p>
+    <!-- Landing rebaixado para rodape da secao -->
+  </div>
+  <p class="services-extra" data-pt="Também desenvolvemos landing pages e identidade visual — este site é exemplo." data-en="We also build landing pages and visual identity — this site is the example.">Também desenvolvemos landing pages e identidade visual — este site é exemplo.</p>
+</section>
+
+
+<!-- ===================== GEN AI APLICADA (proposta) ===================== -->
+<section class="genai reveal" id="genai">
+  <div class="section-header">
+    <p class="section-label" data-pt="Gen AI aplicada" data-en="Applied Gen AI">Gen AI aplicada</p>
+    <h2 class="section-title" data-pt="Inteligência artificial ligada aos seus dados" data-en="AI connected to your data">Inteligência artificial ligada aos seus dados</h2>
+    <p class="section-desc" data-pt="Não é um chat que responde de memória. São componentes conectados aos seus sistemas — e todo número passa por conferência antes de virar decisão." data-en="Not a chatbot answering from memory. These are components wired into your systems — and every figure is checked before it becomes a decision.">Não é um chat que responde de memória. São componentes conectados aos seus sistemas — e todo número passa por conferência antes de virar decisão.</p>
+  </div>
+
+  <div class="genai-grid reveal-stagger">
+
+    <div class="genai-card">
+      <div class="genai-top">
+        <div class="genai-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 4v4M8 14h.01M16 14h.01M9.5 17.5h5"/></svg></div>
+        <div>
+          <h3>Agents</h3>
+          <p class="genai-sub" data-pt="Executam tarefas técnicas sozinhos" data-en="They run technical tasks on their own">Executam tarefas técnicas sozinhos</p>
+        </div>
       </div>
-      <div class="bento-tags">
-        <span class="tag">Landing Page</span><span class="tag">Design</span><span class="tag">Branding</span>
-      </div>
-      <div class="bento-deco">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2a10 10 0 0 0-9.8 12c.9 4.5 5 8 9.8 8 1.4 0 2.5-1.1 2.5-2.5 0-.6-.3-1.2-.7-1.7-.4-.4-.7-1-.7-1.7 0-1.4 1.1-2.5 2.5-2.5h2.7a4.5 4.5 0 0 0 4.5-4.5C22.8 6.4 17.9 2 12 2z"/></svg>
-      </div>
+      <p class="genai-text" data-pt="Revisam toda alteração no banco antes de entrar no ar, conferem se os valores batem com a origem e escrevem a documentação do que foi construído." data-en="They review every database change before it goes live, check whether values match the source, and write the documentation for what was built.">Revisam toda alteração no banco antes de entrar no ar, conferem se os valores batem com a origem e escrevem a documentação do que foi construído.</p>
+      <p class="genai-gain"><b data-pt="Ganho:" data-en="Gain:">Ganho:</b> <span data-pt="erro achado na revisão custa minutos. No fechamento, custa dias." data-en="a bug caught in review costs minutes. Caught at closing, it costs days.">erro achado na revisão custa minutos. No fechamento, custa dias.</span></p>
     </div>
+
+    <div class="genai-card">
+      <div class="genai-top">
+        <div class="genai-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M9 12H4M20 12h-5"/><rect x="9" y="7" width="6" height="10" rx="2"/><path d="M4 8v8M20 8v8"/></svg></div>
+        <div>
+          <h3>MCP Servers</h3>
+          <p class="genai-sub" data-pt="A ponte entre a IA e os seus sistemas" data-en="The bridge between AI and your systems">A ponte entre a IA e os seus sistemas</p>
+        </div>
+      </div>
+      <p class="genai-text" data-pt="Pergunte &quot;qual foi a margem por unidade em março?&quot; e receba a resposta consultando a base real, com a origem informada e acesso restrito ao que você liberou." data-en="Ask &quot;what was the margin per unit in March?&quot; and get an answer pulled from the real database, with the source stated and access limited to what you allowed.">Pergunte "qual foi a margem por unidade em março?" e receba a resposta consultando a base real, com a origem informada e acesso restrito ao que você liberou.</p>
+      <p class="genai-gain"><b data-pt="Ganho:" data-en="Gain:">Ganho:</b> <span data-pt="a IA lê o seu dado em vez de responder de memória." data-en="the AI reads your data instead of answering from memory.">a IA lê o seu dado em vez de responder de memória.</span></p>
+    </div>
+
+    <div class="genai-card">
+      <div class="genai-top">
+        <div class="genai-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M4 5h16M4 12h16M4 19h10"/><circle cx="18" cy="19" r="2.5"/></svg></div>
+        <div>
+          <h3>Skills</h3>
+          <p class="genai-sub" data-pt="Procedimentos que rodam iguais todo mês" data-en="Procedures that run the same way every month">Procedimentos que rodam iguais todo mês</p>
+        </div>
+      </div>
+      <p class="genai-text" data-pt="Fechamento, conciliação e checagem de qualidade seguem o mesmo passo a passo, com histórico de versão, independente de quem executa." data-en="Closing, reconciliation, and quality checks follow the same steps, with version history, no matter who runs them.">Fechamento, conciliação e checagem de qualidade seguem o mesmo passo a passo, com histórico de versão, independente de quem executa.</p>
+      <p class="genai-gain"><b data-pt="Ganho:" data-en="Gain:">Ganho:</b> <span data-pt="o processo deixa de depender da memória de uma pessoa." data-en="the process stops depending on one person's memory.">o processo deixa de depender da memória de uma pessoa.</span></p>
+    </div>
+
+    <div class="genai-card">
+      <div class="genai-top">
+        <div class="genai-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v5h-5"/></svg></div>
+        <div>
+          <h3 data-pt="Custo mensurado" data-en="Measured cost">Custo mensurado</h3>
+          <p class="genai-sub" data-pt="Você sabe quanto a IA custa e por quê" data-en="You know what the AI costs and why">Você sabe quanto a IA custa e por quê</p>
+        </div>
+      </div>
+      <p class="genai-text" data-pt="Consumo acompanhado por projeto e recurso dimensionado conforme a tarefa — trabalho simples não consome capacidade cara." data-en="Usage tracked per project and resources sized to the task — simple work does not burn expensive capacity.">Consumo acompanhado por projeto e recurso dimensionado conforme a tarefa — trabalho simples não consome capacidade cara.</p>
+      <p class="genai-gain"><b data-pt="Ganho:" data-en="Gain:">Ganho:</b> <span data-pt="previsibilidade de gasto, sem surpresa na fatura." data-en="predictable spend, no surprises on the invoice.">previsibilidade de gasto, sem surpresa na fatura.</span></p>
+    </div>
+
+  </div>
+
+  <div class="genai-strip reveal">
+    <p class="genai-strip-title" data-pt="No dia a dia" data-en="Day to day">No dia a dia</p>
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12l5 5L20 7"/></svg><span data-pt="Conferência do DRE contra o extrato bancário" data-en="Income statement checked against the bank statement">Conferência do DRE contra o extrato bancário</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12l5 5L20 7"/></svg><span data-pt="Alerta quando a carga diária foge do padrão" data-en="Alert when the daily load falls outside the norm">Alerta quando a carga diária foge do padrão</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12l5 5L20 7"/></svg><span data-pt="Classificação de lançamentos com regra auditável" data-en="Transaction classification with auditable rules">Classificação de lançamentos com regra auditável</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12l5 5L20 7"/></svg><span data-pt="Pergunta de negócio respondida direto da base" data-en="Business questions answered straight from the database">Pergunta de negócio respondida direto da base</span></li>
+    </ul>
   </div>
 </section>
 
@@ -2291,23 +2461,31 @@
     </h2>
     <p class="section-desc" data-pt="Não é portfólio bonito de slide. É o que está em produção agora — fechamento mensal, dashboards e automações em clientes ativos." data-en="Not pretty slide decks. It's what's in production right now — monthly closings, dashboards, and automations on active clients.">Não é portfólio bonito de slide. É o que está em produção agora — fechamento mensal, dashboards e automações em clientes ativos.</p>
   </div>
-  <div class="proof-grid reveal-stagger">
-    <div class="proof-item">
-      <div class="proof-num">9+</div>
-      <div class="proof-label" data-pt="Clientes ativos" data-en="Active clients">Clientes ativos</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">10+</div>
-      <div class="proof-label" data-pt="Unidades com DRE mensal" data-en="Units with monthly P&amp;L">Unidades com DRE mensal</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">20+</div>
-      <div class="proof-label" data-pt="Pipelines em produção" data-en="Pipelines in production">Pipelines em produção</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">100%</div>
-      <div class="proof-label" data-pt="Fechamentos no prazo (últimos 6 meses)" data-en="On-time closings (last 6 months)">Fechamentos no prazo (últimos 6 meses)</div>
-    </div>
+  <div class="cases reveal-stagger">
+
+    <article class="case">
+      <span class="case-tag" data-pt="Consórcio" data-en="Consortium">Consórcio</span>
+      <h3 class="case-title" data-pt="Dados de lance espalhados em três administradoras" data-en="Bid data scattered across three administrators">Dados de lance espalhados em três administradoras</h3>
+      <p class="case-body" data-pt="Portais sem API, planilhas que mudavam de layout sem aviso e nenhuma série histórica confiável. Construí a coleta automatizada e o data warehouse que virou a base de decisão da empresa." data-en="Portals with no API, spreadsheets that changed layout without warning, and no reliable history. I built the automated collection and the data warehouse that became the company's decision base.">Portais sem API, planilhas que mudavam de layout sem aviso e nenhuma série histórica confiável. Construí a coleta automatizada e o data warehouse que virou a base de decisão da empresa.</p>
+      <ul class="case-facts">
+        <li data-pt="5,1 milhões de ofertas de lance consolidadas" data-en="5.1 million bid offers consolidated">5,1 milhões de ofertas de lance consolidadas</li>
+        <li data-pt="Série histórica de 2004 a 2026" data-en="Historical series from 2004 to 2026">Série histórica de 2004 a 2026</li>
+        <li data-pt="Carga idempotente — zero duplicação, comprovada por contagem" data-en="Idempotent loads — zero duplication, proven by count">Carga idempotente — zero duplicação, comprovada por contagem</li>
+        <li data-pt="Modelo preditivo com 90% de acurácia (±4,24pp), validado pelo cliente" data-en="Predictive model at 90% accuracy (±4.24pp), validated by the client">Modelo preditivo com 90% de acurácia (±4,24pp), validado pelo cliente</li>
+      </ul>
+    </article>
+
+    <article class="case">
+      <span class="case-tag" data-pt="Rede de clínicas" data-en="Clinic network">Rede de clínicas</span>
+      <h3 class="case-title" data-pt="Fechamento mensal de 9 unidades feito à mão" data-en="Monthly closing of 9 units done by hand">Fechamento mensal de 9 unidades feito à mão</h3>
+      <p class="case-body" data-pt="Cada unidade com seu próprio padrão de planilha e um fechamento que consumia dias todo mês. Automatizei a consolidação com validação contra o documento de origem." data-en="Each unit with its own spreadsheet format and a closing that ate days every month. I automated the consolidation with validation against the source document.">Cada unidade com seu próprio padrão de planilha e um fechamento que consumia dias todo mês. Automatizei a consolidação com validação contra o documento de origem.</p>
+      <ul class="case-facts">
+        <li data-pt="9 unidades com DRE mensal automatizado" data-en="9 units with automated monthly P&amp;L">9 unidades com DRE mensal automatizado</li>
+        <li data-pt="Toda medida conferida contra a fonte antes de publicar" data-en="Every measure checked against the source before publishing">Toda medida conferida contra a fonte antes de publicar</li>
+        <li data-pt="Qualquer mês pode ser reprocessado sem quebrar o histórico" data-en="Any month can be reprocessed without breaking history">Qualquer mês pode ser reprocessado sem quebrar o histórico</li>
+      </ul>
+    </article>
+
   </div>
   <div class="proof-meta">
     <div class="proof-meta-row">
@@ -2318,17 +2496,17 @@
         <span class="tool" data-pt="Odontologia" data-en="Dentistry">Odontologia</span>
         <span class="tool" data-pt="Esportes" data-en="Sports">Esportes</span>
         <span class="tool" data-pt="Indústria" data-en="Industry">Indústria</span>
-        <span class="tool" data-pt="Jurídico" data-en="Legal">Jurídico</span>
       </div>
     </div>
     <div class="proof-meta-row">
       <span class="proof-meta-label" data-pt="Atendido em" data-en="Served in">Atendido em</span>
       <div class="proof-meta-chips">
         <span class="chip">BA</span>
-        <span class="chip">SP</span>
-        <span class="chip">RJ</span>
+        <span class="chip">MA</span>
         <span class="chip">MG</span>
         <span class="chip">MS</span>
+        <span class="chip">RJ</span>
+        <span class="chip">SP</span>
       </div>
     </div>
     <div class="proof-meta-row">
@@ -2344,23 +2522,13 @@
       </div>
     </div>
   </div>
-  <div class="proof-quotes reveal-stagger">
-    <div class="quote">
-      <p data-pt="“Fechamento que levava 5 dias virou 1 hora. O time recuperou tempo pra decidir, não só apurar.”" data-en="“Closings that took 5 days now take 1 hour. The team got back time to decide, not just compile.”">“Fechamento que levava 5 dias virou 1 hora. O time recuperou tempo pra decidir, não só apurar.”</p>
-      <span class="who" data-pt="Diretor financeiro · grupo de consórcio" data-en="CFO · consortium group">Diretor financeiro · grupo de consórcio</span>
-    </div>
-    <div class="quote">
-      <p data-pt="“Hoje todo mundo olha o mesmo número. Antes cada área defendia o seu Excel.”" data-en="“Now everyone looks at the same number. Before, each team defended its own Excel file.”">“Hoje todo mundo olha o mesmo número. Antes cada área defendia o seu Excel.”</p>
-      <span class="who" data-pt="Controller · rede de clínicas" data-en="Controller · clinic network">Controller · rede de clínicas</span>
-    </div>
-  </div>
 </section>
 
 <!-- DIFERENCIAIS (Why) — refinados -->
 <section class="why" id="why">
   <div class="section-header reveal">
     <p class="section-label" data-pt="Diferenciais" data-en="Why Us">Diferenciais</p>
-    <h2 class="section-title" data-pt="O que ninguém mais te promete" data-en="What no one else promises">O que ninguém mais te promete</h2>
+    <h2 class="section-title" data-pt="O risco fica comigo" data-en="I take on the risk">O risco fica comigo</h2>
   </div>
   <div class="why-grid reveal-stagger">
     <div class="why-item">
@@ -2373,8 +2541,8 @@
           <path d="M22 18h-1"/><path d="M15 18h-1"/>
         </svg>
       </div>
-      <div class="why-label" data-pt="Você fala comigo" data-en="You talk to me">Você fala comigo</div>
-      <p class="why-desc" data-pt="Sem analista júnior te respondendo, sem PMO entre nós. <span class='why-desc-strong'>Quem entende do projeto é quem entrega.</span>" data-en="No junior analyst replying, no PMO between us. <span class='why-desc-strong'>The one who knows the project is the one who delivers.</span>">Sem analista júnior te respondendo, sem PMO entre nós. <span class="why-desc-strong">Quem entende do projeto é quem entrega.</span></p>
+      <div class="why-label" data-pt="Você fala direto comigo" data-en="You talk straight to me">Você fala direto comigo</div>
+      <p class="why-desc" data-pt="Quem levanta o requisito, escreve o código e te explica o resultado é <span class='why-desc-strong'>a mesma pessoa</span>. Nada se perde na troca de mãos." data-en="The person who gathers the requirement, writes the code and explains the result is <span class='why-desc-strong'>the same one</span>. Nothing gets lost in handoff.">Quem levanta o requisito, escreve o código e te explica o resultado é <span class="why-desc-strong">a mesma pessoa</span>. Nada se perde na troca de mãos.</p>
     </div>
     <div class="why-item">
       <div class="why-icon">
@@ -2414,27 +2582,57 @@
     <div class="stack-col">
       <h3>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        <span data-pt="Ferramentas que usamos todo dia" data-en="Tools we use every day">Ferramentas que usamos todo dia</span>
+        <span data-pt="O que eu uso, agrupado pelo que faz" data-en="What I use, grouped by what it does">O que eu uso, agrupado pelo que faz</span>
       </h3>
-      <p class="sub" data-pt="Stack validada em clientes ativos — não é lista de LinkedIn, é o que roda nos pipelines hoje." data-en="Stack validated in active clients — not a LinkedIn list, it's what runs in our pipelines today.">Stack validada em clientes ativos — não é lista de LinkedIn, é o que roda nos pipelines hoje.</p>
-      <div class="tools-list">
-        <span class="tool featured">Power BI</span>
-        <span class="tool featured">DAX</span>
-        <span class="tool featured">Python</span>
-        <span class="tool featured">PySpark</span>
-        <span class="tool">SQL</span>
-        <span class="tool">BigQuery</span>
-        <span class="tool" data-pt="Big Data" data-en="Big Data">Big Data</span>
-        <span class="tool" data-pt="Processamento paralelo" data-en="Parallel processing">Processamento paralelo</span>
-        <span class="tool">Pandas</span>
-        <span class="tool">ETL</span>
-        <span class="tool">n8n</span>
-        <span class="tool">KPIs &amp; OKRs</span>
-        <span class="tool" data-pt="Ritos ágeis" data-en="Agile rituals">Ritos ágeis</span>
-        <span class="tool" data-pt="Excel avançado" data-en="Advanced Excel">Excel avançado</span>
-        <span class="tool">Google Sheets</span>
-        <span class="tool" data-pt="Automação WhatsApp" data-en="WhatsApp automation">Automação WhatsApp</span>
-        <span class="tool">Claude / ChatGPT API</span>
+      <p class="sub" data-pt="Ferramentas do dia a dia — em projetos de cliente e em ambiente corporativo de grande porte." data-en="Day-to-day tooling — across client projects and large-scale corporate environments.">Ferramentas do dia a dia — em projetos de cliente e em ambiente corporativo de grande porte.</p>
+      <div class="tool-groups">
+
+        <div class="tool-group">
+          <span class="tool-group-label" data-pt="Nuvem e dados" data-en="Cloud and data">Nuvem e dados</span>
+          <div class="tools-list">
+            <span class="tool featured">BigQuery</span>
+            <span class="tool featured">Databricks</span>
+            <span class="tool">Delta Lake</span>
+            <span class="tool">Azure Synapse</span>
+            <span class="tool">Cloud Run</span>
+            <span class="tool">PostgreSQL</span>
+            <span class="tool">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="tool-group">
+          <span class="tool-group-label" data-pt="Processamento" data-en="Processing">Processamento</span>
+          <div class="tools-list">
+            <span class="tool featured">Python</span>
+            <span class="tool featured">PySpark</span>
+            <span class="tool featured">SQL</span>
+            <span class="tool">dbt</span>
+            <span class="tool">Pandas</span>
+            <span class="tool">ETL / ELT</span>
+          </div>
+        </div>
+
+        <div class="tool-group">
+          <span class="tool-group-label" data-pt="BI e visualização" data-en="BI and visualization">BI e visualização</span>
+          <div class="tools-list">
+            <span class="tool featured">Power BI</span>
+            <span class="tool featured">DAX</span>
+            <span class="tool">TMDL</span>
+            <span class="tool" data-pt="Visuais SVG e HTML" data-en="Custom SVG and HTML visuals">Visuais SVG e HTML</span>
+          </div>
+        </div>
+
+        <div class="tool-group">
+          <span class="tool-group-label" data-pt="Gen AI e automação" data-en="Gen AI and automation">Gen AI e automação</span>
+          <div class="tools-list">
+            <span class="tool featured">MCP Servers</span>
+            <span class="tool featured">Agents</span>
+            <span class="tool">Claude Code</span>
+            <span class="tool">n8n</span>
+            <span class="tool" data-pt="Automação WhatsApp" data-en="WhatsApp automation">Automação WhatsApp</span>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -2444,7 +2642,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         <span data-pt="Inteligência financeira ponta-a-ponta" data-en="End-to-end financial intelligence">Inteligência financeira ponta-a-ponta</span>
       </h3>
-      <p class="sub" data-pt="Mais de 10 unidades ativas atendidas em todo o ciclo financeiro — do operacional diário ao board pack executivo." data-en="10+ active units served across the full financial cycle — from daily ops to executive board pack.">Mais de 10 unidades ativas atendidas em todo o ciclo financeiro — do operacional diário ao board pack executivo.</p>
+      <p class="sub" data-pt="9 unidades atendidas no ciclo financeiro — do lançamento diário ao painel que o sócio abre." data-en="9 units served across the financial cycle — from daily entries to the dashboard the partner opens.">9 unidades atendidas no ciclo financeiro — do lançamento diário ao painel que o sócio abre.</p>
       <ul class="expertise-list">
         <li data-pt="Fluxo de caixa diário e projeção rolante 12 meses" data-en="Daily cash flow and 12-month rolling forecast">Fluxo de caixa diário e projeção rolante 12 meses</li>
         <li data-pt="Conciliação automatizada multi-fonte (bancos, ERPs, planilhas)" data-en="Automated multi-source reconciliation (banks, ERPs, spreadsheets)">Conciliação automatizada multi-fonte (bancos, ERPs, planilhas)</li>
@@ -2464,7 +2662,7 @@
     <h2 class="section-title">
       <span data-pt="O que você recebe " data-en="What you get ">O que você recebe </span><span class="accent" data-pt="no final" data-en="at the end">no final</span>
     </h2>
-    <p class="section-desc" data-pt="Painel pronto pra ação — anonimizado, mas é o tipo de saída que rodamos em clientes ativos hoje." data-en="Action-ready dashboard — anonymized, but it's the kind of output we run in active clients today.">Painel pronto pra ação — anonimizado, mas é o tipo de saída que rodamos em clientes ativos hoje.</p>
+    <p class="section-desc" data-pt="Layout ilustrativo, com números fictícios. É o formato de painel que eu entrego." data-en="Illustrative layout with fictional numbers. It's the dashboard format I deliver.">Layout ilustrativo, com números fictícios. É o formato de painel que eu entrego.</p>
   </div>
 
   <div class="ex-window">
@@ -2497,7 +2695,7 @@
         </div>
         <div class="ex-insight-body">
           <span class="ex-insight-tag" data-pt="Insight automático" data-en="Auto-insight">Insight automático</span>
-          <span class="ex-insight-text" data-pt="Margem subiu <b>+2,8 p.p.</b> após automação da conciliação bancária — economia estimada de <b>R$ 38k/mês</b> em horas-pessoa." data-en="Margin grew <b>+2.8 p.p.</b> after bank reconciliation automation — estimated saving of <b>R$ 38k/month</b> in people-hours.">Margem subiu <b>+2,8 p.p.</b> após automação da conciliação bancária — economia estimada de <b>R$ 38k/mês</b> em horas-pessoa.</span>
+          <span class="ex-insight-text" data-pt="A margem subiu <b>+2,8 p.p.</b> no mês — e o painel aponta a causa antes de você perguntar." data-en="Margin grew <b>+2.8 p.p.</b> this month — and the dashboard points to the cause before you ask.">A margem subiu <b>+2,8 p.p.</b> no mês — e o painel aponta a causa antes de você perguntar.</span>
         </div>
         <a href="#diagnostico" class="ex-insight-action" data-pt="Quero esse insight →" data-en="Get this insight →">Quero esse insight →</a>
       </div>
@@ -2743,8 +2941,8 @@
     <details class="faq-item">
       <summary data-pt="Trabalha remoto ou presencial?" data-en="Remote or on-site?">Trabalha remoto ou presencial?</summary>
       <div class="faq-answer">
-        <p data-pt="<b>Remoto pra qualquer lugar</b>, com ritos ágeis semanais (uma reunião curta + Slack/WhatsApp pra acompanhar). Já atendi clientes em <b>BA, SP, RJ, MG e MS</b> sem nenhum encontro presencial." data-en="<b>Remote anywhere</b>, with weekly agile rituals (one short meeting + Slack/WhatsApp for follow-up). Already served clients in <b>BA, SP, RJ, MG, and MS</b> with zero in-person meetings.">
-          <b>Remoto pra qualquer lugar</b>, com ritos ágeis semanais (uma reunião curta + Slack/WhatsApp pra acompanhar). Já atendi clientes em <b>BA, SP, RJ, MG e MS</b> sem nenhum encontro presencial.</p>
+        <p data-pt="<b>Remoto pra qualquer lugar</b>, com uma reunião curta por semana e acompanhamento no WhatsApp. Já atendi clientes em <b>BA, MA, MG, MS, RJ e SP</b> sem nenhum encontro presencial." data-en="<b>Remote anywhere</b>, with one short meeting a week and follow-up over WhatsApp. Already served clients in <b>BA, MA, MG, MS, RJ and SP</b> with zero in-person meetings.">
+          <b>Remoto pra qualquer lugar</b>, com uma reunião curta por semana e acompanhamento no WhatsApp. Já atendi clientes em <b>BA, MA, MG, MS, RJ e SP</b> sem nenhum encontro presencial.</p>
         <p data-pt="Presencial é possível mediante combinação." data-en="On-site is possible by arrangement.">
           Presencial é possível mediante combinação.</p>
       </div>
@@ -2753,8 +2951,10 @@
     <details class="faq-item">
       <summary data-pt="Os dados ficam seguros? E LGPD?" data-en="Is data secure? What about LGPD?">Os dados ficam seguros? E LGPD?</summary>
       <div class="faq-answer">
-        <p data-pt="<b>Tudo roda na sua infraestrutura</b> (Google Cloud, Microsoft, AWS ou on-premises) com seus acessos. Não armazeno dados de cliente em ambiente próprio." data-en="<b>Everything runs on your infrastructure</b> (Google Cloud, Microsoft, AWS, or on-premises) with your credentials. I don't store client data in my own environment.">
-          <b>Tudo roda na sua infraestrutura</b> (Google Cloud, Microsoft, AWS ou on-premises) com seus acessos. Não armazeno dados de cliente em ambiente próprio.</p>
+        <p data-pt="<b>Nos projetos de dados e BI</b>, tudo roda na sua infraestrutura (Google Cloud, Microsoft, AWS ou on-premises) com seus acessos — nada de cliente fica hospedado em ambiente meu." data-en="<b>On data and BI projects</b>, everything runs on your infrastructure (Google Cloud, Microsoft, AWS, or on-premises) with your credentials — no client data is hosted in an environment of mine.">
+          <b>Nos projetos de dados e BI</b>, tudo roda na sua infraestrutura (Google Cloud, Microsoft, AWS ou on-premises) com seus acessos — nada de cliente fica hospedado em ambiente meu.</p>
+        <p data-pt="<b>Nas automações de atendimento</b>, a operação roda em plataforma dedicada, com os dados de cada cliente isolados. Nesse caso você recebe por escrito onde o dado fica, por quanto tempo e quem acessa." data-en="<b>On customer-service automations</b>, the operation runs on a dedicated platform with each client's data isolated. In that case you get it in writing: where the data lives, for how long, and who can access it.">
+          <b>Nas automações de atendimento</b>, a operação roda em plataforma dedicada, com os dados de cada cliente isolados. Nesse caso você recebe por escrito onde o dado fica, por quanto tempo e quem acessa.</p>
         <p data-pt="Acesso revogável a qualquer momento. NDA assinado antes do diagnóstico se você precisar." data-en="Access revocable at any time. NDA signed before diagnosis if needed.">
           Acesso revogável a qualquer momento. NDA assinado antes do diagnóstico se você precisar.</p>
       </div>
@@ -3005,7 +3205,7 @@
   // ── SCROLL REVEAL ──
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.01, rootMargin: '0px 0px -8% 0px' });
 
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
 
