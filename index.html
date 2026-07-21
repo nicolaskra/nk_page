@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Business — Dados, Engenharia e Automação com IA</title>
   <meta name="description" content="Smart Business — Data Engineer e Data Analyst. Transformo dados em decisões e automatizo processos com IA. Power BI, Python, SQL para empresas de qualquer segmento."/>
-  <meta name="theme-color" content="#131A33"/>
+  <meta name="theme-color" content="#1C2442"/>
   <link rel="canonical" href="https://smartbusiness.ia.br/"/>
 
   <!-- Open Graph -->
@@ -162,11 +162,19 @@
       --gold: #F5C518;
       --gold-light: #FFD84D;
       --gold-dim: rgba(245,197,24,0.12);
-      --navy: #131A33;
-      --navy-mid: #1A2240;
-      --navy-card: rgba(26,34,64,0.92);
-      --text: #e2e5ed;
-      --text-muted: #ffffff;
+      /* Paleta "Navy elevado + 1 degrau" — três degraus reais de elevação.
+         Toda cor de texto é derivada por contraste-alvo sobre a superfície MAIS CLARA
+         (--navy-raised), não sobre o fundo: uma variável só precisa funcionar no pior caso. */
+      --navy: #1C2442;              /* fundo da página */
+      --navy-mid: #232D52;          /* superfície / card */
+      --navy-raised: #293460;       /* elevado: nav, chips, hover */
+      --navy-deep: #141D3B;         /* base dos gradientes */
+      --navy-card: rgba(35,45,82,0.92);
+      --text: #EDEEF1;              /* 13,1:1 no fundo · 10,3:1 no elevado */
+      /* Branco puro, intencional. Apesar do nome, esta variável é usada em texto de
+         conteúdo (nav-center, hero-label, section-desc — 38 usos): cinza aqui deixa a
+         fonte lavada. Hierarquia se faz por tamanho e peso, não baixando a cor. */
+      --text-muted: #FFFFFF;
       --border: rgba(245,197,24,0.10);
       --border-hover: rgba(245,197,24,0.35);
       --radius: 16px;
@@ -225,9 +233,13 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px;
       height: 72px;
-      background: rgba(19,26,51,0.85);      backdrop-filter: blur(20px);
+      /* terceiro degrau de elevação (--navy-raised): a barra se separa do fundo */
+      background: rgba(41,52,96,0.90);
+      backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
+      /* var(--border) é gold a 10% — invisível sobre o navy. A assinatura da marca
+         no topo pede a faixa de fato visível. */
+      border-bottom: 2px solid rgba(245,197,24,0.55);
       transition: background 0.3s;
     }
 
@@ -833,7 +845,7 @@
     .proof-meta-label {
       font-size: 11px; font-weight: 700;
       letter-spacing: 1.5px; text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
+      color: #fff;
     }
     .proof-meta-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
     .proof-meta-chips .chip {
@@ -872,7 +884,7 @@
       outline: none; border-color: var(--gold); background: rgba(8,13,26,0.85);
     }
     .diag-field textarea { min-height: 110px; resize: vertical; line-height: 1.5; }
-    .diag-field .hint { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; letter-spacing: 0; text-transform: none; }
+    .diag-field .hint { font-size: 11px; color: #fff; font-weight: 400; letter-spacing: 0; text-transform: none; }
     .diag-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
     .diag-submit {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -944,7 +956,7 @@
       aspect-ratio: 4 / 3;
       max-width: 560px; width: 100%; margin: 0 auto;
       border-radius: 20px;
-      background: linear-gradient(160deg, rgba(26,34,64,0.95), rgba(15,22,46,0.8));
+      background: linear-gradient(160deg, rgba(35,45,82,0.95), rgba(20,29,59,0.8));
       border: 1px solid var(--border);
       backdrop-filter: blur(14px);
       box-shadow: 0 30px 80px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(245,197,24,0.03);
@@ -1056,7 +1068,7 @@
       font-family: 'SF Mono', 'Space Grotesk', monospace;
       font-size: 9px; font-weight: 600;
       letter-spacing: 1px; text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.72);
       margin-top: 2px;
       transition: color 0.3s ease;
     }
@@ -1084,7 +1096,7 @@
     /* Shimmer no fill ativo */
     .etl-stage.active .etl-progress-bar .fill::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.72), transparent);
       background-size: 60% 100%; background-repeat: no-repeat;
       animation: shimmerSlide 1.8s linear infinite;
     }
@@ -1157,7 +1169,7 @@
     .ex-window {
       border-radius: 16px; overflow: hidden;
       border: 1px solid var(--border);
-      background: linear-gradient(160deg, rgba(26,34,64,0.95), rgba(15,22,46,0.85));
+      background: linear-gradient(160deg, rgba(35,45,82,0.95), rgba(20,29,59,0.85));
       backdrop-filter: blur(14px);
       box-shadow: 0 30px 80px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(245,197,24,0.04);
     }
@@ -1174,7 +1186,7 @@
     .ex-dots .g { background: #28c840; }
     .ex-url {
       font-family: 'SF Mono', 'Space Grotesk', monospace;
-      font-size: 11px; color: rgba(255,255,255,0.45);
+      font-size: 11px; color: rgba(255,255,255,0.72);
       background: rgba(255,255,255,0.04); padding: 5px 12px;
       border-radius: 6px;
       flex: 1; max-width: 460px;
@@ -1311,7 +1323,7 @@
     }
     .ex-card-meta {
       font-family: 'SF Mono', 'Space Grotesk', monospace;
-      font-size: 10px; color: rgba(255,255,255,0.4);
+      font-size: 10px; color: rgba(255,255,255,0.72);
     }
 
     /* Bar chart area com gridlines + anotação */
@@ -1357,7 +1369,7 @@
     }
     .ex-bars .bar.curr { background: linear-gradient(180deg, #FFD84D, var(--gold)); }
     .ex-bars .lbl {
-      font-size: 9px; color: rgba(255,255,255,0.4);
+      font-size: 9px; color: rgba(255,255,255,0.72);
       font-family: 'SF Mono', monospace;
     }
 
@@ -1418,7 +1430,7 @@
     .ex-foot {
       display: flex; align-items: center; justify-content: space-between;
       gap: 12px; margin-top: 14px; flex-wrap: wrap;
-      font-size: 11px; color: rgba(255,255,255,0.45);
+      font-size: 11px; color: rgba(255,255,255,0.72);
     }
     .ex-foot .live {
       display: inline-flex; align-items: center; gap: 6px;
@@ -1573,7 +1585,7 @@
     .ex-donut-legend2 .vv { font-family: 'SF Mono', monospace; font-weight: 700; color: var(--text-muted); font-size: 11px; }
     .ex-donut-legend2 .pc {
       font-family: 'SF Mono', monospace; font-weight: 700;
-      color: rgba(255,255,255,0.4); font-size: 11px;
+      color: rgba(255,255,255,0.72); font-size: 11px;
       min-width: 36px; text-align: right;
     }
 
@@ -1602,7 +1614,7 @@
     .ex-dre tr.pai td { font-weight: 700; color: #fff; }
     .ex-dre tr.pai .name { padding-left: 18px; }
     .ex-dre tr.filho .name { padding-left: 36px; font-size: 11px; }
-    .ex-dre .expand { color: rgba(255,255,255,0.4); margin-right: 6px; font-size: 10px; }
+    .ex-dre .expand { color: rgba(255,255,255,0.72); margin-right: 6px; font-size: 10px; }
     .ex-dre .pctbar {
       display: inline-block; width: 60px; height: 4px;
       background: rgba(255,255,255,0.06); border-radius: 2px;
@@ -1650,7 +1662,7 @@
       margin-bottom: 14px;
     }
     .ex-compare .head .t { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.55); }
-    .ex-compare .head .s { font-family: 'SF Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.4); }
+    .ex-compare .head .s { font-family: 'SF Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.72); }
     .ex-compare .stat {
       display: flex; align-items: baseline; justify-content: space-between;
       padding: 5px 0;
@@ -1685,7 +1697,7 @@
     .plan:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: 0 20px 60px rgba(0,0,0,0.32); }
     .plan.featured {
       border-color: rgba(245,197,24,0.45);
-      background: linear-gradient(160deg, rgba(245,197,24,0.06), rgba(26,34,64,0.95));
+      background: linear-gradient(160deg, rgba(245,197,24,0.06), rgba(35,45,82,0.95));
       box-shadow: 0 30px 80px -20px rgba(245,197,24,0.18);
     }
     .plan .badge {
@@ -1714,7 +1726,7 @@
       color: #fff; letter-spacing: -0.02em;
       margin-bottom: 4px;
     }
-    .plan-price-sub { font-size: 11px; color: rgba(255,255,255,0.45); font-weight: 500; margin-bottom: 24px; letter-spacing: 0.5px; }
+    .plan-price-sub { font-size: 11px; color: rgba(255,255,255,0.72); font-weight: 500; margin-bottom: 24px; letter-spacing: 0.5px; }
     .plan-features { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
     .plan-features li {
       display: flex; align-items: flex-start; gap: 10px;
@@ -2017,7 +2029,7 @@
 .case-body{
   font-size:.95rem;
   line-height:1.6;
-  color:rgba(255,255,255,.82);
+  color:#fff;
   margin:0;
 }
 .case-facts{
@@ -2883,7 +2895,7 @@
               <circle cx="200" cy="20" r="6" fill="none" stroke="#F5C518" stroke-opacity="0.4" stroke-width="1.5"/>
             </svg>
           </div>
-          <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:9px;color:rgba(255,255,255,0.4);font-family:'SF Mono',monospace">
+          <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:9px;color:rgba(255,255,255,0.72);font-family:'SF Mono',monospace">
             <span>35,3%</span><span>36,1%</span><span>37,2%</span><span>38,1%</span>
           </div>
         </div>
