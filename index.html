@@ -3138,7 +3138,9 @@
 
   function resize() { if (!canvasEnabled) return; W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
 
-  class Node {
+  /* Nome próprio: `Node` sombrearia o Node global do DOM neste escopo, e qualquer
+     script de terceiro (analytics) que use `instanceof Node` falharia em silêncio. */
+  class Particle {
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * W; this.y = Math.random() * H;
@@ -3161,7 +3163,7 @@
 
   function init() {
     const count = Math.min(Math.floor((W * H) / 11000), 100);
-    nodes = Array.from({ length: count }, () => new Node());
+    nodes = Array.from({ length: count }, () => new Particle());
   }
 
   function draw() {
