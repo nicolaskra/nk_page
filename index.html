@@ -3233,6 +3233,8 @@
     });
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
+    // legenda da animação do hero (esquema data-state-*, fora do varredor acima)
+    if (window.__heroRefreshLang) window.__heroRefreshLang();
   }
 
   const savedLang = localStorage.getItem('lang');
@@ -3266,6 +3268,7 @@
       if (!labelEl) return;
       const v = labelEl.getAttribute('data-state-' + getLang() + '-' + state);
       if (v) labelEl.textContent = v;
+      labelEl.dataset.currentFooter = state;   // guarda o estágio p/ reaplicar na troca de idioma
     }
 
     function resetAll() {
@@ -3387,6 +3390,14 @@
       stages.forEach(s => markDone(s));
       setFooter('done');
     }
+
+    /* A legenda usa o esquema próprio data-state-{lang}-{estágio}, que o setLang() não
+       conhece — ele só varre [data-pt]/[data-en]. Sem isto ela só trocava de idioma na
+       próxima transição de estágio (até 4s), e em prefers-reduced-motion nunca trocava,
+       porque o loop não roda. Expor o refresh deixa setLang() reaplicar o estágio atual. */
+    window.__heroRefreshLang = function () {
+      setFooter((labelEl && labelEl.dataset.currentFooter) || 'extract');
+    };
   })();
 
   // ── EVENT TRACKING (GA4-safe wrapper) ──
